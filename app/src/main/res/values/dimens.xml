@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="icon_font">12sp</dimen>
+    <dimen name="online_service_icon_dim">50dp</dimen>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Online Services-->
+    <string name="e_services">الخدمات الإلكترونية</string>
+    <string name="enquiries">الإستعلامات</string>
+    <string name="new_license">ترخيص\nجديد</string>
+    <string name="renew_license">تجديد\nالترخيص</string>
+    <string name="trade_name_reservation">حجز الاسم التجاري</string>
+    <string name="new_permit">تصريح جديد</string>
+    <string name="licence_information">معلومات\nالترخيص</string>
+    <string name="business_name">الاسم\nالتجاري</string>
+    <string name="transaction_status">حالة\nالمعاملة</string>
+    <string name="estimate_new_license_fees">تقدير رسوم الترخيص الجديدة</string>
+    <string name="user_guide">دليل المستخدم</string>
+    <string name="service_guide">دليل الخدمة</string>
+    <string name="invest_in_ajman">استثمر في عجمان</string>
+    <string name="the_emirate_of_ajman_is_characterized_by_a_strategic_location_a_well_developed_infrastructure_comprising_port_roads_transport_and_industrial">
+تتميز إمارة عجمان بموقع استراتيجي، و بنية تحتية متطورة تشمل الموانئ والطرق والنقل والصناعة
+    </string>
+
+    <!--Main Activity Fragment-->
+    <string name="online_services">الخدمات الإلكترونية</string>
+    <string name="about_ded">عن الدائرة</string>
+    <string name="latest_news">أخر الأخبار</string>
+
+    <!--AboutDED Fragment-->
+    <string name="message">الرسالة</string>
+    <string name="message_body">
+        تحقيق إقتصاد مزدهر لرفاهية سكان الإمارة من خلال التخطيط وإعداد السياسات و التشريعات و التنظيم و الرقابة و الترويج الإقتصادي
+    </string>
+    <string name="vision">الرؤية</string>
+    <string name="vision_body">إقتصاد تنافسي متنوع لإستدامة التنمية في إمارة عجمان</string>
+    <string name="value_body">روح الفريق, الشفافية, إسعاد المتعاملين, الإبداء و الإبتكار</string>
+    <string name="value">القيم</string>
+</resources>

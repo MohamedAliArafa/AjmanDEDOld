@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">AjmanDED</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="drawer_open" translatable="false">open drawer</string>
+    <string name="drawer_close" translatable="false">close drawer</string>
+    <string name="action_noti" translatable="false">Notification</string>
+    <string name="action_lang" translatable="false">Language</string>
+
+    <!--Online Services-->
+    <string name="e_services">eServices</string>
+    <string name="enquiries">Enquiries</string>
+    <string name="new_license">New\nLicense</string>
+    <string name="renew_license">Renew\nLicense</string>
+    <string name="trade_name_reservation">Trade Name\nReservation</string>
+    <string name="new_permit">New\nPermit</string>
+    <string name="licence_information">Licence\nInformation</string>
+    <string name="business_name">Business\nName</string>
+    <string name="transaction_status">Transaction\nStatus</string>
+    <string name="estimate_new_license_fees">Estimate New\nLicense Fees</string>
+    <string name="user_guide">User Guide</string>
+    <string name="service_guide">Service Guide</string>
+    <string name="invest_in_ajman">Invest In Ajman</string>
+    <string name="the_emirate_of_ajman_is_characterized_by_a_strategic_location_a_well_developed_infrastructure_comprising_port_roads_transport_and_industrial">The Emirate of Ajman is characterized by, a strategic location, a well-developed infrastructure comprising port, roads, transport and industrial</string>
+
+    <!--Main Activity Fragment-->
+    <string name="online_services">Online Services</string>
+    <string name="about_ded">About DED</string>
+    <string name="latest_news">Latest News</string>
+
+    <!--AboutDED Fragment-->
+    <string name="message">Message</string>
+    <string name="message_body">To achieve a prosperous economy for the well-being of the people of the Emirate through planning, policy formulation, legislation, regulation, supervision and economic promotion</string>
+    <string name="vision">Vision</string>
+    <string name="vision_body">A diversified competitive economy for sustainable development in the Emirate of Ajman</string>
+    <string name="value_body">Team spirit, transparency, customer delight, innovation and innovation</string>
+    <string name="value">Value</string>
+</resources>
