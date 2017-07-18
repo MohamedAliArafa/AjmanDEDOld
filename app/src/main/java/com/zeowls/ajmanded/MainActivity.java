@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,28 +23,37 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
+public class MainActivity extends AppCompatActivity implements View.OnTouchListener{
 
+    float dX;
+    float dY;
+    int lastAction;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mDrawerList;
     private ImageView mNotiImageView;
-    float dX;
-    float dY;
-    int lastAction;
     private float oldX;
     private float oldY;
     private long startTime;
-    private long timerTime;
     private boolean isRTL;
-    Toolbar toolbar;
+
+
+    private Toolbar mToolbar;
+    private ImageView mLogo;
+    private AppBarLayout mAppBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mLogo = (ImageView) findViewById(R.id.logo);
+        mAppBar = (AppBarLayout) findViewById(R.id.appbar);
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -65,21 +75,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
-
-        // Set the drawer toggle as the DrawerListener
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
 
     @Override
@@ -94,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         super.onPause();
         overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
     }
+
 
     @Override
     public boolean onTouch(final View view, MotionEvent event) {
@@ -122,22 +118,16 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 int parentWidth = parent.getWidth();
                 int viewWidth = view.getWidth();
                 float distance;
-                if (isRTL){
+                if (isRTL) {
                     distance = parentWidth - view.getRight();
-                }else {
+                } else {
                     distance = parentWidth - view.getLeft();
                 }
 
-                //long timerTime = getTime between two event down to Up
-                float newX = event.getX();
-                float newY = event.getY();
-
-                timerTime = System.currentTimeMillis() - startTime;
-                float distance2 = (float) Math.sqrt((newX-oldX) * (newX-oldX) + (newY-oldY) * (newY-oldY));
                 view.animate().setInterpolator(new BounceInterpolator()).scaleX(1.0f).start();
                 view.animate().setInterpolator(new BounceInterpolator()).scaleY(1.0f).start();
 
-                if (isRTL){
+                if (isRTL) {
                     view.animate().setInterpolator(new OvershootInterpolator()).translationX((viewWidth * .1f)).withLayer();
                 } else {
                     view.animate().setInterpolator(new OvershootInterpolator()).translationX(distance - (viewWidth * 1.2f)).withLayer();
@@ -206,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         switch (id) {
             case R.id.action_lang:
                 Locale locale = Locale.getDefault();
-                if (locale.toString().toLowerCase().equals("ar")){
+                if (locale.toString().toLowerCase().equals("ar")) {
                     Locale.setDefault(new Locale("en"));
 
                     Configuration conf = new Configuration();
@@ -216,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                     DisplayMetrics dm = res.getDisplayMetrics();
                     res.updateConfiguration(conf, dm);
                     onConfigurationChanged(conf);
-                }else {
+                } else {
                     Locale.setDefault(new Locale("ar"));
 
                     Configuration conf = new Configuration();
