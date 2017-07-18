@@ -264,15 +264,8 @@ public class SpaceTabLayout extends RelativeLayout {
             throw new IllegalArgumentException("You have " + numberOfTabs + " tabs.");
         isRTL = Locale.getDefault().toString().contains("ar");
         PagerAdapter pagerAdapter = new PagerAdapter(fragmentManager, fragments);
-        if (isRTL) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                tabLayout.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
-                pagerAdapter.notifyDataSetChanged();
-            }
-        }
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
-
         getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
@@ -293,7 +286,6 @@ public class SpaceTabLayout extends RelativeLayout {
                         else getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
-
 
         viewPager.setCurrentItem(startingPosition);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -364,15 +356,9 @@ public class SpaceTabLayout extends RelativeLayout {
             tabTwo.setCustomView(R.layout.icon_text_tab_layout);
             tabThree.setCustomView(R.layout.icon_text_tab_layout);
 
-            if (isRTL) {
-                tabs.add(tabThree);
-                tabs.add(tabTwo);
-                tabs.add(tabOne);
-            } else {
-                tabs.add(tabOne);
-                tabs.add(tabTwo);
-                tabs.add(tabThree);
-            }
+            tabs.add(tabOne);
+            tabs.add(tabTwo);
+            tabs.add(tabThree);
 
             tabOneTextView = (TextView) tabOne.getCustomView().findViewById(R.id.tabTextView);
             tabTwoTextView = (TextView) tabTwo.getCustomView().findViewById(R.id.tabTextView);
