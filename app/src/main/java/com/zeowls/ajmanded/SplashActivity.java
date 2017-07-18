@@ -1,147 +1,92 @@
 package com.zeowls.ajmanded;
 
-import android.content.Intent;
 import android.content.res.Resources;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity implements Animation.AnimationListener{
+
+    DisplayMetrics dm;
+    float px;
+    int statusBarOffset;
+    int originalPos[] = new int[2];
+    LinearLayout container;
+    ImageView avatar;
+    LayoutInflater li;
+    Resources r;
+    TranslateAnimation anim;
+    Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        final LinearLayout container = (LinearLayout) findViewById(R.id.chat_container);
-        final ImageView avatar = (ImageView) findViewById(R.id.avatar);
-        final LayoutInflater li = LayoutInflater.from(this);
+        container = (LinearLayout) findViewById(R.id.chat_container);
+        avatar = (ImageView) findViewById(R.id.avatar);
+        li = LayoutInflater.from(this);
 
-        Resources r = getResources();
-        final float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 66, r.getDisplayMetrics());
+        r = getResources();
+        px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 68, r.getDisplayMetrics());
+        dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        statusBarOffset = dm.heightPixels - container.getMeasuredHeight();
+        avatar.getLocationOnScreen(originalPos);
 
         long delayBetweenAnimations = 1000L;
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i < 5; i++) {
             int delay = (int) (i * delayBetweenAnimations);
             final int finalI = i;
             container.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     TextView chat_item = (TextView) li.inflate(R.layout.chat_item, container, false);
-                    Animation animation = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.slide_in_right);
+                    animation = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.slide_in_right);
+                    animation.setAnimationListener(SplashActivity.this);
                     container.addView(chat_item);
                     chat_item.startAnimation(animation);
-                    float y = avatar.getY();
-                    if (finalI !=0) {
-                        avatar.setPadding(16, 0, 0, (int) (avatar.getPaddingBottom() + px));
-                        avatar.setPadding(16, 0, 0, (int) (avatar.getPaddingBottom() - px));
-                    }
-//                    avatar.setTranslationY(-px);
                 }
             }, delay);
-            if (finalI == 5){
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-            }
         }
+//        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+    }
 
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
+    void avatarAnim(){
+        int yDest = (int) (dm.heightPixels - (avatar.getMeasuredHeight() / 2) - statusBarOffset - px);
+        anim = new TranslateAnimation(0, 0, 0, yDest - originalPos[1]);
+        anim.setDuration(500);
+        avatar.startAnimation(anim);
+        anim.setAnimationListener(this);
+    }
+
+    @Override
+    public void onAnimationStart(Animation animation) {
 
     }
 
-    public class animate extends AsyncTask {
-
-        View[] views;
-
-        public animate(View[] views) {
-            this.views = views;
+    @Override
+    public void onAnimationEnd(Animation animation) {
+        if (animation == anim){
+            int yDest = (int) (dm.heightPixels - (avatar.getMeasuredHeight() / 2) - statusBarOffset - px);
+            TranslateAnimation anim1 = new TranslateAnimation(0, 0, 0, yDest + originalPos[1]);
+            anim1.setDuration(1000);
+            avatar.startAnimation(anim1);
+        }else if (animation == this.animation){
+            avatarAnim();
         }
+    }
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            for (View view : views) {
-                view.setVisibility(View.INVISIBLE);
-            }
-        }
-
-        @Override
-        protected Void doInBackground(Object[] params) {
-            long delayBetweenAnimations = 200L;
-            for (int i = 0; i < views.length; i++) {
-                final View view = views[i];
-                // We calculate the delay for this Animation, each animation starts 100ms
-                // after the previous one
-                int delay = (int) (i * delayBetweenAnimations);
-                try {
-                    switch (i) {
-                        case 0:
-                            view.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Animation animation = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.slide_in_right);
-                                    view.setVisibility(View.VISIBLE);
-                                    view.startAnimation(animation);
-                                }
-                            }, delay);
-                        case 1:
-                            view.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Animation animation = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.slide_in_right);
-                                    view.setVisibility(View.VISIBLE);
-                                    view.startAnimation(animation);
-                                }
-                            }, delay);
-                        case 2:
-                            view.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Animation animation = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.slide_in_up);
-                                    view.setVisibility(View.VISIBLE);
-                                    view.startAnimation(animation);
-                                }
-                            }, delay);
-                        case 3:
-                            view.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Animation animation = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.slide_in_right);
-                                    view.setVisibility(View.VISIBLE);
-                                    view.startAnimation(animation);
-                                }
-                            }, delay);
-                        case 4:
-                            view.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Animation animation = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.slide_in_right);
-                                    view.setVisibility(View.VISIBLE);
-                                    view.startAnimation(animation);
-                                }
-                            }, delay);
-                        case 5:
-                            view.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Animation animation = AnimationUtils.loadAnimation(SplashActivity.this, R.anim.slide_in_right);
-                                    view.setVisibility(View.VISIBLE);
-                                    view.startAnimation(animation);
-                                }
-                            }, delay);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return null;
-        }
+    @Override
+    public void onAnimationRepeat(Animation animation) {
 
     }
 }

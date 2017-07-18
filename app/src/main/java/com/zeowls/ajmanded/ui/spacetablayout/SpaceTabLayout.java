@@ -369,7 +369,6 @@ public class SpaceTabLayout extends RelativeLayout {
             tabThreeImageView = (ImageView) tabThree.getCustomView().findViewById(R.id.tabImageView);
 
         } else {
-
             tabOne.setCustomView(R.layout.icon_tab_layout);
             tabTwo.setCustomView(R.layout.icon_tab_layout);
             tabThree.setCustomView(R.layout.icon_tab_layout);

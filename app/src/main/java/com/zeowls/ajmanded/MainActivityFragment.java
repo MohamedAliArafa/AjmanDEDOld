@@ -51,7 +51,7 @@ public class MainActivityFragment extends Fragment {
         mFragments = new ArrayList<>();
         mFragments.add(OnlineServicesFragment.newInstance(0, "Page # 1"));
         mFragments.add(AboutDEDFragment.newInstance(0, "Page # 1"));
-        mFragments.add(OnlineServicesFragment.newInstance(0, "Page # 1"));
+        mFragments.add(AboutDEDFragment.newInstance(0, "Page # 1"));
 
         fragmentsTitles = new String[]{this.getString(R.string.online_services),
                 this.getString(R.string.about_ded),
