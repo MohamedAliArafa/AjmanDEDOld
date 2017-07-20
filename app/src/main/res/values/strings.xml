@@ -36,4 +36,12 @@
     <string name="vision_body">A diversified competitive economy for sustainable development in the Emirate of Ajman</string>
     <string name="value_body">Team spirit, transparency, customer delight, innovation and innovation</string>
     <string name="value">Value</string>
+
+    <string name="chathead_content_title">Demo Chat: Active</string>
+    <string name="content_text">Demo running.</string>
+
+    <string name="chathead_click_message">Click</string>
+    <string name="touch_finished_position" formatted="false">Current position (%d,%d)</string>
+    <string name="deleted_soon">FloatingView will be deleted soon.</string>
+    <string name="finish_deleted">FloatingView has been deleted.</string>
 </resources>

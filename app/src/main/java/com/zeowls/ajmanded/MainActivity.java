@@ -1,9 +1,15 @@
 package com.zeowls.ajmanded;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,7 +29,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements View.OnTouchListener{
+public class MainActivity extends AppCompatActivity{
 
     float dX;
     float dY;
@@ -36,12 +42,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     private float oldY;
     private long startTime;
     private boolean isRTL;
-
-
     private Toolbar mToolbar;
     private ImageView mLogo;
     private AppBarLayout mAppBar;
 
+
+    private static final int CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-        mNotiImageView = (ImageView) findViewById(R.id.noti_image_view);
-        mNotiImageView.setOnTouchListener(this);
+//        mNotiImageView = (ImageView) findViewById(R.id.noti_image_view);
+//        mNotiImageView.setOnTouchListener(this);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.string.drawer_open, R.string.drawer_close) {
 
@@ -75,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
+        showChatHead(this, true);
     }
 
     @Override
@@ -91,53 +98,53 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
 
-    @Override
-    public boolean onTouch(final View view, MotionEvent event) {
-        switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
-                dX = view.getX() - event.getRawX();
-                dY = view.getY() - event.getRawY();
-                lastAction = MotionEvent.ACTION_DOWN;
-                oldX = event.getX();
-                oldY = event.getY();
-                startTime = System.currentTimeMillis();
-                view.animate().setInterpolator(new BounceInterpolator()).scaleX(1.5f).start();
-                view.animate().setInterpolator(new BounceInterpolator()).scaleY(1.5f).start();
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-                view.setY(event.getRawY() + dY);
-                view.setX(event.getRawX() + dX);
-                lastAction = MotionEvent.ACTION_MOVE;
-                break;
-
-            case MotionEvent.ACTION_UP:
-                ViewGroup parent = (ViewGroup) view.getParent();
-                if (lastAction == MotionEvent.ACTION_DOWN)
-                    Toast.makeText(MainActivity.this, "Clicked!", Toast.LENGTH_SHORT).show();
-                int parentWidth = parent.getWidth();
-                int viewWidth = view.getWidth();
-                float distance;
-                if (isRTL) {
-                    distance = parentWidth - view.getRight();
-                } else {
-                    distance = parentWidth - view.getLeft();
-                }
-
-                view.animate().setInterpolator(new BounceInterpolator()).scaleX(1.0f).start();
-                view.animate().setInterpolator(new BounceInterpolator()).scaleY(1.0f).start();
-
-                if (isRTL) {
-                    view.animate().setInterpolator(new OvershootInterpolator()).translationX((viewWidth * .1f)).withLayer();
-                } else {
-                    view.animate().setInterpolator(new OvershootInterpolator()).translationX(distance - (viewWidth * 1.2f)).withLayer();
-                }
-                break;
-            default:
-                return false;
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onTouch(final View view, MotionEvent event) {
+//        switch (event.getActionMasked()) {
+//            case MotionEvent.ACTION_DOWN:
+//                dX = view.getX() - event.getRawX();
+//                dY = view.getY() - event.getRawY();
+//                lastAction = MotionEvent.ACTION_DOWN;
+//                oldX = event.getX();
+//                oldY = event.getY();
+//                startTime = System.currentTimeMillis();
+//                view.animate().setInterpolator(new BounceInterpolator()).scaleX(1.5f).start();
+//                view.animate().setInterpolator(new BounceInterpolator()).scaleY(1.5f).start();
+//                break;
+//
+//            case MotionEvent.ACTION_MOVE:
+//                view.setY(event.getRawY() + dY);
+//                view.setX(event.getRawX() + dX);
+//                lastAction = MotionEvent.ACTION_MOVE;
+//                break;
+//
+//            case MotionEvent.ACTION_UP:
+//                ViewGroup parent = (ViewGroup) view.getParent();
+//                if (lastAction == MotionEvent.ACTION_DOWN)
+//                    Toast.makeText(MainActivity.this, "Clicked!", Toast.LENGTH_SHORT).show();
+//                int parentWidth = parent.getWidth();
+//                int viewWidth = view.getWidth();
+//                float distance;
+//                if (isRTL) {
+//                    distance = parentWidth - view.getRight();
+//                } else {
+//                    distance = parentWidth - view.getLeft();
+//                }
+//
+//                view.animate().setInterpolator(new BounceInterpolator()).scaleX(1.0f).start();
+//                view.animate().setInterpolator(new BounceInterpolator()).scaleY(1.0f).start();
+//
+//                if (isRTL) {
+//                    view.animate().setInterpolator(new OvershootInterpolator()).translationX((viewWidth * .1f)).withLayer();
+//                } else {
+//                    view.animate().setInterpolator(new OvershootInterpolator()).translationX(distance - (viewWidth * 1.2f)).withLayer();
+//                }
+//                break;
+//            default:
+//                return false;
+//        }
+//        return true;
+//    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -221,5 +228,31 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    @TargetApi(Build.VERSION_CODES.M)
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE) {
+            showChatHead(this, false);
+        }
+    }
+
+    @SuppressLint("NewApi")
+    private void showChatHead(Context context, boolean isShowOverlayPermission) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            context.startService(new Intent(context, ChatHeadService.class));
+            return;
+        }
+
+        if (Settings.canDrawOverlays(context)) {
+            context.startService(new Intent(context, ChatHeadService.class));
+            return;
+        }
+
+        if (isShowOverlayPermission) {
+            final Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
+            startActivityForResult(intent, CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE);
+        }
     }
 }
