@@ -2,7 +2,6 @@ package com.zeowls.ajmanded;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -20,12 +19,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import static android.os.Build.VERSION_CODES.M;
-
 /**
  * A placeholder fragment containing a simple view.
  */
-@RequiresApi(api = M)
 public class MainActivityFragment extends Fragment {
 
     FragmentPagerAdapter adapterViewPager;
@@ -49,9 +45,10 @@ public class MainActivityFragment extends Fragment {
 
         //init the pager fragments
         mFragments = new ArrayList<>();
-        mFragments.add(OnlineServicesFragment.newInstance(0, "Page # 1"));
-        mFragments.add(AboutDEDFragment.newInstance(0, "Page # 1"));
-        mFragments.add(AboutDEDFragment.newInstance(0, "Page # 1"));
+        mFragments.add(new OnlineServicesFragment());
+        mFragments.add(new AboutDEDFragment());
+        mFragments.add(new AboutDEDFragment());
+        mFragments.add(new OnlineServicesFragment());
 
         fragmentsTitles = new String[]{this.getString(R.string.online_services),
                 this.getString(R.string.about_ded),
@@ -67,12 +64,15 @@ public class MainActivityFragment extends Fragment {
         //we need the savedInstanceState to get the position
         vpPagerHeader.initialize(vpPager, getFragmentManager(), mFragments);
 
-        //set the indicator color to the color of the application theme
-//        vpPagerHeader.setTabIndicatorColor(getActivity().getResources().getColor(R.color.bg_tab_selected));
-//
-//        //styling the header
-//        vpPagerHeader.setPadding(0, 0, 0, 15);
-//        vpPagerHeader.setTextSpacing(10);
+        vpPagerHeader.setTabOneText(R.string.home);
+        vpPagerHeader.setTabTwoText(R.string.e_services);
+        vpPagerHeader.setTabThreeText(R.string.about_ded);
+        vpPagerHeader.setTabFourText(R.string.latest_news);
+
+        vpPagerHeader.setTabOneIcon(R.drawable.ic_icn1);
+        vpPagerHeader.setTabTwoIcon(R.drawable.ic_icn2);
+        vpPagerHeader.setTabThreeIcon(R.drawable.ic_icn3);
+        vpPagerHeader.setTabFourIcon(R.drawable.ic_icn4);
 
         // Attach the page change listener inside the activity
         vpPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -80,7 +80,7 @@ public class MainActivityFragment extends Fragment {
             // This method will be invoked when a new page becomes selected.
             @Override
             public void onPageSelected(int position) {
-                ( (AnimatedFragment) mFragments.get(position)).startAnimation();
+                ((AnimatedFragment) mFragments.get(position)).startAnimation();
             }
 
             // This method will be invoked when the current page is scrolled

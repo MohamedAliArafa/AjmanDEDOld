@@ -70,6 +70,8 @@ public class SpaceTabLayout extends RelativeLayout {
     private TextView tabOneTextView;
     private TextView tabTwoTextView;
     private TextView tabThreeTextView;
+    private TextView tabFourTextView;
+    private TextView tabFiveTextView;
 
     private String text_one;
     private String text_two;
@@ -140,6 +142,7 @@ public class SpaceTabLayout extends RelativeLayout {
         backgroundImage2 = (ImageView) findViewById(R.id.backgroundImage2);
 
         actionButton = (FloatingActionButton) findViewById(R.id.fab);
+        actionButton.setPadding(0, 0, 0, 0);
 
         tabLayout = (TabLayout) findViewById(R.id.spaceTab);
 
@@ -338,15 +341,9 @@ public class SpaceTabLayout extends RelativeLayout {
             }
         });
 
-//        if (isRTL){
-//            tabOne = tabLayout.getTabAt(2);
-//            tabTwo = tabLayout.getTabAt(1);
-//            tabThree = tabLayout.getTabAt(0);
-//        }else {
         tabOne = tabLayout.getTabAt(0);
         tabTwo = tabLayout.getTabAt(1);
         tabThree = tabLayout.getTabAt(2);
-//        }
 
         if (numberOfTabs > 3) tabFour = tabLayout.getTabAt(3);
         if (numberOfTabs > 4) tabFive = tabLayout.getTabAt(4);
@@ -369,17 +366,25 @@ public class SpaceTabLayout extends RelativeLayout {
             tabThreeImageView = (ImageView) tabThree.getCustomView().findViewById(R.id.tabImageView);
 
         } else {
-            tabOne.setCustomView(R.layout.icon_tab_layout);
-            tabTwo.setCustomView(R.layout.icon_tab_layout);
-            tabThree.setCustomView(R.layout.icon_tab_layout);
-            if (numberOfTabs > 3) tabFour.setCustomView(R.layout.icon_tab_layout);
-            if (numberOfTabs > 4) tabFive.setCustomView(R.layout.icon_tab_layout);
+            tabOne.setCustomView(R.layout.icon_text_tab_layout);
+            tabTwo.setCustomView(R.layout.icon_text_tab_layout);
+            tabThree.setCustomView(R.layout.icon_text_tab_layout);
+            if (numberOfTabs > 3) tabFour.setCustomView(R.layout.icon_text_tab_layout);
+            if (numberOfTabs > 4) tabFive.setCustomView(R.layout.icon_text_tab_layout);
 
             tabs.add(tabOne);
             tabs.add(tabTwo);
             tabs.add(tabThree);
             if (numberOfTabs > 3) tabs.add(tabFour);
             if (numberOfTabs > 4) tabs.add(tabFive);
+
+            tabOneTextView = (TextView) tabOne.getCustomView().findViewById(R.id.tabTextView);
+            tabTwoTextView = (TextView) tabTwo.getCustomView().findViewById(R.id.tabTextView);
+            tabThreeTextView = (TextView) tabThree.getCustomView().findViewById(R.id.tabTextView);
+            if (numberOfTabs > 3)
+                tabFourTextView = (TextView) tabFour.getCustomView().findViewById(R.id.tabTextView);
+            if (numberOfTabs > 4)
+                tabFiveTextView = (TextView) tabFive.getCustomView().findViewById(R.id.tabTextView);
 
             tabOneImageView = (ImageView) tabOne.getCustomView().findViewById(R.id.tabImageView);
             tabTwoImageView = (ImageView) tabTwo.getCustomView().findViewById(R.id.tabImageView);
@@ -409,6 +414,8 @@ public class SpaceTabLayout extends RelativeLayout {
             setTabOneTextColor(defaultTextColor);
             setTabTwoTextColor(defaultTextColor);
             setTabThreeTextColor(defaultTextColor);
+            setTabFourTextColor(defaultTextColor);
+            setTabFiveTextColor(defaultTextColor);
         }
 
         setTabOneIcon(defaultTabOneButtonIcon);
@@ -769,6 +776,26 @@ public class SpaceTabLayout extends RelativeLayout {
         else throw new IllegalArgumentException("You selected icons only.");
     }
 
+    public void setTabFourText(String tabFourText) {
+        if (!iconOnly) tabFourTextView.setText(tabFourText);
+        else throw new IllegalArgumentException("You selected icons only.");
+    }
+
+    public void setTabFourText(@StringRes int tabFourText) {
+        if (!iconOnly) tabFourTextView.setText(tabFourText);
+        else throw new IllegalArgumentException("You selected icons only.");
+    }
+
+    public void setTabFiveText(String tabFiveText) {
+        if (!iconOnly) tabFiveTextView.setText(tabFiveText);
+        else throw new IllegalArgumentException("You selected icons only.");
+    }
+
+    public void setTabFiveText(@StringRes int tabFiveText) {
+        if (!iconOnly) tabFiveTextView.setText(tabFiveText);
+        else throw new IllegalArgumentException("You selected icons only.");
+    }
+
 
     public void setTabOneTextColor(@ColorInt int tabOneTextColor) {
         if (!iconOnly) tabOneTextView.setTextColor(tabOneTextColor);
@@ -797,6 +824,26 @@ public class SpaceTabLayout extends RelativeLayout {
 
     public void setTabThreeTextColor(ColorStateList colorStateList) {
         if (!iconOnly) tabThreeTextView.setTextColor(colorStateList);
+        else throw new IllegalArgumentException("You selected icons only.");
+    }
+
+    public void setTabFourTextColor(@ColorInt int tabFourTextColor) {
+        if (!iconOnly) tabFourTextView.setTextColor(tabFourTextColor);
+        else throw new IllegalArgumentException("You selected icons only.");
+    }
+
+    public void setTabFourTextColor(ColorStateList colorStateList) {
+        if (!iconOnly) tabFourTextView.setTextColor(colorStateList);
+        else throw new IllegalArgumentException("You selected icons only.");
+    }
+
+    public void setTabFiveTextColor(@ColorInt int tabFiveTextColor) {
+        if (!iconOnly) tabFiveTextView.setTextColor(tabFiveTextColor);
+        else throw new IllegalArgumentException("You selected icons only.");
+    }
+
+    public void setTabFiveTextColor(ColorStateList colorStateList) {
+        if (!iconOnly) tabFiveTextView.setTextColor(colorStateList);
         else throw new IllegalArgumentException("You selected icons only.");
     }
 

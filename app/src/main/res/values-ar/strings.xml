@@ -22,6 +22,8 @@
     <string name="online_services">الخدمات الإلكترونية</string>
     <string name="about_ded">عن الدائرة</string>
     <string name="latest_news">أخر الأخبار</string>
+    <string name="home">الرئيسية</string>
+
 
     <!--AboutDED Fragment-->
     <string name="message">الرسالة</string>
@@ -32,4 +34,5 @@
     <string name="vision_body">إقتصاد تنافسي متنوع لإستدامة التنمية في إمارة عجمان</string>
     <string name="value_body">روح الفريق, الشفافية, إسعاد المتعاملين, الإبداء و الإبتكار</string>
     <string name="value">القيم</string>
+    <string name="app_name">دائرة عجمان القتصاديهإ</string>
 </resources>

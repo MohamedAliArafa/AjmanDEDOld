@@ -12,39 +12,31 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/marginSpacer"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <!--<android.support.v4.view.PagerTabStrip-->
-            <!--android:id="@+id/pager_header"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:layout_gravity="top"-->
-            <!--android:paddingBottom="4dp"-->
-            <!--android:paddingTop="4dp"-->
-            <!--android:textAppearance="@style/PagerTabStripText" />-->
-
-    </android.support.v4.view.ViewPager>
+    <android.support.v4.widget.Space
+        android:id="@+id/marginSpacer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/pager_header"
+        app:layout_constraintLeft_toLeftOf="@id/pager_header"
+        app:layout_constraintRight_toRightOf="@id/pager_header" />
 
     <com.zeowls.ajmanded.ui.spacetablayout.SpaceTabLayout
         android:id="@+id/pager_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_behavior="eu.long1.spacetablayout.SpaceTabLayoutBehavior"
-        app:number_of_tabs="three"
-        app:starting_position="three"
-        app:tab_color="@color/colorPrimary"
         app:button_color="@color/colorPrimaryDark"
-        app:text_color="@color/gray"
-
-        app:icon_one="@drawable/ic_icn1"
-        app:icon_two="@drawable/ic_icn2"
-        app:icon_three="@drawable/ic_icn3"
-
-        app:text_one="@string/online_services"
-        app:text_two="@string/about_ded"
-        app:text_three="@string/latest_news" />
+        app:layout_behavior="eu.long1.spacetablayout.SpaceTabLayoutBehavior"
+        app:number_of_tabs="four"
+        app:starting_position="one"
+        app:tab_color="@color/colorPrimary"
+        app:text_color="@color/gray" />
 
 </android.support.constraint.ConstraintLayout>
 

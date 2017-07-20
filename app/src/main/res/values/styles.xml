@@ -30,6 +30,7 @@
 
     <style name="AppTheme.Toolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="actionButtonStyle">@style/AppTheme.Toolbar.ActionButton</item>
+        <item name="android:elevation">0dp</item>
     </style>
 
     <!-- this will be applied regardless api version -->
@@ -51,6 +52,10 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="fab">
+        <item name="background">@color/colorPrimary</item>
     </style>
 
 </resources>

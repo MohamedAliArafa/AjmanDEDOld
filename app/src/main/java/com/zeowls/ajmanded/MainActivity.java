@@ -18,14 +18,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.BounceInterpolator;
-import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.zeowls.ajmanded.ui.CircularAction.FloatingActionButton;
+import com.zeowls.ajmanded.ui.CircularAction.FloatingActionMenu;
+import com.zeowls.ajmanded.ui.CircularAction.SubActionButton;
 
 import java.util.Locale;
 
@@ -42,6 +41,7 @@ public class MainActivity extends AppCompatActivity{
     private float oldY;
     private long startTime;
     private boolean isRTL;
+
     private Toolbar mToolbar;
     private ImageView mLogo;
     private AppBarLayout mAppBar;
@@ -60,6 +60,37 @@ public class MainActivity extends AppCompatActivity{
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setElevation(0);
+
+        ImageView fabIconNew = new ImageView(this);
+        fabIconNew.setImageDrawable(getResources().getDrawable(R.drawable.ic_socialmediaicon));
+        FloatingActionButton fab = new FloatingActionButton.Builder(this)
+                .setContentView(fabIconNew)
+                .build();
+        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
+
+        ImageView item1 = new ImageView(this);
+        ImageView item2 = new ImageView(this);
+        ImageView item3 = new ImageView(this);
+        ImageView item4 = new ImageView(this);
+
+        SubActionButton button1 = itemBuilder.setContentView(item1).build();
+        button1.setBackgroundResource(R.drawable.ic_facebookicon);
+        SubActionButton button2 = itemBuilder.setContentView(item2).build();
+        button2.setBackgroundResource(R.drawable.ic_whatsappicon);
+        SubActionButton button3 = itemBuilder.setContentView(item3).build();
+        button3.setBackgroundResource(R.drawable.ic_twittericon);
+        SubActionButton button4 = itemBuilder.setContentView(item4).build();
+        button4.setBackgroundResource(R.drawable.ic_youtubeicon);
+
+        //attach the sub buttons
+        new FloatingActionMenu.Builder(this)
+                .addSubActionView(button4)
+                .addSubActionView(button3)
+                .addSubActionView(button2)
+                .addSubActionView(button1)
+                .attachTo(fab)
+                .build();
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -88,13 +119,21 @@ public class MainActivity extends AppCompatActivity{
     protected void onResume() {
         super.onResume();
         isRTL = Locale.getDefault().toString().contains("ar");
-        overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+        if (isRTL) {
+            overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+        } else {
+            overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
+        if (isRTL) {
+            overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+        } else {
+            overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
+        }
     }
 
 
