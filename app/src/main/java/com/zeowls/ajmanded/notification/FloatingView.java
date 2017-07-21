@@ -316,7 +316,7 @@ class FloatingView extends FrameLayout implements ViewTreeObserver.OnPreDrawList
                 WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
         mParams.format = PixelFormat.TRANSLUCENT;
         // 左下の座標を0とする
-        mParams.gravity = Gravity.LEFT | Gravity.BOTTOM;
+        mParams.gravity = Gravity.START | Gravity.LEFT | Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
         mAnimationHandler = new FloatingAnimationHandler(this);
         mLongPressHandler = new LongPressHandler(this);
         mMoveEdgeInterpolator = new OvershootInterpolator(MOVE_TO_EDGE_OVERSHOOT_TENSION);
@@ -395,7 +395,7 @@ class FloatingView extends FrameLayout implements ViewTreeObserver.OnPreDrawList
         }
         // Y座標に初期値が設定されていればデフォルト値を入れる
         if (mInitY == DEFAULT_Y) {
-            mInitY = mMetrics.heightPixels - mStatusBarHeight - getMeasuredHeight();
+            mInitY = (mMetrics.heightPixels - mStatusBarHeight - getMeasuredHeight())/2;
         }
 
         // 初期位置を設定

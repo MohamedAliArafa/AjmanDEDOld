@@ -38,6 +38,7 @@ public class ChatHeadService extends Service implements FloatingViewListener {
         final DisplayMetrics metrics = new DisplayMetrics();
         final WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(metrics);
+
         final LayoutInflater inflater = LayoutInflater.from(this);
         final ImageView iconView = (ImageView) inflater.inflate(R.layout.widget_chathead, null, false);
         iconView.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +52,8 @@ public class ChatHeadService extends Service implements FloatingViewListener {
         mFloatingViewManager.setFixedTrashIconImage(R.drawable.ic_trash_fixed);
         mFloatingViewManager.setActionTrashIconImage(R.drawable.ic_trash_action);
         final FloatingViewManager.Options options = new FloatingViewManager.Options();
-        options.overMargin = (int) (16 * metrics.density);
+        options.overMargin = (int) (-16 * metrics.density);
+
         mFloatingViewManager.addViewToWindow(iconView, options);
 
         startForeground(NOTIFICATION_ID, createNotification());

@@ -30,16 +30,10 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity{
 
-    float dX;
-    float dY;
-    int lastAction;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mDrawerList;
     private ImageView mNotiImageView;
-    private float oldX;
-    private float oldY;
-    private long startTime;
     private boolean isRTL;
 
     private Toolbar mToolbar;
