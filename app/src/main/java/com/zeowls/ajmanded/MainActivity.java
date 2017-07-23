@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity{
 
 
     private static final int CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE = 100;
+    private boolean restartService = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +119,7 @@ public class MainActivity extends AppCompatActivity{
         } else {
             overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
         }
+
     }
 
     @Override
@@ -191,6 +193,7 @@ public class MainActivity extends AppCompatActivity{
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
         restartActivity();
+        restartService = false;
     }
 
     private void restartActivity() {
@@ -284,8 +287,22 @@ public class MainActivity extends AppCompatActivity{
         }
 
         if (isShowOverlayPermission) {
-            final Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
+            final Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
             startActivityForResult(intent, CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            if (restartService) {
+                stopService(new Intent(this, ChatHeadService.class));
+                restartService = true;
+            }
+
+        }catch (Exception e){
+
         }
     }
 }

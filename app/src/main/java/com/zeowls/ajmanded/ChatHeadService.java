@@ -1,113 +1,197 @@
 package com.zeowls.ajmanded;
 
 import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
+import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.zeowls.ajmanded.notification.FloatingViewListener;
-import com.zeowls.ajmanded.notification.FloatingViewManager;
+import com.flipkart.circularImageView.CircularDrawable;
+import com.flipkart.circularImageView.IconDrawer;
+import com.flipkart.circularImageView.TextDrawer;
+import com.flipkart.circularImageView.notification.CircularNotificationDrawer;
+import com.zeowls.ajmanded.notification.ChatHead;
+import com.zeowls.ajmanded.notification.ChatHeadViewAdapter;
+import com.zeowls.ajmanded.notification.MaximizedArrangement;
+import com.zeowls.ajmanded.notification.MinimizedArrangement;
+import com.zeowls.ajmanded.notification.container.DefaultChatHeadManager;
+import com.zeowls.ajmanded.notification.container.WindowManagerContainer;
 
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
-public class ChatHeadService extends Service implements FloatingViewListener {
+public class ChatHeadService extends Service {
 
-
-    private static final String TAG = "ChatHeadService";
-
-
-    private static final int NOTIFICATION_ID = 9083150;
-
-
-    private FloatingViewManager mFloatingViewManager;
+    // Binder given to clients
+    private final IBinder mBinder = new LocalBinder();
+    private DefaultChatHeadManager<String> chatHeadManager;
+    private int chatHeadIdentifier = 0;
+    private WindowManagerContainer windowManagerContainer;
+    private Map<String, View> viewCache = new HashMap<>();
 
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        if (mFloatingViewManager != null) {
-            return START_STICKY;
-        }
+    public IBinder onBind(Intent intent) {
+        return mBinder;
+    }
 
-        final DisplayMetrics metrics = new DisplayMetrics();
-        final WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        windowManager.getDefaultDisplay().getMetrics(metrics);
+    @Override
+    public void onCreate() {
+        super.onCreate();
 
-        final LayoutInflater inflater = LayoutInflater.from(this);
-        final ImageView iconView = (ImageView) inflater.inflate(R.layout.widget_chathead, null, false);
-        iconView.setOnClickListener(new View.OnClickListener() {
+        windowManagerContainer = new WindowManagerContainer(this);
+        chatHeadManager = new DefaultChatHeadManager<String>(this, windowManagerContainer);
+        chatHeadManager.setViewAdapter(new ChatHeadViewAdapter<String>() {
+
             @Override
-            public void onClick(View v) {
-                Log.d(TAG, getString(R.string.chathead_click_message));
+            public View attachView(String key, ChatHead chatHead, ViewGroup parent) {
+                View cachedView = viewCache.get(key);
+                if (cachedView == null) {
+                    LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                    View view = inflater.inflate(R.layout.fragment_test, parent, false);
+//                    TextView identifier = (TextView) view.findViewById(R.id.identifier);
+//                    identifier.setText(key);
+                    cachedView = view;
+                    viewCache.put(key, view);
+                }
+                parent.addView(cachedView);
+                return cachedView;
+            }
+
+            @Override
+            public void detachView(String key, ChatHead<? extends Serializable> chatHead, ViewGroup parent) {
+                View cachedView = viewCache.get(key);
+                if(cachedView!=null) {
+                    parent.removeView(cachedView);
+                }
+            }
+
+            @Override
+            public void removeView(String key, ChatHead<? extends Serializable> chatHead, ViewGroup parent) {
+                View cachedView = viewCache.get(key);
+                if(cachedView!=null) {
+                    viewCache.remove(key);
+                    parent.removeView(cachedView);
+                }
+            }
+
+            @Override
+            public Drawable getChatHeadDrawable(String key) {
+                return ChatHeadService.this.getChatHeadDrawable(key);
             }
         });
 
-        mFloatingViewManager = new FloatingViewManager(this, this);
-        mFloatingViewManager.setFixedTrashIconImage(R.drawable.ic_trash_fixed);
-        mFloatingViewManager.setActionTrashIconImage(R.drawable.ic_trash_action);
-        final FloatingViewManager.Options options = new FloatingViewManager.Options();
-        options.overMargin = (int) (-16 * metrics.density);
+//        addChatHead();
+//        addChatHead();
+//        addChatHead();
+        addChatHead();
+        chatHeadManager.setArrangement(MinimizedArrangement.class, null);
+        moveToForeground();
 
-        mFloatingViewManager.addViewToWindow(iconView, options);
+    }
 
-        startForeground(NOTIFICATION_ID, createNotification());
+    private Drawable getChatHeadDrawable(String key) {
+        Random rnd = new Random();
+        int randomColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        CircularDrawable circularDrawable = new CircularDrawable();
+//        final LayoutInflater inflater = LayoutInflater.from(this);
+//        final ImageView iconView = (ImageView) inflater.inflate(R.layout.widget_chathead, null, false);
+//
+//        iconView.setDrawingCacheEnabled(true);
+//
+//        iconView.buildDrawingCache();
+//
+//        Bitmap bm = iconView.getDrawingCache();
+        Bitmap icon = BitmapFactory.decodeResource(this.getResources(),
+                R.drawable.ic_notification);
+        int color = Color.argb(255, 238, 27, 36);
 
-        return START_REDELIVER_INTENT;
+        circularDrawable.setBitmapOrTextOrIcon(new IconDrawer(icon,color).setMargin(32));
+//        int badgeCount = (int) (Math.random() * 10f);
+//        circularDrawable.setNotificationDrawer(new CircularNotificationDrawer().setNotificationText(String.valueOf(badgeCount)).setNotificationAngle(135).setNotificationColor(Color.WHITE, Color.RED));
+        circularDrawable.setBorder(Color.WHITE, 3);
+        return circularDrawable;
+
+    }
+
+    public void moveToForeground() {
+        Notification notification = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.notification_template_icon_bg)
+                .setContentTitle("Springy heads")
+                .setContentText("Click to configure.")
+                .setOngoing(true)
+                .setPriority(NotificationCompat.PRIORITY_MIN)
+                .setCategory(NotificationCompat.CATEGORY_SERVICE)
+                .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), 0))
+                .build();
+
+        startForeground(1, notification);
+    }
+
+    public void addChatHead() {
+        chatHeadIdentifier++;
+        chatHeadManager.addChatHead(String.valueOf(chatHeadIdentifier), false, true);
+        chatHeadManager.bringToFront(chatHeadManager.findChatHeadByKey(String.valueOf(chatHeadIdentifier)));
+    }
+
+    public void removeChatHead() {
+        chatHeadManager.removeChatHead(String.valueOf(chatHeadIdentifier), true);
+        chatHeadIdentifier--;
+    }
+
+    public void removeAllChatHeads() {
+        chatHeadIdentifier = 0;
+        chatHeadManager.removeAllChatHeads(true);
+    }
+
+    public void toggleArrangement() {
+        if (chatHeadManager.getActiveArrangement() instanceof MinimizedArrangement) {
+            chatHeadManager.setArrangement(MaximizedArrangement.class, null);
+        } else {
+            chatHeadManager.setArrangement(MinimizedArrangement.class, null);
+        }
+    }
+
+    public void updateBadgeCount() {
+        chatHeadManager.reloadDrawable(String.valueOf(chatHeadIdentifier));
     }
 
     @Override
     public void onDestroy() {
-        destroy();
         super.onDestroy();
-    }
+        try {
+            windowManagerContainer.destroy();
+        }catch (Exception e){
 
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-
-    @Override
-    public void onFinishFloatingView() {
-        stopSelf();
-        Log.d(TAG, getString(R.string.finish_deleted));
-    }
-
-
-    @Override
-    public void onTouchFinished(boolean isFinishing, int x, int y) {
-        if (isFinishing) {
-            Log.d(TAG, getString(R.string.deleted_soon));
-        } else {
-            Log.d(TAG, getString(R.string.touch_finished_position, x, y));
         }
     }
 
-
-    private void destroy() {
-        if (mFloatingViewManager != null) {
-            mFloatingViewManager.removeAllViewToWindow();
-            mFloatingViewManager = null;
-        }
+    public void minimize() {
+        chatHeadManager.setArrangement(MinimizedArrangement.class,null);
     }
 
-
-    private Notification createNotification() {
-        final NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setWhen(System.currentTimeMillis());
-        builder.setSmallIcon(R.drawable.ic_notification);
-        builder.setContentTitle(getString(R.string.chathead_content_title));
-        builder.setContentText(getString(R.string.content_text));
-        builder.setOngoing(true);
-        builder.setPriority(NotificationCompat.PRIORITY_MIN);
-        builder.setCategory(NotificationCompat.CATEGORY_SERVICE);
-
-        return builder.build();
+    /**
+     * Class used for the client Binder.  Because we know this service always
+     * runs in the same process as its clients, we don't need to deal with IPC.
+     */
+    public class LocalBinder extends Binder {
+        ChatHeadService getService() {
+            // Return this instance of LocalService so clients can call public methods
+            return ChatHeadService.this;
+        }
     }
 }

@@ -91,23 +91,23 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent" />
 
-        <RelativeLayout
-            android:id="@+id/noti_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/noti_container"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
 
-            <ImageView
-                android:id="@+id/noti_image_view"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="@dimen/fab_margin"
-                android:background="@drawable/bg_shape_dark_red"
-                app:srcCompat="@drawable/noti" />
+            <!--<ImageView-->
+                <!--android:id="@+id/noti_image_view"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_alignParentEnd="true"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_margin="@dimen/fab_margin"-->
+                <!--android:background="@drawable/bg_shape_dark_red"-->
+                <!--app:srcCompat="@drawable/noti" />-->
 
-        </RelativeLayout>
+        <!--</RelativeLayout>-->
 
     </android.support.design.widget.CoordinatorLayout>
 

@@ -27,6 +27,8 @@ public class MainActivityFragment extends Fragment {
     FragmentPagerAdapter adapterViewPager;
     List<Fragment> mFragments;
     String[] fragmentsTitles;
+    private ViewPager vpPager;
+    private SpaceTabLayout vpPagerHeader;
 
     public MainActivityFragment() {
     }
@@ -40,10 +42,16 @@ public class MainActivityFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ViewPager vpPager = (ViewPager) view.findViewById(R.id.pager);
-        SpaceTabLayout vpPagerHeader = (SpaceTabLayout) view.findViewById(R.id.pager_header);
+        vpPager = (ViewPager) view.findViewById(R.id.pager);
+        vpPagerHeader = (SpaceTabLayout) view.findViewById(R.id.pager_header);
 
         //init the pager fragments
+
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         mFragments = new ArrayList<>();
         mFragments.add(new OnlineServicesFragment());
         mFragments.add(new AboutDEDFragment());

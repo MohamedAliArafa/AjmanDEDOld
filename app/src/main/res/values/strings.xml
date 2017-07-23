@@ -46,4 +46,12 @@
     <string name="deleted_soon">FloatingView will be deleted soon.</string>
     <string name="finish_deleted">FloatingView has been deleted.</string>
     <string name="action_call">80070</string>
+
+
+    <string name="permissions_title">Permissions</string>
+    <string name="draw_over_permissions_message">To display Audio Widget app needs the permission to draw over another apps.</string>
+    <string name="read_ext_permissions_message">To load list of music app needs access to your media files.</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="toast_permissions_not_granted">Permissions not granted.</string>
 </resources>
