@@ -6,9 +6,7 @@ import android.graphics.Point;
 import com.zeowls.ajmanded.ChatHeadUtils;
 
 
-/**
- * Created by kiran.kumar on 06/05/15.
- */
+
 public class ChatHeadDefaultConfig extends ChatHeadConfig {
     public ChatHeadDefaultConfig(Context context) {
         int diameter = 56;
