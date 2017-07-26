@@ -16,7 +16,7 @@ public class AnimatedFragment extends Fragment {
     public void startAnimation() {
     }
 
-    public class animate extends AsyncTask {
+    public class animate extends AsyncTask<Void, Void, Void> {
 
         View[] views;
 
@@ -28,12 +28,16 @@ public class AnimatedFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
             for (View view : views) {
-                view.setVisibility(View.INVISIBLE);
+                try {
+                    view.setVisibility(View.INVISIBLE);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         }
 
         @Override
-        protected Void doInBackground(Object[] params) {
+        protected Void doInBackground(Void... params) {
             long delayBetweenAnimations = 200L;
             for (int i = 0; i < views.length; i++) {
                 final View view = views[i];

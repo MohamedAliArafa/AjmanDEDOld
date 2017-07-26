@@ -54,4 +54,13 @@
     <string name="btn_continue">Continue</string>
     <string name="btn_cancel">Cancel</string>
     <string name="toast_permissions_not_granted">Permissions not granted.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="most_used_services">Most Used Services</string>
+    <string name="application_status">Application Status</string>
+    <string name="enter_application_number">Enter Application Number</string>
+    <string name="service_centers_location">Service Centers Location</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="check_status">Check Status</string>
 </resources>

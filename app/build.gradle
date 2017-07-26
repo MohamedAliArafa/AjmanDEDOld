@@ -29,6 +29,7 @@ dependencies {
     //bounce effect for notification
     compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support:support-dynamic-animation:25.4.0'
+    compile 'com.roughike:bottom-bar:2.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.4.0'
     compile 'com.android.support:support-compat:25.4.0'
@@ -40,5 +41,6 @@ dependencies {
     compile 'com.facebook.rebound:rebound:0.3.8'
     compile 'com.github.flipkart-incubator:circular-image:1.0'
     compile 'com.intuit.sdp:sdp-android:1.0.4'
+    compile 'com.google.android.gms:play-services-maps:11.0.2'
     testCompile 'junit:junit:4.12'
 }

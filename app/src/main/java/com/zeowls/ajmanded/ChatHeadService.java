@@ -8,20 +8,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Icon;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.flipkart.circularImageView.CircularDrawable;
 import com.flipkart.circularImageView.IconDrawer;
-import com.flipkart.circularImageView.TextDrawer;
-import com.flipkart.circularImageView.notification.CircularNotificationDrawer;
 import com.zeowls.ajmanded.notification.ChatHead;
 import com.zeowls.ajmanded.notification.ChatHeadViewAdapter;
 import com.zeowls.ajmanded.notification.MaximizedArrangement;
@@ -117,10 +112,10 @@ public class ChatHeadService extends Service {
 //
 //        Bitmap bm = iconView.getDrawingCache();
         Bitmap icon = BitmapFactory.decodeResource(this.getResources(),
-                R.drawable.ic_notification);
+                R.drawable.noti);
         int color = Color.argb(255, 238, 27, 36);
 
-        circularDrawable.setBitmapOrTextOrIcon(new IconDrawer(icon,color).setMargin(32));
+        circularDrawable.setBitmapOrTextOrIcon(new IconDrawer(icon,color));
 //        int badgeCount = (int) (Math.random() * 10f);
 //        circularDrawable.setNotificationDrawer(new CircularNotificationDrawer().setNotificationText(String.valueOf(badgeCount)).setNotificationAngle(135).setNotificationColor(Color.WHITE, Color.RED));
         circularDrawable.setBorder(Color.WHITE, 3);

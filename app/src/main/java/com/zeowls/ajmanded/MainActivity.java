@@ -5,30 +5,38 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.AppBarLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.zeowls.ajmanded.ui.AnimatedFragment;
 import com.zeowls.ajmanded.ui.CircularAction.FloatingActionButton;
 import com.zeowls.ajmanded.ui.CircularAction.FloatingActionMenu;
 import com.zeowls.ajmanded.ui.CircularAction.SubActionButton;
+import com.zeowls.ajmanded.ui.spacetablayout.SpaceTabLayout;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -40,6 +48,11 @@ public class MainActivity extends AppCompatActivity{
     private ImageView mLogo;
     private AppBarLayout mAppBar;
 
+    FragmentPagerAdapter adapterViewPager;
+    List<Fragment> mFragments;
+    String[] fragmentsTitles;
+    private ViewPager vpPager;
+    private SpaceTabLayout vpPagerHeader;
 
     private static final int CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE = 100;
     private boolean restartService = true;
@@ -52,6 +65,61 @@ public class MainActivity extends AppCompatActivity{
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mLogo = (ImageView) findViewById(R.id.logo);
         mAppBar = (AppBarLayout) findViewById(R.id.appbar);
+        vpPager = (ViewPager) findViewById(R.id.pager);
+        vpPagerHeader = (SpaceTabLayout) findViewById(R.id.pager_header);
+
+        mFragments = new ArrayList<>();
+        mFragments.add(new HomeTabFragment());
+        mFragments.add(new AboutDEDFragment());
+        mFragments.add(new AboutDEDFragment());
+        mFragments.add(new OnlineServicesFragment());
+
+        fragmentsTitles = new String[]{this.getString(R.string.online_services),
+                this.getString(R.string.about_ded),
+                this.getString(R.string.latest_news)};
+
+        //init and set the adapter
+        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
+        vpPager.setAdapter(adapterViewPager);
+
+        // make the pager RTL by calling the last fragment in list
+        vpPager.setCurrentItem(mFragments.size() - 1);
+
+        //we need the savedInstanceState to get the position
+        vpPagerHeader.initialize(vpPager, getSupportFragmentManager(), mFragments);
+
+        vpPagerHeader.setTabOneText(R.string.home);
+        vpPagerHeader.setTabTwoText(R.string.e_services);
+        vpPagerHeader.setTabThreeText(R.string.about_ded);
+        vpPagerHeader.setTabFourText(R.string.latest_news);
+
+        vpPagerHeader.setTabOneIcon(R.drawable.ic_home_icon);
+        vpPagerHeader.setTabTwoIcon(R.drawable.ic_serviceicon);
+        vpPagerHeader.setTabThreeIcon(R.drawable.ic_aboutusicon);
+        vpPagerHeader.setTabFourIcon(R.drawable.ic_newsicon);
+
+        // Attach the page change listener inside the activity
+        vpPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            // This method will be invoked when a new page becomes selected.
+            @Override
+            public void onPageSelected(int position) {
+                ((AnimatedFragment) mFragments.get(position)).startAnimation();
+            }
+
+            // This method will be invoked when the current page is scrolled
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                // Code goes here
+            }
+
+            // Called when the scroll state changes:
+            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                // Code goes here
+            }
+        });
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -62,6 +130,9 @@ public class MainActivity extends AppCompatActivity{
         FloatingActionButton fab = new FloatingActionButton.Builder(this)
                 .setContentView(fabIconNew)
                 .build();
+
+        int padding = ChatHeadUtils.dpToPx(this, 10);
+        fab.setPadding(padding, padding, padding, padding);
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
 
         ImageView item1 = new ImageView(this);
@@ -119,7 +190,6 @@ public class MainActivity extends AppCompatActivity{
         } else {
             overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
         }
-
     }
 
     @Override
@@ -181,6 +251,35 @@ public class MainActivity extends AppCompatActivity{
 //        return true;
 //    }
 
+    private class MyPagerAdapter extends FragmentPagerAdapter {
+        boolean isRTL;
+
+        MyPagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+            Collections.reverse(Arrays.asList(mFragments));
+            Collections.reverse(Arrays.asList(fragmentsTitles));
+            isRTL = Locale.getDefault().toString().contains("ar");
+        }
+
+        // Returns total number of pages
+        @Override
+        public int getCount() {
+            return mFragments.size();
+        }
+
+        // Returns the fragment to display for that page
+        @Override
+        public AnimatedFragment getItem(int position) {
+            return (AnimatedFragment) mFragments.get(position);
+        }
+
+        // Returns the page title for the top indicator
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return fragmentsTitles[position];
+        }
+    }
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -206,11 +305,11 @@ public class MainActivity extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        MenuItem action_lang = menu.findItem(R.id.action_lang);
-        if (isRTL)
-            action_lang.setIcon(getResources().getDrawable(R.drawable.top_icon2));
-        else
-            action_lang.setIcon(getResources().getDrawable(R.drawable.top_icon1));
+//        MenuItem action_lang = menu.findItem(R.id.action_lang);
+//        if (isRTL)
+//            action_lang.setIcon(getResources().getDrawable(R.drawable.ic_topicn2));
+//        else
+//            action_lang.setIcon(getResources().getDrawable(R.drawable.ic_topicn1));
         return true;
     }
 
@@ -236,32 +335,28 @@ public class MainActivity extends AppCompatActivity{
         }
 
         //noinspection SimplifiableIfStatement
-        switch (id) {
-            case R.id.action_lang:
-                Locale locale = Locale.getDefault();
-                if (locale.toString().toLowerCase().equals("ar")) {
-                    Locale.setDefault(new Locale("en"));
-
-                    Configuration conf = new Configuration();
-                    conf.locale = Locale.getDefault();
-
-                    Resources res = getResources();
-                    DisplayMetrics dm = res.getDisplayMetrics();
-                    res.updateConfiguration(conf, dm);
-                    onConfigurationChanged(conf);
-                } else {
-                    Locale.setDefault(new Locale("ar"));
-
-                    Configuration conf = new Configuration();
-                    conf.locale = Locale.getDefault();
-
-                    Resources res = getResources();
-                    DisplayMetrics dm = res.getDisplayMetrics();
-                    res.updateConfiguration(conf, dm);
-                    onConfigurationChanged(conf);
-                }
-                return true;
-        }
+//        switch (id) {
+//            case R.id.action_lang:
+//                Locale locale = Locale.getDefault();
+//                if (locale.toString().toLowerCase().equals("ar")) {
+//                    Locale.setDefault(new Locale("en"));
+//                    Resources res = getResources();
+//                    Configuration conf = res.getConfiguration();
+//                    conf.locale = Locale.getDefault();
+//                    DisplayMetrics dm = res.getDisplayMetrics();
+//                    res.updateConfiguration(conf, dm);
+//                    onConfigurationChanged(conf);
+//                } else {
+//                    Locale.setDefault(new Locale("ar"));
+//                    Resources res = getResources();
+//                    Configuration conf = res.getConfiguration();
+//                    conf.locale = Locale.getDefault();
+//                    DisplayMetrics dm = res.getDisplayMetrics();
+//                    res.updateConfiguration(conf, dm);
+//                    onConfigurationChanged(conf);
+//                }
+//                return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -301,7 +396,7 @@ public class MainActivity extends AppCompatActivity{
                 restartService = true;
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }

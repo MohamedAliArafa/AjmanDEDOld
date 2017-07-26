@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_rate"
+        icon="@drawable/ic_icn8"
+        title="RateUS" />
+    <tab
+        id="@+id/tab_search"
+        icon="@drawable/ic_icn4"
+        title="Search" />
+    <tab
+        id="@+id/tab_help"
+        icon="@drawable/ic_icn6"
+        title="Help" />
+
+    <tab
+        id="@+id/tab_share"
+        icon="@drawable/ic_tab_four"
+        title="Share" />
+</tabs>

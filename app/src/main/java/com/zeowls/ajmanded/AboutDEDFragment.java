@@ -25,10 +25,6 @@ public class AboutDEDFragment extends AnimatedFragment {
         // Required empty public constructor
     }
 
-    public static AnimatedFragment newInstance(int i, String s) {
-        return new AboutDEDFragment();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

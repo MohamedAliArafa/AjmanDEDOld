@@ -106,7 +106,7 @@ public class ChatHead<T extends Serializable> extends android.support.v7.widget.
             @Override
             public void onSpringUpdate(Spring spring) {
                 super.onSpringUpdate(spring);
-                manager.getChatHeadContainer().setViewX(ChatHead.this, (int)spring.getCurrentValue());
+                manager.getChatHeadContainer().setViewX(ChatHead.this, (int) spring.getCurrentValue());
             }
 
             @Override
@@ -122,7 +122,7 @@ public class ChatHead<T extends Serializable> extends android.support.v7.widget.
             @Override
             public void onSpringUpdate(Spring spring) {
                 super.onSpringUpdate(spring);
-                manager.getChatHeadContainer().setViewY(ChatHead.this, (int)spring.getCurrentValue());
+                manager.getChatHeadContainer().setViewY(ChatHead.this, (int) spring.getCurrentValue());
             }
 
             @Override
@@ -216,7 +216,7 @@ public class ChatHead<T extends Serializable> extends android.support.v7.widget.
     public boolean onTouchEvent(@NonNull MotionEvent event) {
         super.onTouchEvent(event);
 
-        if(xPositionSpring==null || yPositionSpring==null) return false;
+        if (xPositionSpring == null || yPositionSpring == null) return false;
         //Chathead view will set the correct active springs on touch
         Spring activeHorizontalSpring = xPositionSpring;
         Spring activeVerticalSpring = yPositionSpring;
@@ -295,7 +295,7 @@ public class ChatHead<T extends Serializable> extends android.support.v7.widget.
                 int yVelocity = (int) velocityTracker.getYVelocity();
                 velocityTracker.recycle();
                 velocityTracker = null;
-                if(xPositionSpring!=null && yPositionSpring!=null) {
+                if (xPositionSpring != null && yPositionSpring != null) {
                     boolean touchUpHandled = manager.getActiveArrangement().handleTouchUp(this, xVelocity, yVelocity, activeHorizontalSpring, activeVerticalSpring, wasDragging);
                 }
             }
