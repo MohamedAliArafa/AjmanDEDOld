@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "com.zeowls.ajmanded"
+        applicationId "com.sdg.ajmanded"
         minSdkVersion 20
         targetSdkVersion 25
         versionCode 1
@@ -43,4 +43,8 @@ dependencies {
     compile 'com.intuit.sdp:sdp-android:1.0.4'
     compile 'com.google.android.gms:play-services-maps:11.0.2'
     testCompile 'junit:junit:4.12'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'jp.wasabeef:recyclerview-animators:2.2.7'
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.2'
+
 }

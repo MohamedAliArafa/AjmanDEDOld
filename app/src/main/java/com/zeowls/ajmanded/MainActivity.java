@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
-        showChatHead(this, true);
+//        showChatHead(this, true);
     }
 
     @Override
@@ -201,55 +201,6 @@ public class MainActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
         }
     }
-
-
-//    @Override
-//    public boolean onTouch(final View view, MotionEvent event) {
-//        switch (event.getActionMasked()) {
-//            case MotionEvent.ACTION_DOWN:
-//                dX = view.getX() - event.getRawX();
-//                dY = view.getY() - event.getRawY();
-//                lastAction = MotionEvent.ACTION_DOWN;
-//                oldX = event.getX();
-//                oldY = event.getY();
-//                startTime = System.currentTimeMillis();
-//                view.animate().setInterpolator(new BounceInterpolator()).scaleX(1.5f).start();
-//                view.animate().setInterpolator(new BounceInterpolator()).scaleY(1.5f).start();
-//                break;
-//
-//            case MotionEvent.ACTION_MOVE:
-//                view.setY(event.getRawY() + dY);
-//                view.setX(event.getRawX() + dX);
-//                lastAction = MotionEvent.ACTION_MOVE;
-//                break;
-//
-//            case MotionEvent.ACTION_UP:
-//                ViewGroup parent = (ViewGroup) view.getParent();
-//                if (lastAction == MotionEvent.ACTION_DOWN)
-//                    Toast.makeText(MainActivity.this, "Clicked!", Toast.LENGTH_SHORT).show();
-//                int parentWidth = parent.getWidth();
-//                int viewWidth = view.getWidth();
-//                float distance;
-//                if (isRTL) {
-//                    distance = parentWidth - view.getRight();
-//                } else {
-//                    distance = parentWidth - view.getLeft();
-//                }
-//
-//                view.animate().setInterpolator(new BounceInterpolator()).scaleX(1.0f).start();
-//                view.animate().setInterpolator(new BounceInterpolator()).scaleY(1.0f).start();
-//
-//                if (isRTL) {
-//                    view.animate().setInterpolator(new OvershootInterpolator()).translationX((viewWidth * .1f)).withLayer();
-//                } else {
-//                    view.animate().setInterpolator(new OvershootInterpolator()).translationX(distance - (viewWidth * 1.2f)).withLayer();
-//                }
-//                break;
-//            default:
-//                return false;
-//        }
-//        return true;
-//    }
 
     private class MyPagerAdapter extends FragmentPagerAdapter {
         boolean isRTL;
