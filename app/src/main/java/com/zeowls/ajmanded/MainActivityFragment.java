@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zeowls.ajmanded.ui.AnimatedFragment;
-import com.zeowls.ajmanded.ui.spacetablayout.SpaceTabLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +27,7 @@ public class MainActivityFragment extends Fragment {
     List<Fragment> mFragments;
     String[] fragmentsTitles;
     private ViewPager vpPager;
-    private SpaceTabLayout vpPagerHeader;
+//    private SpaceTabLayout vpPagerHeader;
 
     public MainActivityFragment() {
     }
@@ -43,7 +42,7 @@ public class MainActivityFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         vpPager = (ViewPager) view.findViewById(R.id.pager);
-        vpPagerHeader = (SpaceTabLayout) view.findViewById(R.id.pager_header);
+//        vpPagerHeader = (SpaceTabLayout) view.findViewById(R.id.pager_header);
 
         //init the pager fragments
 
@@ -70,17 +69,17 @@ public class MainActivityFragment extends Fragment {
         vpPager.setCurrentItem(mFragments.size() - 1);
 
         //we need the savedInstanceState to get the position
-        vpPagerHeader.initialize(vpPager, getFragmentManager(), mFragments);
-
-        vpPagerHeader.setTabOneText(R.string.home);
-        vpPagerHeader.setTabTwoText(R.string.e_services);
-        vpPagerHeader.setTabThreeText(R.string.about_ded);
-        vpPagerHeader.setTabFourText(R.string.latest_news);
-
-        vpPagerHeader.setTabOneIcon(R.drawable.ic_icn1);
-        vpPagerHeader.setTabTwoIcon(R.drawable.ic_icn2);
-        vpPagerHeader.setTabThreeIcon(R.drawable.ic_icn3);
-        vpPagerHeader.setTabFourIcon(R.drawable.ic_icn4);
+//        vpPagerHeader.initialize(vpPager, getFragmentManager(), mFragments);
+//
+//        vpPagerHeader.setTabOneText(R.string.home);
+//        vpPagerHeader.setTabTwoText(R.string.e_services);
+//        vpPagerHeader.setTabThreeText(R.string.about_ded);
+//        vpPagerHeader.setTabFourText(R.string.latest_news);
+//
+//        vpPagerHeader.setTabOneIcon(R.drawable.ic_icn1);
+//        vpPagerHeader.setTabTwoIcon(R.drawable.ic_icn2);
+//        vpPagerHeader.setTabThreeIcon(R.drawable.ic_icn3);
+//        vpPagerHeader.setTabFourIcon(R.drawable.ic_icn4);
 
         // Attach the page change listener inside the activity
         vpPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

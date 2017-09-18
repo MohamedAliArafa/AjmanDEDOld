@@ -19,16 +19,17 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.rd.PageIndicatorView;
 import com.zeowls.ajmanded.ui.AnimatedFragment;
 import com.zeowls.ajmanded.ui.CircularAction.FloatingActionButton;
 import com.zeowls.ajmanded.ui.CircularAction.FloatingActionMenu;
 import com.zeowls.ajmanded.ui.CircularAction.SubActionButton;
-import com.zeowls.ajmanded.ui.spacetablayout.SpaceTabLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
     List<Fragment> mFragments;
     String[] fragmentsTitles;
     private ViewPager vpPager;
-    private SpaceTabLayout vpPagerHeader;
+    PageIndicatorView mPageIndicatorView;
+
+//    private SpaceTabLayout vpPagerHeader;
 
     private static final int CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE = 100;
     private boolean restartService = true;
@@ -66,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
         mLogo = (ImageView) findViewById(R.id.logo);
         mAppBar = (AppBarLayout) findViewById(R.id.appbar);
         vpPager = (ViewPager) findViewById(R.id.pager);
-        vpPagerHeader = (SpaceTabLayout) findViewById(R.id.pager_header);
+        mPageIndicatorView = (PageIndicatorView) findViewById(R.id.pageIndicatorView);
+
+//        vpPagerHeader = (SpaceTabLayout) findViewById(R.id.pager_header);
 
         mFragments = new ArrayList<>();
         mFragments.add(new HomeTabFragment());
@@ -81,22 +86,22 @@ public class MainActivity extends AppCompatActivity {
         //init and set the adapter
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
-
+        mPageIndicatorView.setViewPager(vpPager);
         // make the pager RTL by calling the last fragment in list
         vpPager.setCurrentItem(mFragments.size() - 1);
 
         //we need the savedInstanceState to get the position
-        vpPagerHeader.initialize(vpPager, getSupportFragmentManager(), mFragments);
-
-        vpPagerHeader.setTabOneText(R.string.home);
-        vpPagerHeader.setTabTwoText(R.string.e_services);
-        vpPagerHeader.setTabThreeText(R.string.about_ded);
-        vpPagerHeader.setTabFourText(R.string.latest_news);
-
-        vpPagerHeader.setTabOneIcon(R.drawable.ic_home_icon);
-        vpPagerHeader.setTabTwoIcon(R.drawable.ic_serviceicon);
-        vpPagerHeader.setTabThreeIcon(R.drawable.ic_aboutusicon);
-        vpPagerHeader.setTabFourIcon(R.drawable.ic_newsicon);
+//        vpPagerHeader.initialize(vpPager, getSupportFragmentManager(), mFragments);
+//
+//        vpPagerHeader.setTabOneText(R.string.home);
+//        vpPagerHeader.setTabTwoText(R.string.e_services);
+//        vpPagerHeader.setTabThreeText(R.string.about_ded);
+//        vpPagerHeader.setTabFourText(R.string.latest_news);
+//
+//        vpPagerHeader.setTabOneIcon(R.drawable.ic_home_icon);
+//        vpPagerHeader.setTabTwoIcon(R.drawable.ic_serviceicon);
+//        vpPagerHeader.setTabThreeIcon(R.drawable.ic_aboutusicon);
+//        vpPagerHeader.setTabFourIcon(R.drawable.ic_newsicon);
 
         // Attach the page change listener inside the activity
         vpPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -178,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
-//        showChatHead(this, true);
+        showChatHead(this, true);
     }
 
     @Override
@@ -255,7 +260,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        final MenuItem item = menu.findItem(R.id.action_call);
+        item.getActionView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FaqActivity.class));
+            }
+        });
 //        MenuItem action_lang = menu.findItem(R.id.action_lang);
 //        if (isRTL)
 //            action_lang.setIcon(getResources().getDrawable(R.drawable.ic_topicn2));

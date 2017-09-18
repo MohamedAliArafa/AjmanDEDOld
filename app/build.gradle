@@ -46,5 +46,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'jp.wasabeef:recyclerview-animators:2.2.7'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.2'
-
+    compile 'com.romandanylyk:pageindicatorview:0.2.0@aar'
 }

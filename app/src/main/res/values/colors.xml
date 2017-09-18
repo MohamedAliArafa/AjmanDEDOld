@@ -30,6 +30,24 @@
     <color name="bg_lighter_red">#ed4949</color>
     <color name="bg_light_gray">#d7ccc8</color>
 
+    <color name="bg_beige_light">#d1c299</color>
+    <color name="bg_blue_dark">#07a8bd</color>
+    <color name="bg_blue_light">#13c0d7</color>
+    <color name="bg_brown_dark">#cd5314</color>
+    <color name="bg_brown_light">#e16a2c</color>
+    <color name="bg_gray_light">#e3e3e3</color>
+    <color name="bg_green_light">#a0c953</color>
+    <color name="bg_orange_light">#fa6127</color>
+    <color name="bg_red_dark">#a60047</color>
+    <color name="bg_red_light">#d41265</color>
+    <color name="bg_red_lighter">#ed4949</color>
+    <color name="bg_royal_dark">#000b62</color>
+    <color name="bg_royal_light">#071689</color>
+
+    <color name="gray_dark">#464646</color>
+    <color name="gray_light">#e6e6e6</color>
+
+
     <color name="overlay_color">#AA000000</color>
 
 </resources>

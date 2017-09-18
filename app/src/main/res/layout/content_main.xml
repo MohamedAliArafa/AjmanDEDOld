@@ -1,37 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zeowls.ajmanded.MainActivityFragment"
+    android:background="@color/accent_orange"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.zeowls.ajmanded.MainActivityFragment"
     tools:showIn="@layout/activity_main">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/imageView2" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/pageIndicatorView" />
 
-    <com.zeowls.ajmanded.ui.spacetablayout.SpaceTabLayout
-        android:id="@+id/pager_header"
+    <com.rd.PageIndicatorView
+        android:id="@+id/pageIndicatorView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:button_color="@color/colorPrimaryDark"
-        app:layout_behavior="eu.long1.spacetablayout.SpaceTabLayoutBehavior"
-        app:number_of_tabs="four"
-        app:starting_position="one"
-        app:tab_color="@color/colorPrimary"
-        app:text_color="@color/gray" />
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        app:piv_animationType="fill"
+        app:piv_radius="4dp"
+        app:piv_selectedColor="@color/gray"
+        app:piv_unselectedColor="@color/gray"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
-    <!--<com.roughike.bottombar.BottomBar-->
-        <!--android:id="@+id/bottomBar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="60dp"-->
-        <!--app:bb_tabXmlResource="@xml/bottombar_tabs"-->
-        <!--app:layout_behavior="com.zeowls.ajmanded.ui.ScrollingBehavior"-->
-        <!--android:layout_gravity="bottom"-->
-    <!--/>-->
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/gray_dark"
+        app:bb_behavior="iconsOnly"
+        app:bb_showShadow="true"
+        app:bb_tabXmlResource="@xml/bottombar_tabs"
+        app:layout_behavior="com.zeowls.ajmanded.ui.ScrollingBehavior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="0dp" />
 
-</FrameLayout>
-
+</android.support.constraint.ConstraintLayout>

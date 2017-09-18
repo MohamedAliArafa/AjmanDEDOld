@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.view.ViewGroup;
 import com.flipkart.circularImageView.CircularDrawable;
 import com.flipkart.circularImageView.IconDrawer;
 import com.zeowls.ajmanded.notification.ChatHead;
+import com.zeowls.ajmanded.notification.ChatHeadManager;
 import com.zeowls.ajmanded.notification.ChatHeadViewAdapter;
 import com.zeowls.ajmanded.notification.MaximizedArrangement;
 import com.zeowls.ajmanded.notification.MinimizedArrangement;
@@ -95,6 +97,27 @@ public class ChatHeadService extends Service {
 //        addChatHead();
         addChatHead();
         chatHeadManager.setArrangement(MinimizedArrangement.class, null);
+        chatHeadManager.setOnItemSelectedListener(new ChatHeadManager.OnItemSelectedListener<String>() {
+            @Override
+            public boolean onChatHeadSelected(String key, ChatHead chatHead) {
+//                if (chatHeadManager.getArrangementType() == MaximizedArrangement.class) {
+                Log.d("springyheads","Clicked on " + key + " " +
+                        "when arrangement was Maximized");
+                startActivity(new Intent(getBaseContext(), FaqActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+//                }
+                return false;
+            }
+
+            @Override
+            public void onChatHeadRollOver(String key, ChatHead chatHead) {
+
+            }
+
+            @Override
+            public void onChatHeadRollOut(String key, ChatHead chatHead) {
+
+            }
+        });
         moveToForeground();
 
     }
