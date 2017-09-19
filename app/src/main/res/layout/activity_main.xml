@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/accent_blue">
     <!-- The main content view -->
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -20,38 +21,6 @@
             android:fitsSystemWindows="true"
             android:theme="@style/AppTheme.AppBarOverlay"
             app:elevation="0dp">
-
-            <!--<android.support.design.widget.CollapsingToolbarLayout-->
-            <!--android:id="@+id/collapsing_toolbar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:fitsSystemWindows="true"-->
-            <!--app:contentScrim="@color/colorPrimary"-->
-            <!--app:expandedTitleMarginBottom="32dp"-->
-            <!--app:expandedTitleMarginEnd="64dp"-->
-            <!--app:expandedTitleMarginStart="48dp"-->
-            <!--app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
-
-            <!--<RelativeLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-            <!--<ImageView-->
-            <!--android:id="@+id/background"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:scaleType="centerCrop"-->
-            <!--android:src="@drawable/about_bg" />-->
-
-            <!--<ImageView-->
-            <!--android:layout_margin="60dp"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center_horizontal"-->
-            <!--android:src="@drawable/ic_dedlogo" />-->
-
-            <!--</RelativeLayout>-->
-
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -69,58 +38,28 @@
 
             </android.support.v7.widget.Toolbar>
 
-            <!--</android.support.design.widget.CollapsingToolbarLayout>-->
-
         </android.support.design.widget.AppBarLayout>
-
-        <!--<android.support.v4.widget.NestedScrollView-->
-        <!--android:id="@+id/scroll"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:clipToPadding="false"-->
-        <!--android:fillViewport="true"-->
-        <!--app:behavior_overlapTop="150dp"-->
-        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
         <include layout="@layout/content_main" />
 
-        <!--</android.support.v4.widget.NestedScrollView>-->
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_socialmediaicon"
+            app:backgroundTint="@color/red"
+            app:layout_anchorGravity="bottom|right|end" />
 
         <FrameLayout
             android:id="@+id/graphics_holder"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent" />
-
-        <!--<com.roughike.bottombar.BottomBar-->
-            <!--android:id="@+id/bottomBar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_gravity="bottom"-->
-            <!--app:layout_scrollFlags="scroll"-->
-            <!--android:layout_height="60dp"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--app:bb_tabXmlResource="@xml/bottombar_tabs" />-->
-
-        <!--<RelativeLayout-->
-            <!--android:id="@+id/noti_container"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-            <!--<ImageView-->
-                <!--android:id="@+id/noti_image_view"-->
-                <!--android:layout_width="50dp"-->
-                <!--android:layout_height="50dp"-->
-                <!--android:layout_alignParentEnd="true"-->
-                <!--android:layout_alignParentRight="true"-->
-                <!--android:layout_centerVertical="true"-->
-                <!--android:layout_margin="@dimen/fab_margin"-->
-                <!--android:background="@drawable/bg_shape_dark_red"-->
-                <!--app:srcCompat="@drawable/noti" />-->
-
-        <!--</RelativeLayout>-->
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </android.support.design.widget.CoordinatorLayout>
 
-    <!-- The navigation drawer -->
     <ListView
         android:id="@+id/left_drawer"
         android:layout_width="240dp"

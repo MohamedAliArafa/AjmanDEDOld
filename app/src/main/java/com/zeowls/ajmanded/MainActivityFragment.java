@@ -66,7 +66,7 @@ public class MainActivityFragment extends Fragment {
         vpPager.setAdapter(adapterViewPager);
 
         // make the pager RTL by calling the last fragment in list
-        vpPager.setCurrentItem(mFragments.size() - 1);
+//        vpPager.setCurrentItem(mFragments.size() - 1);
 
         //we need the savedInstanceState to get the position
 //        vpPagerHeader.initialize(vpPager, getFragmentManager(), mFragments);

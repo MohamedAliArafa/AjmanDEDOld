@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -27,7 +28,6 @@ import android.widget.ListView;
 
 import com.rd.PageIndicatorView;
 import com.zeowls.ajmanded.ui.AnimatedFragment;
-import com.zeowls.ajmanded.ui.CircularAction.FloatingActionButton;
 import com.zeowls.ajmanded.ui.CircularAction.FloatingActionMenu;
 import com.zeowls.ajmanded.ui.CircularAction.SubActionButton;
 
@@ -132,12 +132,12 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView fabIconNew = new ImageView(this);
         fabIconNew.setImageDrawable(getResources().getDrawable(R.drawable.ic_socialmediaicon));
-        FloatingActionButton fab = new FloatingActionButton.Builder(this)
-                .setContentView(fabIconNew)
-                .build();
-
-        int padding = ChatHeadUtils.dpToPx(this, 10);
-        fab.setPadding(padding, padding, padding, padding);
+//        FloatingActionButton fab = new FloatingActionButton.Builder(this)
+//                .setContentView(fabIconNew)
+//                .build();
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        int padding = ChatHeadUtils.dpToPx(this, 10);
+//        fab.setPadding(padding, padding, padding, padding);
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
 
         ImageView item1 = new ImageView(this);
@@ -262,13 +262,13 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
-        final MenuItem item = menu.findItem(R.id.action_call);
-        item.getActionView().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, FaqActivity.class));
-            }
-        });
+//        final MenuItem item = menu.findItem(R.id.action_call);
+//        item.getActionView().setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this, FaqActivity.class));
+//            }
+//        });
 //        MenuItem action_lang = menu.findItem(R.id.action_lang);
 //        if (isRTL)
 //            action_lang.setIcon(getResources().getDrawable(R.drawable.ic_topicn2));
@@ -291,7 +291,11 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
+        switch (id) {
+            case R.id.action_call:
+                startActivity(new Intent(MainActivity.this, FaqActivity.class));
+                break;
+        }
         // Pass the event to ActionBarDrawerToggle, if it returns
         // true, then it has handled the app icon touch event
         if (mDrawerToggle.onOptionsItemSelected(item)) {

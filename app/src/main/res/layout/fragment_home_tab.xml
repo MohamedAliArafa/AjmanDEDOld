@@ -2,8 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="16dp">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:layout_width="match_parent"
@@ -11,391 +10,424 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg" />
 
-    <ScrollView
-        android:id="@+id/main_scroll"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Contact Us"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="368dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/bg_gray_light"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"/>
+
+        <ScrollView
+            android:id="@+id/main_scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="60dp">
+            tools:context=".MainActivity">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/card1"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp">
+                android:orientation="vertical"
+                android:paddingBottom="60dp">
 
-                <View
-                    android:id="@+id/view1"
-                    android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:background="@color/gray" />
-
-                <LinearLayout
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/icon1"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/ic_serviceicon"
-                            android:tint="@color/accent_blue" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:text="@string/most_used_services"
-                            android:textColor="@color/accent_blue" />
-
-                    </LinearLayout>
-
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp">
 
                     <View
-                        android:id="@+id/view"
+                        android:id="@+id/view1"
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_height="8dp"
                         android:background="@color/gray" />
-
-                    <!--<HorizontalScrollView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content">-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:paddingTop="16dp">
+                        android:layout_margin="16dp"
+                        android:orientation="vertical">
 
-                        <RelativeLayout
-                            android:id="@+id/con_1"
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
                             <ImageView
-                                android:id="@+id/image"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_centerHorizontal="true"
-                                android:background="@drawable/bg_shape_light_blue" />
-
-                            <ImageView
+                                android:id="@+id/icon1"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginLeft="15dp"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="15dp"
-                                android:src="@drawable/icon1" />
+                                android:src="@drawable/ic_serviceicon"
+                                android:tint="@color/accent_blue" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/image"
-                                android:layout_centerHorizontal="true"
-                                android:gravity="center"
-                                android:paddingTop="2dp"
-                                android:text="@string/new_license"
-                                android:textColor="@color/bg_light_royal"
-                                android:textSize="12sp" />
-                        </RelativeLayout>
+                                android:layout_marginStart="5dp"
+                                android:text="@string/most_used_services"
+                                android:textColor="@color/accent_blue" />
 
-                        <Space
-                            android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_weight="1" />
+                        </LinearLayout>
 
-                        <RelativeLayout
-                            android:id="@+id/con_2"
-                            android:layout_width="70dp"
+
+                        <View
+                            android:id="@+id/view"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/gray" />
+
+                        <!--<HorizontalScrollView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content">-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="top">
+                            android:gravity="center"
+                            android:paddingTop="16dp">
 
-                            <ImageView
-                                android:id="@+id/image"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_centerHorizontal="true"
-                                android:background="@drawable/bg_shape_light_red" />
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginLeft="15dp"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="15dp"
-                                android:src="@drawable/icon4" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <RelativeLayout
+                                android:id="@+id/con_1"
+                                android:layout_width="70dp"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/image"
-                                android:layout_centerHorizontal="true"
-                                android:gravity="center"
-                                android:paddingTop="2dp"
-                                android:text="@string/renew_license"
-                                android:textColor="@color/bg_light_royal"
-                                android:textSize="12sp" />
-                        </RelativeLayout>
+                                android:layout_gravity="top">
 
-                        <Space
-                            android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_weight="1" />
+                                <ImageView
+                                    android:id="@+id/image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_blue" />
 
-                        <RelativeLayout
-                            android:id="@+id/con_3"
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top">
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon1" />
 
-                            <ImageView
-                                android:id="@+id/image"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_centerHorizontal="true"
-                                android:background="@drawable/bg_shape_light_orange" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="@string/new_license"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
 
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginLeft="15dp"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="15dp"
-                                android:src="@drawable/icon2" />
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <RelativeLayout
+                                android:id="@+id/con_2"
+                                android:layout_width="70dp"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/image"
-                                android:layout_centerHorizontal="true"
-                                android:gravity="center"
-                                android:paddingTop="2dp"
-                                android:text="@string/trade_name_reservation"
-                                android:textColor="@color/bg_light_royal"
-                                android:textSize="12sp" />
-                        </RelativeLayout>
+                                android:layout_gravity="top">
 
-                        <Space
-                            android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_weight="1" />
+                                <ImageView
+                                    android:id="@+id/image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_red" />
 
-                        <RelativeLayout
-                            android:id="@+id/con_4"
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top">
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon4" />
 
-                            <ImageView
-                                android:id="@+id/image"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_centerHorizontal="true"
-                                android:background="@drawable/bg_shape_light_green" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="@string/renew_license"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
 
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginLeft="15dp"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="15dp"
-                                android:src="@drawable/icon3" />
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <RelativeLayout
+                                android:id="@+id/con_3"
+                                android:layout_width="70dp"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/image"
-                                android:layout_centerHorizontal="true"
-                                android:gravity="center"
-                                android:paddingTop="2dp"
-                                android:text="@string/new_permit"
-                                android:textColor="@color/bg_light_royal"
-                                android:textSize="12sp" />
-                        </RelativeLayout>
+                                android:layout_gravity="top">
 
+                                <ImageView
+                                    android:id="@+id/image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_orange" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon2" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="@string/trade_name_reservation"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
+
+                            <RelativeLayout
+                                android:id="@+id/con_4"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top">
+
+                                <ImageView
+                                    android:id="@+id/image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_green" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon3" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="@string/new_permit"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                        <!--</HorizontalScrollView>-->
 
                     </LinearLayout>
 
-                    <!--</HorizontalScrollView>-->
+                </android.support.v7.widget.CardView>
 
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/card2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="16dp"
-                android:descendantFocusability="beforeDescendants"
-                android:focusableInTouchMode="true"
-                android:layout_marginTop="16dp">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:background="@color/gray" />
-
-
-                <LinearLayout
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/ic_aboutusicon"
-                            android:tint="@color/bg_light_red" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="5dp"
-                            android:text="@string/application_status"
-                            android:textColor="@color/bg_light_red" />
-                    </LinearLayout>
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="16dp"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:layout_marginTop="16dp">
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_height="8dp"
                         android:background="@color/gray" />
 
-                    <!--<HorizontalScrollView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:paddingTop="@dimen/fab_margin">-->
-
-                    <EditText
-                        android:id="@+id/app_edit_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/enter_application_number"
-                        android:inputType="number"
-                        android:nextFocusLeft="@id/app_edit_text"
-                        android:nextFocusUp="@id/app_edit_text" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:background="@drawable/bg_shape_light_red"
-                        android:paddingBottom="10dp"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:paddingTop="10dp"
-                        android:text="@string/check_status"
-                        android:textAllCaps="false"
-                        android:textColor="@android:color/white" />
-
-                    <!--</HorizontalScrollView>-->
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/card3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:background="@color/gray" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@android:drawable/ic_dialog_map"
-                            android:tint="@color/bg_light_brown" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
-                        <TextView
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_aboutusicon"
+                                android:tint="@color/bg_light_red" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:text="@string/application_status"
+                                android:textColor="@color/bg_light_red" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/gray" />
+
+                        <!--<HorizontalScrollView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingTop="@dimen/fab_margin">-->
+
+                        <EditText
+                            android:id="@+id/app_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/enter_application_number"
+                            android:inputType="number"
+                            android:nextFocusLeft="@id/app_edit_text"
+                            android:nextFocusUp="@id/app_edit_text" />
+
+                        <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="5dp"
-                            android:text="@string/service_centers_location"
-                            android:tint="@color/bg_light_brown" />
+                            android:layout_gravity="end"
+                            android:background="@drawable/bg_shape_light_red"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/check_status"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white" />
+
+                        <!--</HorizontalScrollView>-->
+
                     </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp">
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_height="8dp"
                         android:background="@color/gray" />
 
-                    <!--<HorizontalScrollView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--android:paddingTop="@dimen/fab_margin">-->
 
-                    <com.google.android.gms.maps.MapView
-                        android:id="@+id/map"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        tools:context="com.zeowls.ajmanded.MapsActivity" />
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:orientation="vertical">
 
-                    <!--</HorizontalScrollView>-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
-                </LinearLayout>
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@android:drawable/ic_dialog_map"
+                                android:tint="@color/bg_light_brown" />
 
-            </android.support.v7.widget.CardView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:text="@string/service_centers_location"
+                                android:tint="@color/bg_light_brown" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/gray" />
+
+                        <!--<HorizontalScrollView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingTop="@dimen/fab_margin">-->
+
+                        <com.google.android.gms.maps.MapView
+                            android:id="@+id/map"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            tools:context="com.zeowls.ajmanded.MapsActivity" />
+
+                        <!--</HorizontalScrollView>-->
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
 
-    </ScrollView>
+        </ScrollView>
+
+
+    </LinearLayout>
+
 
 </FrameLayout>

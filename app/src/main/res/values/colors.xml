@@ -11,7 +11,6 @@
     <color name="bg_tab_selected">#c8b070</color>
     <color name="bg_tab_unselected">#000000</color>
 
-    <color name="gray">#ececec</color>
     <color name="red">#ff0000</color>
 
     <color name="accent_orange">#e7953f</color>
@@ -44,7 +43,9 @@
     <color name="bg_royal_dark">#000b62</color>
     <color name="bg_royal_light">#071689</color>
 
-    <color name="gray_dark">#464646</color>
+    <color name="gray">#aeaeae</color>
+    <color name="gray_dark">#717171</color>
+    <color name="gray_darker">#494949</color>
     <color name="gray_light">#e6e6e6</color>
 
 

@@ -9,7 +9,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private Runnable mRunnable;
     private Handler mHandler;
-    private long SPLASH_DISPLAY_LENGTH = 7000;
+    private long SPLASH_DISPLAY_LENGTH = 13000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

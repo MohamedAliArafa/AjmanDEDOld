@@ -89,7 +89,7 @@ public class FaqActivity extends AppCompatActivity {
                     LayoutParams.WRAP_CONTENT,
                     LayoutParams.WRAP_CONTENT));
             newTextView.setBackgroundResource(R.drawable.bg_rounded_left);
-            newTextView.setTextColor(getResources().getColor(android.R.color.white));
+            newTextView.setTextColor(getResources().getColor(android.R.color.black));
             float scale = getResources().getDisplayMetrics().density;
             int dp = (int) (10 * scale + 0.5f);
             newTextView.setPadding(dp, dp, dp, dp);
