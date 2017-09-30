@@ -9,7 +9,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private Runnable mRunnable;
     private Handler mHandler;
-    private long SPLASH_DISPLAY_LENGTH = 13000;
+    private long SPLASH_DISPLAY_LENGTH = 10000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                startActivity(new Intent(SplashActivity.this, MainActivity.class)
+                startActivity(new Intent(SplashActivity.this, WelcomeActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
             }
         };

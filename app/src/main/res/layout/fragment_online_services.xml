@@ -115,7 +115,7 @@
                             android:paddingTop="16dp">
 
                             <RelativeLayout
-                                android:id="@+id/con_1"
+                                android:id="@+id/new_license_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -154,7 +154,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/con_2"
+                                android:id="@+id/renew_license_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -193,7 +193,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/con_3"
+                                android:id="@+id/trade_name_reserv_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -232,7 +232,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/con_4"
+                                android:id="@+id/new_permit_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -333,7 +333,7 @@
                             android:paddingTop="16dp">
 
                             <RelativeLayout
-                                android:id="@+id/con_6"
+                                android:id="@+id/license_info_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -372,7 +372,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/con_7"
+                                android:id="@+id/business_name_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -411,7 +411,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/con_8"
+                                android:id="@+id/tran_status_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -450,7 +450,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/con_9"
+                                android:id="@+id/est_license_fee_btn"
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">

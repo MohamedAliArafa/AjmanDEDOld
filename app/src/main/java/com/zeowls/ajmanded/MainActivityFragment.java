@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.booking.rtlviewpager.RtlViewPager;
 import com.zeowls.ajmanded.ui.AnimatedFragment;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class MainActivityFragment extends Fragment {
     FragmentPagerAdapter adapterViewPager;
     List<Fragment> mFragments;
     String[] fragmentsTitles;
-    private ViewPager vpPager;
+    private RtlViewPager vpPager;
 //    private SpaceTabLayout vpPagerHeader;
 
     public MainActivityFragment() {
@@ -41,7 +42,7 @@ public class MainActivityFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        vpPager = (ViewPager) view.findViewById(R.id.pager);
+        vpPager = view.findViewById(R.id.pager);
 //        vpPagerHeader = (SpaceTabLayout) view.findViewById(R.id.pager_header);
 
         //init the pager fragments
@@ -57,29 +58,15 @@ public class MainActivityFragment extends Fragment {
         mFragments.add(new AboutDEDFragment());
         mFragments.add(new OnlineServicesFragment());
 
-        fragmentsTitles = new String[]{this.getString(R.string.online_services),
+        fragmentsTitles = new String[]{
+                this.getString(R.string.online_services),
                 this.getString(R.string.about_ded),
-                this.getString(R.string.latest_news)};
+                this.getString(R.string.latest_news),
+                this.getString(R.string.online_services)};
 
         //init and set the adapter
         adapterViewPager = new MyPagerAdapter(getFragmentManager());
         vpPager.setAdapter(adapterViewPager);
-
-        // make the pager RTL by calling the last fragment in list
-//        vpPager.setCurrentItem(mFragments.size() - 1);
-
-        //we need the savedInstanceState to get the position
-//        vpPagerHeader.initialize(vpPager, getFragmentManager(), mFragments);
-//
-//        vpPagerHeader.setTabOneText(R.string.home);
-//        vpPagerHeader.setTabTwoText(R.string.e_services);
-//        vpPagerHeader.setTabThreeText(R.string.about_ded);
-//        vpPagerHeader.setTabFourText(R.string.latest_news);
-//
-//        vpPagerHeader.setTabOneIcon(R.drawable.ic_icn1);
-//        vpPagerHeader.setTabTwoIcon(R.drawable.ic_icn2);
-//        vpPagerHeader.setTabThreeIcon(R.drawable.ic_icn3);
-//        vpPagerHeader.setTabFourIcon(R.drawable.ic_icn4);
 
         // Attach the page change listener inside the activity
         vpPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

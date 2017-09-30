@@ -65,13 +65,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mLogo = (ImageView) findViewById(R.id.logo);
-        mAppBar = (AppBarLayout) findViewById(R.id.appbar);
-        vpPager = (ViewPager) findViewById(R.id.pager);
-        mPageIndicatorView = (PageIndicatorView) findViewById(R.id.pageIndicatorView);
-
-//        vpPagerHeader = (SpaceTabLayout) findViewById(R.id.pager_header);
+        mToolbar = findViewById(R.id.toolbar);
+        mLogo = findViewById(R.id.logo);
+        mAppBar = findViewById(R.id.appbar);
+        vpPager = findViewById(R.id.pager);
+        mPageIndicatorView = findViewById(R.id.pageIndicatorView);
 
         mFragments = new ArrayList<>();
         mFragments.add(new HomeTabFragment());
@@ -88,20 +86,7 @@ public class MainActivity extends AppCompatActivity {
         vpPager.setAdapter(adapterViewPager);
         mPageIndicatorView.setViewPager(vpPager);
         // make the pager RTL by calling the last fragment in list
-        vpPager.setCurrentItem(mFragments.size() - 1);
-
-        //we need the savedInstanceState to get the position
-//        vpPagerHeader.initialize(vpPager, getSupportFragmentManager(), mFragments);
-//
-//        vpPagerHeader.setTabOneText(R.string.home);
-//        vpPagerHeader.setTabTwoText(R.string.e_services);
-//        vpPagerHeader.setTabThreeText(R.string.about_ded);
-//        vpPagerHeader.setTabFourText(R.string.latest_news);
-//
-//        vpPagerHeader.setTabOneIcon(R.drawable.ic_home_icon);
-//        vpPagerHeader.setTabTwoIcon(R.drawable.ic_serviceicon);
-//        vpPagerHeader.setTabThreeIcon(R.drawable.ic_aboutusicon);
-//        vpPagerHeader.setTabFourIcon(R.drawable.ic_newsicon);
+//        vpPager.setCurrentItem(mFragments.size() - 1);
 
         // Attach the page change listener inside the activity
         vpPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -132,12 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView fabIconNew = new ImageView(this);
         fabIconNew.setImageDrawable(getResources().getDrawable(R.drawable.ic_socialmediaicon));
-//        FloatingActionButton fab = new FloatingActionButton.Builder(this)
-//                .setContentView(fabIconNew)
-//                .build();
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        int padding = ChatHeadUtils.dpToPx(this, 10);
-//        fab.setPadding(padding, padding, padding, padding);
+        FloatingActionButton fab = findViewById(R.id.fab);
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
 
         ImageView item1 = new ImageView(this);
@@ -163,11 +143,8 @@ public class MainActivity extends AppCompatActivity {
                 .attachTo(fab)
                 .build();
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
-//        mNotiImageView = (ImageView) findViewById(R.id.noti_image_view);
-//        mNotiImageView.setOnTouchListener(this);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mDrawerList = findViewById(R.id.left_drawer);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.string.drawer_open, R.string.drawer_close) {
 
@@ -262,18 +239,6 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
-//        final MenuItem item = menu.findItem(R.id.action_call);
-//        item.getActionView().setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, FaqActivity.class));
-//            }
-//        });
-//        MenuItem action_lang = menu.findItem(R.id.action_lang);
-//        if (isRTL)
-//            action_lang.setIcon(getResources().getDrawable(R.drawable.ic_topicn2));
-//        else
-//            action_lang.setIcon(getResources().getDrawable(R.drawable.ic_topicn1));
         return true;
     }
 
@@ -287,17 +252,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         switch (id) {
             case R.id.action_call:
                 startActivity(new Intent(MainActivity.this, FaqActivity.class));
                 break;
         }
-        // Pass the event to ActionBarDrawerToggle, if it returns
-        // true, then it has handled the app icon touch event
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }

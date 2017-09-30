@@ -38,8 +38,8 @@ public class FaqActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
-        rv = (RecyclerView) findViewById(R.id.recycler_view);
-        linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
+        rv = findViewById(R.id.recycler_view);
+        linearLayout = findViewById(R.id.linearLayout);
         adapter = new SplashChatAdapter();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);

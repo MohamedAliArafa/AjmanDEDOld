@@ -1,38 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
+    <string name="about_ded">عن الدائرة</string>
+
+    <string name="app_name">دائرة عجمان القتصاديهإ</string>
+
+    <string name="application_status">حالة الإستمارة</string>
+
+    <string name="btn_cancel">إلغاء</string>
+    <string name="btn_continue">إستمرار</string>
+
+    <string name="business_name">الاسم\nالتجاري</string>
+
+    <string name="check_status">التأكد من الحالة</string>
+
+    <string name="continue_guest">زائر</string>
+    <string name="continue_login">دخول</string>
+    <string name="continue_register">تسجيل</string>
+
+    <string name="create_new_account">تسجيل مستخدم جديد</string>
+
     <!--Online Services-->
     <string name="e_services">الخدمات الإلكترونية</string>
-    <string name="enquiries">الإستعلامات</string>
-    <string name="new_license">ترخيص\nجديد</string>
-    <string name="renew_license">تجديد\nالترخيص</string>
-    <string name="trade_name_reservation">حجز الاسم التجاري</string>
-    <string name="new_permit">تصريح جديد</string>
-    <string name="licence_information">معلومات\nالترخيص</string>
-    <string name="business_name">الاسم\nالتجاري</string>
-    <string name="transaction_status">حالة\nالمعاملة</string>
-    <string name="estimate_new_license_fees">تقدير رسوم الترخيص الجديدة</string>
-    <string name="user_guide">دليل المستخدم</string>
-    <string name="service_guide">دليل الخدمة</string>
-    <string name="invest_in_ajman">استثمر في عجمان</string>
-    <string name="the_emirate_of_ajman_is_characterized_by_a_strategic_location_a_well_developed_infrastructure_comprising_port_roads_transport_and_industrial">
-تتميز إمارة عجمان بموقع استراتيجي، و بنية تحتية متطورة تشمل الموانئ والطرق والنقل والصناعة
-    </string>
 
-    <!--Main Activity Fragment-->
-    <string name="online_services">الخدمات الإلكترونية</string>
-    <string name="about_ded">عن الدائرة</string>
-    <string name="latest_news">أخر الأخبار</string>
+    <string name="enquiries">الإستعلامات</string>
+
+    <string name="enter_application_number">أدخل رقم الإستمارة</string>
+
+    <string name="estimate_new_license_fees">تقدير رسوم الترخيص الجديدة</string>
+
+    <string name="forget_password">نسيت كلمة المرور</string>
+
+    <string name="guest">زائر</string>
+
     <string name="home">الرئيسية</string>
 
+    <string name="how_would_you_like_to_continue">كيف تريد الإستمرار؟</string>
+
+    <string name="invest_in_ajman">استثمر في عجمان</string>
+
+    <string name="latest_news">أخر الأخبار</string>
+
+    <string name="licence_information">معلومات\nالترخيص</string>
+
+    <string name="login">دخول</string>
 
     <!--AboutDED Fragment-->
     <string name="message">الرسالة</string>
     <string name="message_body">
         تحقيق إقتصاد مزدهر لرفاهية سكان الإمارة من خلال التخطيط وإعداد السياسات و التشريعات و التنظيم و الرقابة و الترويج الإقتصادي
     </string>
+
+    <string name="most_used_services">الخدمات الأكثر إستخداما</string>
+
+    <string name="new_license">ترخيص\nجديد</string>
+    <string name="new_permit">تصريح جديد</string>
+
+    <string name="online_help">المساعدة الإلكترونية</string>
+    <!--Main Activity Fragment-->
+    <string name="online_services">الخدمات الإلكترونية</string>
+
+    <string name="password">كلمة المرور</string>
+
+    <string name="permissions_title">تصاريح</string>
+
+    <string name="register">مستخدم جديد</string>
+
+    <string name="renew_license">تجديد\nالترخيص</string>
+
+    <string name="service_centers_location">أمكان مراكز الخدمة</string>
+    <string name="service_guide">دليل الخدمة</string>
+
+    <string name="the_emirate_of_ajman_is_characterized_by_a_strategic_location_a_well_developed_infrastructure_comprising_port_roads_transport_and_industrial">
+تتميز إمارة عجمان بموقع استراتيجي، و بنية تحتية متطورة تشمل الموانئ والطرق والنقل والصناعة
+    </string>
+
+    <string name="title_activity_maps">خريطة</string>
+
+    <string name="toast_permissions_not_granted">لم يتم السماح بالتصريح</string>
+
+    <string name="trade_name_reservation">حجز الاسم التجاري</string>
+
+    <string name="transaction_status">حالة\nالمعاملة</string>
+
+    <string name="user_guide">دليل المستخدم</string>
+
+    <string name="username">إسم المستخدم</string>
+
+    <string name="value">القيم</string>
+    <string name="value_body">روح الفريق, الشفافية, إسعاد المتعاملين, الإبداء و الإبتكار</string>
+
     <string name="vision">الرؤية</string>
     <string name="vision_body">إقتصاد تنافسي متنوع لإستدامة التنمية في إمارة عجمان</string>
-    <string name="value_body">روح الفريق, الشفافية, إسعاد المتعاملين, الإبداء و الإبتكار</string>
-    <string name="value">القيم</string>
-    <string name="app_name">دائرة عجمان القتصاديهإ</string>
 </resources>
