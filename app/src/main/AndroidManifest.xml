@@ -51,7 +51,8 @@
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".LoginMenuActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".WebViewActivity"></activity>
+        <activity android:name=".WebViewActivity" />
+        <activity android:name=".DashBoardActivity"></activity>
     </application>
 
 </manifest>
