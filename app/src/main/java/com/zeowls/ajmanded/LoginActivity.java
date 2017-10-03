@@ -26,8 +26,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 finish();
             }
-//            startActivity(new Intent(LoginActivity.this, DashBoardActivity.class));
-//            finish();
         });
     }
 }

@@ -28,6 +28,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.zeowls.ajmanded.utility.Constants.URL_INTENT_KEY;
+
 public class WebViewActivity extends AppCompatActivity {
     private static final String TAG = WebViewActivity.class.getSimpleName();
 
@@ -37,7 +39,7 @@ public class WebViewActivity extends AppCompatActivity {
     private ValueCallback<Uri[]> mFilePathCallback;
     private String mCameraPhotoPath;
     private static final int INPUT_FILE_REQUEST_CODE = 1;
-    private static final int FILECHOOSER_RESULTCODE = 2888;
+    private static final int FILE_CHOOSER_RESULT_CODE = 2888;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +58,13 @@ public class WebViewActivity extends AppCompatActivity {
                 view.loadUrl(url, getHeaders());
                 return true;
             }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+            }
         });
-        String url = "http://197.50.62.30:10005/en/entities/createbyform?defid=e65a3e12-691f-448e-9d98-cacf4ba6778b&formName=OnlineForm_Create";
+        String url = getIntent().getStringExtra(URL_INTENT_KEY);
         mWebView.loadUrl(url, getHeaders());
     }
 
@@ -70,6 +77,7 @@ public class WebViewActivity extends AppCompatActivity {
     private Map<String, String> getHeaders() {
         Map<String, String> headers = new HashMap<>();
         headers.put("ZASOUL_CLIENT", "MobileAPP");
+        UserModel userModel = MyApplication.get(this).getUser();
         headers.put("ZASOUL_Username", "M.ali@volcano-design.com");
         headers.put("ZASOUL_Password", "12345");
         return headers;
@@ -162,7 +170,7 @@ public class WebViewActivity extends AppCompatActivity {
             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS
                     , new Parcelable[]{captureIntent});
             // On select image call onActivityResult method of activity
-            startActivityForResult(chooserIntent, FILECHOOSER_RESULTCODE);
+            startActivityForResult(chooserIntent, FILE_CHOOSER_RESULT_CODE);
         }
 
         public void onConsoleMessage(String message, int lineNumber, String sourceID) {

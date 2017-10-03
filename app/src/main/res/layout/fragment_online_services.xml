@@ -569,6 +569,79 @@
                             android:paddingTop="16dp">
 
                             <RelativeLayout
+                                android:id="@+id/trade_name_reserv_btn"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top">
+
+                                <ImageView
+                                    android:id="@+id/trade_name_reserv_image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_orange" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon2" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/trade_name_reserv_image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="@string/trade_name_reservation"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
+
+                            <RelativeLayout
+                                android:id="@+id/intial_approval_btn"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top">
+
+                                <ImageView
+                                    android:id="@+id/intial_approval_image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_green" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon3" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/intial_approval_image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="Initial Approval"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
                                 android:id="@+id/new_license_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
@@ -646,79 +719,6 @@
                                 android:layout_height="1dp"
                                 android:layout_weight="1" />
 
-                            <RelativeLayout
-                                android:id="@+id/trade_name_reserv_btn"
-                                android:layout_width="70dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="top">
-
-                                <ImageView
-                                    android:id="@+id/trade_name_reserv_image"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:background="@drawable/bg_shape_light_orange" />
-
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="15dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon2" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/trade_name_reserv_image"
-                                    android:layout_centerHorizontal="true"
-                                    android:gravity="center"
-                                    android:paddingTop="2dp"
-                                    android:text="@string/trade_name_reservation"
-                                    android:textColor="@color/bg_light_royal"
-                                    android:textSize="12sp" />
-                            </RelativeLayout>
-
-                            <Space
-                                android:layout_width="0dp"
-                                android:layout_height="1dp"
-                                android:layout_weight="1" />
-
-                            <RelativeLayout
-                                android:id="@+id/intial_approval_btn"
-                                android:layout_width="70dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="top">
-
-                                <ImageView
-                                    android:id="@+id/intial_approval_image"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:background="@drawable/bg_shape_light_green" />
-
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="15dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon3" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/intial_approval_image"
-                                    android:layout_centerHorizontal="true"
-                                    android:gravity="center"
-                                    android:paddingTop="2dp"
-                                    android:text="Initial Approval"
-                                    android:textColor="@color/bg_light_royal"
-                                    android:textSize="12sp" />
-                            </RelativeLayout>
-
 
                         </LinearLayout>
 
@@ -727,45 +727,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingTop="16dp">
-
-                            <RelativeLayout
-                                android:id="@+id/new_permit_btn"
-                                android:layout_width="70dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="top">
-
-                                <ImageView
-                                    android:id="@+id/new_permit_image"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:background="@drawable/bg_shape_light_blue" />
-
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="15dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon1" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/new_permit_image"
-                                    android:layout_centerHorizontal="true"
-                                    android:gravity="center"
-                                    android:paddingTop="2dp"
-                                    android:text="New Permit"
-                                    android:textColor="@color/bg_light_royal"
-                                    android:textSize="12sp" />
-                            </RelativeLayout>
-
-                            <Space
-                                android:layout_width="0dp"
-                                android:layout_height="1dp"
-                                android:layout_weight="1" />
 
                             <RelativeLayout
                                 android:id="@+id/link_external_btn"
@@ -797,6 +758,45 @@
                                     android:gravity="center"
                                     android:paddingTop="2dp"
                                     android:text="Link External License"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
+
+                            <RelativeLayout
+                                android:id="@+id/new_permit_btn"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top">
+
+                                <ImageView
+                                    android:id="@+id/new_permit_image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_blue" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/new_permit_image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="New Permit"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -966,7 +966,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginStart="5dp"
-                                android:text="Transactions Status"
+                                android:text="Reports"
                                 android:textColor="@color/accent_orange" />
                         </LinearLayout>
 
@@ -1016,7 +1016,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="ist of Licenses"
+                                    android:text="List of Licenses"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1144,7 +1144,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginStart="5dp"
-                                android:text="Reports"
+                                android:text="Transaction Status"
                                 android:textColor="@color/accent_orange" />
                         </LinearLayout>
 
@@ -1698,178 +1698,6 @@
                         <!--</HorizontalScrollView>-->
 
                     </LinearLayout>
-
-                </android.support.v7.widget.CardView>
-
-                <LinearLayout
-                    android:id="@+id/card3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal">
-
-                    <android.support.v7.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_weight="1">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <View
-                                android:layout_width="20dp"
-                                android:layout_height="match_parent"
-                                android:background="@color/bg_light_blue" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:padding="5dp"
-                                android:paddingTop="2dp"
-                                android:text="@string/user_guide"
-                                android:textColor="@color/bg_light_royal"
-                                android:textSize="@dimen/icon_font" />
-
-                            <ImageView
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
-                                android:layout_marginBottom="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginTop="16dp"
-                                android:contentDescription="@string/user_guide"
-                                android:src="@drawable/icon11" />
-
-                        </LinearLayout>
-
-
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <View
-                                android:layout_width="20dp"
-                                android:layout_height="match_parent"
-                                android:background="@color/bg_lighter_red" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:padding="5dp"
-                                android:paddingTop="2dp"
-                                android:text="@string/service_guide"
-                                android:textColor="@color/bg_light_royal"
-                                android:textSize="@dimen/icon_font" />
-
-                            <ImageView
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
-                                android:layout_marginBottom="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginTop="16dp"
-                                android:contentDescription="@string/service_guide"
-                                android:src="@drawable/icon12" />
-
-                        </LinearLayout>
-
-                    </android.support.v7.widget.CardView>
-
-                </LinearLayout>
-
-                <android.support.v7.widget.CardView
-                    android:id="@+id/card5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp">
-
-                    <android.support.constraint.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp">
-
-                        <ImageView
-                            android:id="@+id/image"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:contentDescription="@string/invest_in_ajman"
-                            android:src="@drawable/ic_icn10"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintStart_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/invest_in_ajman"
-                            android:textColor="@color/bg_dark_blue"
-                            android:textStyle="bold"
-                            app:layout_constraintLeft_toRightOf="@+id/image"
-                            app:layout_constraintStart_toEndOf="@+id/image"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/the_emirate_of_ajman_is_characterized_by_a_strategic_location_a_well_developed_infrastructure_comprising_port_roads_transport_and_industrial"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="150dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:contentDescription="@string/the_emirate_of_ajman_is_characterized_by_a_strategic_location_a_well_developed_infrastructure_comprising_port_roads_transport_and_industrial"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/meeting"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-                    </android.support.constraint.ConstraintLayout>
 
                 </android.support.v7.widget.CardView>
 

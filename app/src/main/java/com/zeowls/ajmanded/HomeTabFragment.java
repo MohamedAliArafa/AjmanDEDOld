@@ -35,6 +35,7 @@ public class HomeTabFragment extends AnimatedFragment {
     CardView cardView1;
     CardView cardView2;
     CardView cardView3;
+    CardView cardView5;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,10 +76,12 @@ public class HomeTabFragment extends AnimatedFragment {
         cardView1 = (CardView) view.findViewById(R.id.card1);
         cardView2 = (CardView) view.findViewById(R.id.card2);
         cardView3 = (CardView) view.findViewById(R.id.card3);
+        cardView5 = (CardView) view.findViewById(R.id.card5);
 
         cardView1.setVisibility(View.INVISIBLE);
         cardView2.setVisibility(View.INVISIBLE);
         cardView3.setVisibility(View.INVISIBLE);
+        cardView5.setVisibility(View.INVISIBLE);
         // Inflate the layout for this fragment
         return view;
     }
@@ -91,7 +94,7 @@ public class HomeTabFragment extends AnimatedFragment {
 
     @Override
     public void startAnimation(){
-        new AnimatedFragment.animate(new View[] { cardView1, cardView2, cardView3 }).execute();
+        new AnimatedFragment.animate(new View[] { cardView1, cardView2, cardView3, cardView5 }).execute();
     }
 
     @Override
