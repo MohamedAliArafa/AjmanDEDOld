@@ -18,13 +18,13 @@ import android.view.ViewGroup;
 
 import com.flipkart.circularImageView.CircularDrawable;
 import com.flipkart.circularImageView.IconDrawer;
-import com.zeowls.ajmanded.notification.ChatHead;
-import com.zeowls.ajmanded.notification.ChatHeadManager;
-import com.zeowls.ajmanded.notification.ChatHeadViewAdapter;
-import com.zeowls.ajmanded.notification.MaximizedArrangement;
-import com.zeowls.ajmanded.notification.MinimizedArrangement;
-import com.zeowls.ajmanded.notification.container.DefaultChatHeadManager;
-import com.zeowls.ajmanded.notification.container.WindowManagerContainer;
+import com.zeowls.ajmanded.libs.notification.ChatHead;
+import com.zeowls.ajmanded.libs.notification.ChatHeadManager;
+import com.zeowls.ajmanded.libs.notification.ChatHeadViewAdapter;
+import com.zeowls.ajmanded.libs.notification.MaximizedArrangement;
+import com.zeowls.ajmanded.libs.notification.MinimizedArrangement;
+import com.zeowls.ajmanded.libs.notification.container.DefaultChatHeadManager;
+import com.zeowls.ajmanded.libs.notification.container.WindowManagerContainer;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -154,7 +154,7 @@ public class ChatHeadService extends Service {
                 .setOngoing(true)
                 .setPriority(NotificationCompat.PRIORITY_MIN)
                 .setCategory(NotificationCompat.CATEGORY_SERVICE)
-                .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), 0))
+                .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, HomeActivity.class), 0))
                 .build();
 
         startForeground(1, notification);

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="com.zeowls.ajmanded.LangFragment"
+    android:name="com.zeowls.ajmanded.screens.Language.LangFragment"
     tools:context="com.zeowls.ajmanded.WelcomeActivity">
 
 </fragment>

@@ -7,7 +7,7 @@
     android:background="@color/accent_orange"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.zeowls.ajmanded.MainActivityFragment"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_home">
 
     <ImageView
         android:id="@+id/imageView2"

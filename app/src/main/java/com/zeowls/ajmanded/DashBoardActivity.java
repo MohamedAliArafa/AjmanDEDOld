@@ -18,8 +18,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.zeowls.ajmanded.ui.CircularAction.FloatingActionMenu;
-import com.zeowls.ajmanded.ui.CircularAction.SubActionButton;
+import com.zeowls.ajmanded.libs.CircularAction.FloatingActionMenu;
+import com.zeowls.ajmanded.libs.CircularAction.SubActionButton;
 
 public class DashBoardActivity extends AppCompatActivity {
 

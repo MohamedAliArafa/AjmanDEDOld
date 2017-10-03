@@ -14,10 +14,10 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.zeowls.ajmanded.ChatSplash.Message;
-import com.zeowls.ajmanded.ChatSplash.Option;
-import com.zeowls.ajmanded.ChatSplash.ResultModel;
-import com.zeowls.ajmanded.ChatSplash.SplashChatAdapter;
+import com.zeowls.ajmanded.libs.ChatSplash.Message;
+import com.zeowls.ajmanded.libs.ChatSplash.Option;
+import com.zeowls.ajmanded.libs.ChatSplash.ResultModel;
+import com.zeowls.ajmanded.libs.ChatSplash.SplashChatAdapter;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -57,7 +57,7 @@ public class FaqActivity extends AppCompatActivity {
     void loadModel(int modelID) {
 
         if (modelID == -1) {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, HomeActivity.class));
             return;
         }
 

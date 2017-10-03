@@ -3,7 +3,7 @@ package com.zeowls.ajmanded;
 import android.content.Context;
 import android.graphics.Point;
 
-import com.zeowls.ajmanded.notification.ChatHeadDefaultConfig;
+import com.zeowls.ajmanded.libs.notification.ChatHeadDefaultConfig;
 
 
 /**

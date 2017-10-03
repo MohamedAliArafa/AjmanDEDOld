@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.booking.rtlviewpager.RtlViewPager;
-import com.zeowls.ajmanded.ui.AnimatedFragment;
+import com.zeowls.ajmanded.libs.AnimatedFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
