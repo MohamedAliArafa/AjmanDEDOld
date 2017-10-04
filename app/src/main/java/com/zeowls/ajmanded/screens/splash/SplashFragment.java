@@ -18,7 +18,7 @@ import com.zeowls.ajmanded.screens.main.MainActivity;
  */
 public class SplashFragment extends Fragment implements SplashContract.ModelView {
 
-    private static final long SPLASH_DISPLAY_LENGTH = 10000;
+    private static final long SPLASH_DISPLAY_LENGTH = 0;
     SplashPresenter splashPresenter;
 
     public SplashFragment() {

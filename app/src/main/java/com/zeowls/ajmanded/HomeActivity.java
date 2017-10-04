@@ -14,6 +14,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,10 +24,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.rd.PageIndicatorView;
+import com.zeowls.ajmanded.adapters.CustomExpandableListAdapter;
+import com.zeowls.ajmanded.adapters.ExpandableListDataSource;
 import com.zeowls.ajmanded.libs.AnimatedFragment;
 import com.zeowls.ajmanded.libs.CircularAction.FloatingActionMenu;
 import com.zeowls.ajmanded.libs.CircularAction.SubActionButton;
@@ -36,12 +40,16 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-    private ListView mDrawerList;
+    private ExpandableListView mExpandableListView;
+    private ExpandableListAdapter mExpandableListAdapter;
+    private List<String> mExpandableListTitle;
+    private Map<String, List<String>> mExpandableListData;
     private ImageView mNotiImageView;
     private boolean isRTL;
 
@@ -143,8 +151,24 @@ public class HomeActivity extends AppCompatActivity {
                 .attachTo(fab)
                 .build();
 
+        initItems();
+
         mDrawerLayout = findViewById(R.id.drawer_layout);
-        mDrawerList = findViewById(R.id.left_drawer);
+        mExpandableListView = findViewById(R.id.left_drawer);
+        View listHeaderView = getLayoutInflater().inflate(R.layout.list_item_drawer_header, null, false);
+        View listFooterView = getLayoutInflater().inflate(R.layout.list_item_drawer_footer, null, false);
+
+        listFooterView.findViewById(R.id.home_text).setOnClickListener(view -> {
+            startActivity(new Intent(this, LoginActivity.class));
+            MyApplication.get(this).removeUser();
+            finish();
+        });
+
+        mExpandableListView.addHeaderView(listHeaderView);
+        mExpandableListView.addFooterView(listFooterView);
+        mExpandableListData = ExpandableListDataSource.getData(this);
+        mExpandableListTitle = new ArrayList(mExpandableListData.keySet());
+        addDrawerItems();
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.string.drawer_open, R.string.drawer_close) {
 
@@ -161,6 +185,21 @@ public class HomeActivity extends AppCompatActivity {
             }
         };
         showChatHead(this, true);
+    }
+
+    private String[] items;
+
+    private void initItems() {
+        items = getResources().getStringArray(R.array.film_genre);
+    }
+
+    private void addDrawerItems() {
+        mExpandableListAdapter = new CustomExpandableListAdapter(this, mExpandableListTitle, mExpandableListData);
+        mExpandableListView.setAdapter(mExpandableListAdapter);
+        mExpandableListView.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+            return false;
+        });
     }
 
     @Override

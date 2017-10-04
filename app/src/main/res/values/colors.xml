@@ -2,6 +2,8 @@
 <resources>
     <color name="colorPrimary">#c8b070</color>
     <color name="colorPrimaryDark">#a48d4e</color>
+    <color name="colorPrimaryDarker">#61573c</color>
+    <color name="colorPrimaryDarkish">#b9a369</color>
     <color name="colorAccent">#ff4043</color>
 
     <!-- tab style-->

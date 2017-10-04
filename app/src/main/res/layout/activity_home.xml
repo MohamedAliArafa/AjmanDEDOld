@@ -60,9 +60,10 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
-    <ListView
+    <ExpandableListView
         android:id="@+id/left_drawer"
         android:layout_width="240dp"
+        android:childDivider="@color/colorPrimaryDark"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_marginTop="?attr/actionBarSize"

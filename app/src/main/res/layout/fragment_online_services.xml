@@ -111,7 +111,7 @@
                             android:paddingTop="16dp">
 
                             <RelativeLayout
-                                android:id="@+id/trade_name_avaliability_btn"
+                                android:id="@+id/trade_name_availability_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -150,7 +150,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/check_application_btn"
+                                android:id="@+id/check_application_status_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -189,7 +189,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/check_inspection_btn"
+                                android:id="@+id/check_inspection_status_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -228,7 +228,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/estimate_renew_fees_btn"
+                                android:id="@+id/estimate_new_license_fees_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -256,7 +256,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Estimate Renew License Fees"
+                                    android:text="Estimate New License Fees"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -310,7 +310,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/business_approval_btn"
+                                android:id="@+id/business_activity_external_approval_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -349,7 +349,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/estimate_permit_fees_btn"
+                                android:id="@+id/estimate_new_permit_fees_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -388,7 +388,7 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/pemit_terms_btn"
+                                android:id="@+id/permit_terms_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -430,7 +430,7 @@
                             android:paddingTop="16dp">
 
                             <RelativeLayout
-                                android:id="@+id/estimate_license_fees_btn"
+                                android:id="@+id/estimate_renew_license_fees_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -468,7 +468,7 @@
                                 android:layout_height="1dp" />
 
                             <RelativeLayout
-                                android:id="@+id/trade_license_inqury_btn"
+                                android:id="@+id/trade_license_inquiry_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
@@ -641,6 +641,11 @@
                                     android:textSize="12sp" />
                             </RelativeLayout>
 
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
+
                             <RelativeLayout
                                 android:id="@+id/new_license_btn"
                                 android:layout_width="70dp"
@@ -713,11 +718,6 @@
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
-
-                            <Space
-                                android:layout_width="0dp"
-                                android:layout_height="1dp"
-                                android:layout_weight="1" />
 
 
                         </LinearLayout>
@@ -1542,7 +1542,7 @@
                             android:paddingTop="16dp">
 
                             <RelativeLayout
-                                android:id="@+id/estimate_license_fee_btn"
+                                android:id="@+id/estimate_new_license_fee_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">

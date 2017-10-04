@@ -21,15 +21,19 @@ import butterknife.ButterKnife;
 import static com.zeowls.ajmanded.utility.Constants.URL_INTENT_KEY;
 import static com.zeowls.ajmanded.utility.Constants.links.BUSINESS_ACTIVITY_EXTERNAL_APPROVAL;
 import static com.zeowls.ajmanded.utility.Constants.links.CERTIFICATE_REQUEST;
+import static com.zeowls.ajmanded.utility.Constants.links.CHECK_APPLICATION_STATUS;
 import static com.zeowls.ajmanded.utility.Constants.links.CHECK_INSPECTION_STATUS;
 import static com.zeowls.ajmanded.utility.Constants.links.DOMAIN_EN;
+import static com.zeowls.ajmanded.utility.Constants.links.ESTIMATE_NEW_LICENSE_FEE;
 import static com.zeowls.ajmanded.utility.Constants.links.ESTIMATE_NEW_PERMIT_FEES;
+import static com.zeowls.ajmanded.utility.Constants.links.ESTIMATE_RENEW_LICENSE_FEE;
 import static com.zeowls.ajmanded.utility.Constants.links.INITIAL_APPROVAL;
 import static com.zeowls.ajmanded.utility.Constants.links.ISSUE_NEW_PERMIT;
 import static com.zeowls.ajmanded.utility.Constants.links.LINK_EXTERNAL_LICENSE;
 import static com.zeowls.ajmanded.utility.Constants.links.MATCHED_ACTIVITIES;
 import static com.zeowls.ajmanded.utility.Constants.links.PERMIT_TERMS_AND_CONDITIONS;
 import static com.zeowls.ajmanded.utility.Constants.links.RENEW_TRADE_LICENSE;
+import static com.zeowls.ajmanded.utility.Constants.links.TRADE_LICENSE_INQUIRY;
 import static com.zeowls.ajmanded.utility.Constants.links.TRADE_LICENSE_ISSAUASE;
 import static com.zeowls.ajmanded.utility.Constants.links.TRADE_NAME_RESERVATION;
 
@@ -71,23 +75,23 @@ public class OnlineServicesFragment extends AnimatedFragment {
     @BindView(R.id.other_card)
     CardView other_card;
 
-    @BindView(R.id.trade_name_avaliability_btn)
+    @BindView(R.id.trade_name_availability_btn)
     RelativeLayout tradeNameAvailabilityBtn;
-    @BindView(R.id.check_application_btn)
+    @BindView(R.id.check_application_status_btn)
     RelativeLayout checkAppStatusBtn;
-    @BindView(R.id.check_inspection_btn)
+    @BindView(R.id.check_inspection_status_btn)
     RelativeLayout checkInsStatusBtn;
     @BindView(R.id.matched_activities_btn)
-    RelativeLayout matchedActivitesBtn;
-    @BindView(R.id.business_approval_btn)
-    RelativeLayout businessActiviteExternalApprovalBtn;
+    RelativeLayout matchedActivitiesBtn;
+    @BindView(R.id.business_activity_external_approval_btn)
+    RelativeLayout businessActivitiesExternalApprovalBtn;
     @BindView(R.id.estimate_permit_fee_btn)
     RelativeLayout estPermitFeeBtn;
-    @BindView(R.id.pemit_terms_btn)
+    @BindView(R.id.permit_terms_btn)
     RelativeLayout permitTermsBtn;
-    @BindView(R.id.estimate_license_fees_btn)
+    @BindView(R.id.estimate_renew_license_fees_btn)
     RelativeLayout estRenewLicenseFeeBtn;
-    @BindView(R.id.trade_license_inqury_btn)
+    @BindView(R.id.trade_license_inquiry_btn)
     RelativeLayout tradeLicenseInquiryBtn;
 
     @BindView(R.id.trade_name_reserv_btn)
@@ -133,8 +137,8 @@ public class OnlineServicesFragment extends AnimatedFragment {
     RelativeLayout businessNameBtn;
     @BindView(R.id.license_information_inquiry_btn)
     RelativeLayout licenseInfoBtn;
-    @BindView(R.id.estimate_license_fee_btn)
-    RelativeLayout estLicenseFeeBtn;
+    @BindView(R.id.estimate_new_license_fee_btn)
+    RelativeLayout estNewLicenseFeeBtn;
 
     View[] views;
 
@@ -144,8 +148,8 @@ public class OnlineServicesFragment extends AnimatedFragment {
         View view = inflater.inflate(R.layout.fragment_online_services, container, false);
         ButterKnife.bind(this, view);
 
-        initAnonymousServices();
-        initAuthenticatedServices();
+        initInquiriesServices();
+        initServices();
 
         inquiries_card.setVisibility(View.GONE);
         e_services_card.setVisibility(View.GONE);
@@ -164,51 +168,45 @@ public class OnlineServicesFragment extends AnimatedFragment {
         return view;
     }
 
-    private void initAuthenticatedServices(){
+    private void initServices(){
+        Intent in = new Intent(getActivity(), WebViewActivity.class);
         tradeNameReservBtn.setOnClickListener(view1 -> {
-            Intent in = new Intent(getActivity(), WebViewActivity.class);
             in.putExtra(URL_INTENT_KEY, DOMAIN_EN + TRADE_NAME_RESERVATION);
             startActivity(in);
         });
 
         initApprovalBtn.setOnClickListener(view1 -> {
-            Intent in = new Intent(getActivity(), WebViewActivity.class);
             in.putExtra(URL_INTENT_KEY, DOMAIN_EN + INITIAL_APPROVAL);
             startActivity(in);
         });
 
         newLicenseBtn.setOnClickListener(view1 -> {
-            Intent in = new Intent(getActivity(), WebViewActivity.class);
             in.putExtra(URL_INTENT_KEY, DOMAIN_EN + TRADE_LICENSE_ISSAUASE);
             startActivity(in);
         });
 
         renewLicenseBtn.setOnClickListener(view1 -> {
-            Intent in = new Intent(getActivity(), WebViewActivity.class);
             in.putExtra(URL_INTENT_KEY, DOMAIN_EN + RENEW_TRADE_LICENSE);
             startActivity(in);
         });
 
-        newPermitBtn.setOnClickListener(view1 -> {
-            Intent in = new Intent(getActivity(), WebViewActivity.class);
-            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + ISSUE_NEW_PERMIT);
-            startActivity(in);
-        });
-
         linkExternalBtn.setOnClickListener(view1 -> {
-            Intent in = new Intent(getActivity(), WebViewActivity.class);
             in.putExtra(URL_INTENT_KEY, DOMAIN_EN + LINK_EXTERNAL_LICENSE);
             startActivity(in);
         });
 
+        newPermitBtn.setOnClickListener(view1 -> {
+            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + ISSUE_NEW_PERMIT);
+            startActivity(in);
+        });
+
         newCertificateBtn.setOnClickListener(view1 -> {
-            Intent in = new Intent(getActivity(), WebViewActivity.class);
             in.putExtra(URL_INTENT_KEY, DOMAIN_EN + CERTIFICATE_REQUEST);
             startActivity(in);
         });
     }
 
-    private void initAnonymousServices(){
+    private void initInquiriesServices(){
         tradeNameAvailabilityBtn.setOnClickListener(view1 -> {
             Intent in = new Intent(getActivity(), WebViewActivity.class);
             in.putExtra(URL_INTENT_KEY, DOMAIN_EN + TRADE_NAME_RESERVATION);
@@ -217,7 +215,7 @@ public class OnlineServicesFragment extends AnimatedFragment {
 
         checkAppStatusBtn.setOnClickListener(view1 -> {
             Intent in = new Intent(getActivity(), WebViewActivity.class);
-            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + CHECK_INSPECTION_STATUS);
+            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + CHECK_APPLICATION_STATUS);
             startActivity(in);
         });
 
@@ -227,19 +225,17 @@ public class OnlineServicesFragment extends AnimatedFragment {
             startActivity(in);
         });
 
-        matchedActivitesBtn.setOnClickListener(view1 -> {
+        estNewLicenseFeeBtn.setOnClickListener(view1 -> {
             Intent in = new Intent(getActivity(), WebViewActivity.class);
-            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + MATCHED_ACTIVITIES);
+            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + ESTIMATE_NEW_LICENSE_FEE);
             startActivity(in);
         });
 
-
-        businessActiviteExternalApprovalBtn.setOnClickListener(view1 -> {
+        estRenewLicenseFeeBtn.setOnClickListener(view1 -> {
             Intent in = new Intent(getActivity(), WebViewActivity.class);
-            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + BUSINESS_ACTIVITY_EXTERNAL_APPROVAL);
+            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + ESTIMATE_RENEW_LICENSE_FEE);
             startActivity(in);
         });
-
 
         estPermitFeeBtn.setOnClickListener(view1 -> {
             Intent in = new Intent(getActivity(), WebViewActivity.class);
@@ -247,9 +243,29 @@ public class OnlineServicesFragment extends AnimatedFragment {
             startActivity(in);
         });
 
+        matchedActivitiesBtn.setOnClickListener(view1 -> {
+            Intent in = new Intent(getActivity(), WebViewActivity.class);
+            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + MATCHED_ACTIVITIES);
+            startActivity(in);
+        });
+
+
+        businessActivitiesExternalApprovalBtn.setOnClickListener(view1 -> {
+            Intent in = new Intent(getActivity(), WebViewActivity.class);
+            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + BUSINESS_ACTIVITY_EXTERNAL_APPROVAL);
+            startActivity(in);
+        });
+
+
         permitTermsBtn.setOnClickListener(view1 -> {
             Intent in = new Intent(getActivity(), WebViewActivity.class);
             in.putExtra(URL_INTENT_KEY, DOMAIN_EN + PERMIT_TERMS_AND_CONDITIONS);
+            startActivity(in);
+        });
+
+        tradeLicenseInquiryBtn.setOnClickListener(view1 -> {
+            Intent in = new Intent(getActivity(), WebViewActivity.class);
+            in.putExtra(URL_INTENT_KEY, DOMAIN_EN + TRADE_LICENSE_INQUIRY);
             startActivity(in);
         });
     }

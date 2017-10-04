@@ -65,6 +65,14 @@ public class MyApplication extends Application {
         return user;
     }
 
+    public void removeUser() {
+        SharedPreferences.Editor editor = PreferenceManager
+                .getDefaultSharedPreferences(getBaseContext()).edit();
+        editor.remove("UserName");
+        editor.remove("Password");
+        editor.apply();
+    }
+
     public void addUser(String username, String password) {
         SharedPreferences.Editor editor = PreferenceManager
                 .getDefaultSharedPreferences(getBaseContext()).edit();

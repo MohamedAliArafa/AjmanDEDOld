@@ -27,13 +27,14 @@ public class AnimatedFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            for (View view : views) {
-                try {
-                    view.setVisibility(View.INVISIBLE);
-                } catch (Exception e){
-                    e.printStackTrace();
+            if (views != null)
+                for (View view : views) {
+                    try {
+                        view.setVisibility(View.INVISIBLE);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
         }
 
         @Override

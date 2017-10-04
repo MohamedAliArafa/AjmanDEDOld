@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="film_genre">
+        <item>Application</item>
+        <item>License Services</item>
+        <item>Permits Services</item>
+        <item>Other Services</item>
+        <item>Reports</item>
+        <item>Inquiries</item>
+        <item>Contact Us</item>
+    </string-array>
+
+    <string-array name="application">
+        <item>Incomplete Applications</item>
+        <item>All Applications</item>
+        <item>Rejected Applications</item>
+        <item>Under Process Applications</item>
+        <item>Completed Applications</item>
+    </string-array>
+
+    <string-array name="license">
+        <item>Trade Name Reservation</item>
+        <item>Issue Initial Approval</item>
+        <item>Issue New License</item>
+        <item>Renew License</item>
+        <item>Cancel License</item>
+        <item>Issue New Certificate</item>
+        <item>Print License</item>
+    </string-array>
+
+    <string-array name="permit">
+        <item>Link External License</item>
+        <item>Issue New Permit</item>
+    </string-array>
+
+    <string-array name="other">
+        <item>Stakeholder fines inquiry</item>
+        <item>Stakeholder fines payment</item>
+        <item>Price List Approval</item>
+        <item>Fraud Complaint Request</item>
+        <item>Proactive Inspection Request</item>
+    </string-array>
+
+    <string-array name="reports">
+        <item>License Report</item>
+        <item>Valid Permissions Report</item>
+        <item>Expired Permissions Report</item>
+    </string-array>
+
+    <string-array name="inquiries">
+        <item>Trade Name Availability</item>
+        <item>Check Application Status</item>
+        <item>Check Inspection Status</item>
+        <item>Estimate Renew license Fees</item>
+        <item>Matched ISIC Activities by Old Activity</item>
+        <item>Business Activity External Approvals</item>
+        <item>Estimate New Permit Fees</item>
+        <item>Permit Terms and Conditions</item>
+        <item>Estimate Renew license Fees</item>
+        <item>Trade license Inquiry</item>
+    </string-array>
+
+    <string-array name="contactus" />
+</resources>

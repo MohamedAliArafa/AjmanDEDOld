@@ -42,10 +42,14 @@ public class LoginMenuFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login_menu, container, false);
         ButterKnife.bind(this, view);
-        mGuestButton.setOnClickListener(view1 ->
-                getActivity().startActivity(new Intent(getActivity(), HomeActivity.class)));
-        mLoginButton.setOnClickListener(view1 ->
-                getActivity().startActivity(new Intent(getActivity(), LoginActivity.class)));
+        mGuestButton.setOnClickListener(view1 -> {
+            getActivity().startActivity(new Intent(getActivity(), HomeActivity.class));
+            getActivity().finish();
+        });
+        mLoginButton.setOnClickListener(view1 ->{
+            getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
+            getActivity().finish();
+        });
         return view;
     }
 

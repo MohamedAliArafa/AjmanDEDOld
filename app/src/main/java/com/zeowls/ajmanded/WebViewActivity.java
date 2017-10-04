@@ -78,8 +78,10 @@ public class WebViewActivity extends AppCompatActivity {
         Map<String, String> headers = new HashMap<>();
         headers.put("ZASOUL_CLIENT", "MobileAPP");
         UserModel userModel = MyApplication.get(this).getUser();
-        headers.put("ZASOUL_Username", "M.ali@volcano-design.com");
-        headers.put("ZASOUL_Password", "12345");
+        if (null != userModel) {
+            headers.put("ZASOUL_Username", "M.ali@volcano-design.com");
+            headers.put("ZASOUL_Password", "12345");
+        }
         return headers;
     }
 
