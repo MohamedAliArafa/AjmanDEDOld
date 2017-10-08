@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.webkit.ConsoleMessage;
@@ -18,14 +19,23 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 
+import com.yarolegovich.slidingrootnav.SlidingRootNav;
+import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
+import com.zeowls.ajmanded.adapters.CustomExpandableListAdapter;
+import com.zeowls.ajmanded.adapters.ExpandableListDataSource;
 import com.zeowls.ajmanded.models.UserModel;
+import com.zeowls.ajmanded.screens.dashboard.DashBoardActivity;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.zeowls.ajmanded.utility.Constants.URL_INTENT_KEY;
@@ -41,12 +51,25 @@ public class WebViewActivity extends AppCompatActivity {
     private static final int INPUT_FILE_REQUEST_CODE = 1;
     private static final int FILE_CHOOSER_RESULT_CODE = 2888;
 
+    private ExpandableListView mExpandableListView;
+    private ExpandableListAdapter mExpandableListAdapter;
+    private List<String> mExpandableListTitle;
+    private Map<String, List<String>> mExpandableListData;
+    private SlidingRootNav mSlidingRootNav;
+
+    private Toolbar mToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
         mWebView = findViewById(R.id.webView);
+        mToolbar = findViewById(R.id.toolbar);
 //        initWebView();
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setElevation(0);
 
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -66,6 +89,72 @@ public class WebViewActivity extends AppCompatActivity {
         });
         String url = getIntent().getStringExtra(URL_INTENT_KEY);
         mWebView.loadUrl(url, getHeaders());
+
+        mSlidingRootNav = new SlidingRootNavBuilder(this)
+                .withToolbarMenuToggle(mToolbar)
+                .withMenuLayout(R.layout.sliding_root_layout)
+                .inject();
+
+//        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mExpandableListView = findViewById(R.id.left_drawer);
+        View listHeaderView = getLayoutInflater().inflate(R.layout.list_item_drawer_header, null, false);
+        View listFooterView = getLayoutInflater().inflate(R.layout.list_item_drawer_footer, null, false);
+
+        listHeaderView.findViewById(R.id.dash_btn).setOnClickListener(view -> {
+            startActivity(new Intent(WebViewActivity.this, DashBoardActivity.class));
+            finish();
+//            dashboardFragment = (DashboardFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG_DASHBOARD);
+//            if (dashboardFragment == null) {
+//                dashboardFragment = new DashboardFragment();
+//            }
+//            toggleFragment(dashboardFragment);
+            mSlidingRootNav.closeMenu(true);
+        });
+
+        listHeaderView.findViewById(R.id.home_btn).setOnClickListener(view -> {
+//            homeFragment = (HomeFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG_HOME);
+//            if (homeFragment == null) {
+//                homeFragment = new HomeFragment();
+//            }
+//            toggleFragment(homeFragment);
+            startActivity(new Intent(WebViewActivity.this, HomeActivity.class));
+            mSlidingRootNav.closeMenu(true);
+        });
+
+        listFooterView.findViewById(R.id.logout_text).setOnClickListener(view -> {
+            startActivity(new Intent(WebViewActivity.this, LoginActivity.class));
+            finish();
+            mSlidingRootNav.closeMenu(true);
+            MyApplication.get(this).removeUser();
+        });
+
+        listFooterView.findViewById(R.id.lang_text).setOnClickListener(view -> {
+            MyApplication.get(this).toggleLocale();
+            mSlidingRootNav.closeMenu(true);
+        });
+
+        listHeaderView.findViewById(R.id.help_btn).setOnClickListener(view -> {
+            startActivity(new Intent(WebViewActivity.this, FaqActivity.class));
+            finish();
+            mSlidingRootNav.closeMenu(true);
+            MyApplication.get(this).removeUser();
+        });
+
+        mExpandableListView.addHeaderView(listHeaderView);
+        mExpandableListView.addFooterView(listFooterView);
+        mExpandableListData = ExpandableListDataSource.getData(this);
+        mExpandableListTitle = new ArrayList(mExpandableListData.keySet());
+        addDrawerItems();
+    }
+
+    private void addDrawerItems() {
+        mExpandableListAdapter = new CustomExpandableListAdapter(this, mExpandableListTitle, mExpandableListData);
+        mExpandableListView.setAdapter(mExpandableListAdapter);
+        mExpandableListView.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
+//            mDrawerLayout.closeDrawer(GravityCompat.START);
+            mSlidingRootNav.closeMenu();
+            return false;
+        });
     }
 
     @Override

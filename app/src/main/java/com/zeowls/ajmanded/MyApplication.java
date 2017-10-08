@@ -8,7 +8,6 @@ import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 
-import com.zeowls.ajmanded.libs.LocaleHelper;
 import com.zeowls.ajmanded.models.UserModel;
 
 import java.util.Locale;
@@ -38,10 +37,10 @@ public class MyApplication extends Application {
         mArLocale = new Locale("ar");
     }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleHelper.onAttach(base, "en"));
-    }
+//    @Override
+//    protected void attachBaseContext(Context base) {
+//        super.attachBaseContext(LocaleHelper.onAttach(base, "en"));
+//    }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -79,6 +78,14 @@ public class MyApplication extends Application {
         editor.putString("UserName", username);
         editor.putString("Password", password);
         editor.apply();
+    }
+
+    public void toggleLocale() {
+        if (Locale.getDefault() == mArLocale){
+            setLocale(2);
+        }else {
+            setLocale(1);
+        }
     }
 
     public void setLocale(int lang) {

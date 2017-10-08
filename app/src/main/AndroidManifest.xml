@@ -43,14 +43,17 @@
         <activity android:name=".LoginMenuActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".WebViewActivity" />
-        <activity android:name=".DashBoardActivity" />
-        <activity android:name=".screens.main.MainActivity"
+        <activity android:name=".screens.dashboard.DashBoardActivity" />
+        <activity
+            android:name=".screens.main.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".screens.barcode.BarcodeActivity"></activity>
     </application>
 
 </manifest>

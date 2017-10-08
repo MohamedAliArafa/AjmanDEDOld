@@ -1,6 +1,6 @@
 [
   {
-    "messages": [{"text": "Good Morning",
+    "messages": [{"text": "Hello",
       "image" : "http://site.com/image.jpg"},{"text": "How can I assist you?",
       "image" : "http://site.com/image.jpg"}],
     "options" : [{"message":"i want to renew my license", "code":1}]

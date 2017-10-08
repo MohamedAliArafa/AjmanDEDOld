@@ -7,7 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.zeowls.ajmanded.MyApplication;
 import com.zeowls.ajmanded.R;
@@ -27,6 +31,15 @@ public class LangFragment extends Fragment {
     @BindView(R.id.btn_english)
     Button mEnglishButton;
 
+    @BindView(R.id.lang_container_ll)
+    LinearLayout mLangContainer;
+
+    @BindView(R.id.iv_logo)
+    ImageView mLogoImage;
+
+    @BindView(R.id.iv_logo_colored)
+    ImageView mLogoColoredImage;
+
     public LangFragment() {
         // Required empty public constructor
     }
@@ -45,6 +58,12 @@ public class LangFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_lang_menu, container, false);
         ButterKnife.bind(this, view);
+        Animation slideInUpAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_in_up);
+        Animation slideInRightAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_in_left);
+        Animation slideInDownAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_in_down);
+        mLangContainer.startAnimation(slideInRightAnimation);
+        mLogoColoredImage.startAnimation(slideInUpAnimation);
+        mLogoImage.startAnimation(slideInDownAnimation);
         mArabicButton.setOnClickListener(v -> {
             mPresenter.chooseArabic();
             if (((MyApplication) getContext().getApplicationContext()).getUser() != null)

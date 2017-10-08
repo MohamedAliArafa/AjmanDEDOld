@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.zeowls.ajmanded.screens.dashboard.DashBoardActivity;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -23,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please Enter your Password", Toast.LENGTH_SHORT).show();
             else {
                 MyApplication.get(LoginActivity.this).addUser(username.getText().toString(), password.getText().toString());
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                startActivity(new Intent(LoginActivity.this, DashBoardActivity.class));
                 finish();
             }
         });

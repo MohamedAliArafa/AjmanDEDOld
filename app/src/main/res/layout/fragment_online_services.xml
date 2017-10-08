@@ -26,7 +26,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Online Services"
+            android:text="@string/online_services"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -89,7 +89,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginStart="5dp"
-                                android:text="Inquiries"
+                                android:text="@string/inquiries"
                                 android:textColor="@color/accent_blue" />
 
                         </LinearLayout>
@@ -109,45 +109,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingTop="16dp">
-
-                            <RelativeLayout
-                                android:id="@+id/trade_name_availability_btn"
-                                android:layout_width="70dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="top">
-
-                                <ImageView
-                                    android:id="@+id/trade_name_availability_image"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:background="@drawable/bg_shape_light_blue" />
-
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="15dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon1" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/trade_name_availability_image"
-                                    android:layout_centerHorizontal="true"
-                                    android:gravity="center"
-                                    android:paddingTop="2dp"
-                                    android:text="Trade Name Availability"
-                                    android:textColor="@color/bg_light_royal"
-                                    android:textSize="12sp" />
-                            </RelativeLayout>
-
-                            <Space
-                                android:layout_width="0dp"
-                                android:layout_height="1dp"
-                                android:layout_weight="1" />
 
                             <RelativeLayout
                                 android:id="@+id/check_application_status_btn"
@@ -178,7 +139,45 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Check Application Status"
+                                    android:text="@string/check_application_status"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
+
+                            <RelativeLayout
+                                android:id="@+id/trade_name_availability_btn"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top">
+
+                                <ImageView
+                                    android:id="@+id/trade_name_availability_image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_blue" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/trade_name_availability_image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="@string/trade_name_availability"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -205,7 +204,6 @@
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="15dp"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
                                     android:src="@drawable/icon2" />
@@ -217,7 +215,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Check Inspection Status"
+                                    android:text="@string/check_inspection_status"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -228,13 +226,13 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/estimate_new_license_fees_btn"
+                                android:id="@+id/trade_license_inquiry_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
 
                                 <ImageView
-                                    android:id="@+id/estimate_renew_fees_image"
+                                    android:id="@+id/trade_license_inqury_image"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_centerHorizontal="true"
@@ -244,7 +242,6 @@
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="15dp"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
                                     android:src="@drawable/icon3" />
@@ -252,15 +249,19 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/estimate_renew_fees_image"
+                                    android:layout_below="@+id/trade_license_inqury_image"
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Estimate New License Fees"
+                                    android:text="@string/trade_license_inquiry"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
 
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
 
                         </LinearLayout>
 
@@ -269,7 +270,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingTop="16dp">
-
                             <RelativeLayout
                                 android:id="@+id/matched_activities_btn"
                                 android:layout_width="70dp"
@@ -299,7 +299,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Matched ISIC Activites by Old Activity"
+                                    android:text="@string/matched_isic_activites_by_old_activity"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -338,46 +338,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Business Activity External Approval"
-                                    android:textColor="@color/bg_light_royal"
-                                    android:textSize="12sp" />
-                            </RelativeLayout>
-
-                            <Space
-                                android:layout_width="0dp"
-                                android:layout_height="1dp"
-                                android:layout_weight="1" />
-
-                            <RelativeLayout
-                                android:id="@+id/estimate_new_permit_fees_btn"
-                                android:layout_width="70dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="top">
-
-                                <ImageView
-                                    android:id="@+id/estimate_permit_fees_image"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:background="@drawable/bg_shape_light_orange" />
-
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="15dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon2" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/estimate_permit_fees_image"
-                                    android:layout_centerHorizontal="true"
-                                    android:gravity="center"
-                                    android:paddingTop="2dp"
-                                    android:text="Estimate New Permit Fees"
+                                    android:text="@string/business_activity_external_approval"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -416,10 +377,54 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Permit Terms Conditions"
+                                    android:text="@string/permit_terms_conditions"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
+
+                            <RelativeLayout
+                                android:id="@+id/estimate_new_license_fees_btn"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top">
+
+                                <ImageView
+                                    android:id="@+id/estimate_renew_fees_image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_green" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon3" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/estimate_renew_fees_image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="@string/estimate_new_license_fees"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
 
 
                         </LinearLayout>
@@ -446,7 +451,6 @@
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="15dp"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
                                     android:src="@drawable/icon1" />
@@ -458,7 +462,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Estimate Renew License Fees"
+                                    android:text="@string/estimate_renew_license_fees"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -468,17 +472,17 @@
                                 android:layout_height="1dp" />
 
                             <RelativeLayout
-                                android:id="@+id/trade_license_inquiry_btn"
+                                android:id="@+id/estimate_new_permit_fees_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
 
                                 <ImageView
-                                    android:id="@+id/trade_license_inqury_image"
+                                    android:id="@+id/estimate_permit_fees_image"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_centerHorizontal="true"
-                                    android:background="@drawable/bg_shape_light_green" />
+                                    android:background="@drawable/bg_shape_light_orange" />
 
                                 <ImageView
                                     android:layout_width="20dp"
@@ -487,16 +491,16 @@
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon3" />
+                                    android:src="@drawable/icon2" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/trade_license_inqury_image"
+                                    android:layout_below="@+id/estimate_permit_fees_image"
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Trade License Inquery"
+                                    android:text="@string/estimate_new_permit_fees"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -636,7 +640,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Initial Approval"
+                                    android:text="@string/initial_approval"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -729,45 +733,6 @@
                             android:paddingTop="16dp">
 
                             <RelativeLayout
-                                android:id="@+id/link_external_btn"
-                                android:layout_width="70dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="top">
-
-                                <ImageView
-                                    android:id="@+id/link_external_image"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:background="@drawable/bg_shape_light_red" />
-
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="15dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon4" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/link_external_image"
-                                    android:layout_centerHorizontal="true"
-                                    android:gravity="center"
-                                    android:paddingTop="2dp"
-                                    android:text="Link External License"
-                                    android:textColor="@color/bg_light_royal"
-                                    android:textSize="12sp" />
-                            </RelativeLayout>
-
-                            <Space
-                                android:layout_width="0dp"
-                                android:layout_height="1dp"
-                                android:layout_weight="1" />
-
-                            <RelativeLayout
                                 android:id="@+id/new_permit_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
@@ -796,7 +761,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="New Permit"
+                                    android:text="@string/new_permit"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -835,7 +800,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="New Certificate"
+                                    android:text="@string/new_certificate"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -874,7 +839,46 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Print License"
+                                    android:text="@string/cancel_license"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
+
+                            <RelativeLayout
+                                android:id="@+id/link_external_btn"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top">
+
+                                <ImageView
+                                    android:id="@+id/link_external_image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_red" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon4" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/link_external_image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="@string/link_external_license"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -886,6 +890,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="16dp">
+
+                            <!--<Space-->
+                                <!--android:layout_width="25dp"-->
+                                <!--android:layout_height="1dp" />-->
 
                             <RelativeLayout
                                 android:id="@+id/link_owner_btn"
@@ -916,10 +924,45 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Link Owner Account"
+                                    android:text="@string/ISIC_confirmation"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
+
+
+                            <!--<RelativeLayout-->
+                                <!--android:id="@+id/license_btn"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="70dp"-->
+                                <!--android:layout_gravity="top">-->
+
+                                <!--<ImageView-->
+                                    <!--android:id="@+id/license_image"-->
+                                    <!--android:layout_width="50dp"-->
+                                    <!--android:layout_height="50dp"-->
+                                    <!--android:layout_centerHorizontal="true"-->
+                                    <!--android:background="@drawable/bg_shape_light_green" />-->
+
+                                <!--<ImageView-->
+                                    <!--android:layout_width="20dp"-->
+                                    <!--android:layout_height="20dp"-->
+                                    <!--android:layout_centerHorizontal="true"-->
+                                    <!--android:layout_marginLeft="15dp"-->
+                                    <!--android:layout_marginStart="15dp"-->
+                                    <!--android:layout_marginTop="15dp"-->
+                                    <!--android:src="@drawable/icon3" />-->
+
+                                <!--<TextView-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:layout_below="@+id/license_image"-->
+                                    <!--android:layout_centerHorizontal="true"-->
+                                    <!--android:gravity="center"-->
+                                    <!--android:paddingTop="2dp"-->
+                                    <!--android:text="@string/print_license"-->
+                                    <!--android:textColor="@color/bg_light_royal"-->
+                                    <!--android:textSize="12sp" />-->
+                            <!--</RelativeLayout>-->
 
                         </LinearLayout>
 
@@ -966,7 +1009,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginStart="5dp"
-                                android:text="Reports"
+                                android:text="@string/reports"
                                 android:textColor="@color/accent_orange" />
                         </LinearLayout>
 
@@ -1016,7 +1059,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="List of Licenses"
+                                    android:text="@string/list_of_licenses"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1055,7 +1098,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Valid Permits Report"
+                                    android:text="@string/valid_permits_report"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1094,7 +1137,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Expired Permits Report"
+                                    android:text="@string/expired_permits_report"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1144,7 +1187,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginStart="5dp"
-                                android:text="Transaction Status"
+                                android:text="@string/transaction_status"
                                 android:textColor="@color/accent_orange" />
                         </LinearLayout>
 
@@ -1194,7 +1237,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Transaction In Process"
+                                    android:text="@string/transaction_in_process"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1233,7 +1276,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="All Transaction"
+                                    android:text="@string/all_transaction"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1272,7 +1315,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Transaction Under Review"
+                                    android:text="@string/transaction_under_review"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1311,7 +1354,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Completed Transactions"
+                                    android:text="@string/completed_transactions"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="@dimen/icon_font" />
                             </RelativeLayout>
@@ -1361,7 +1404,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginStart="5dp"
-                                android:text="Others"
+                                android:text="@string/others"
                                 android:textColor="@color/accent_orange" />
                         </LinearLayout>
 
@@ -1411,7 +1454,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="External Approval"
+                                    android:text="@string/external_approval"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1450,7 +1493,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Transaction Status"
+                                    android:text="@string/transaction_status"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1489,7 +1532,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Business name Inquery"
+                                    android:text="@string/business_name_inquiry"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1528,7 +1571,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="License Information Inquiry"
+                                    android:text="@string/license_information_inquiry"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="@dimen/icon_font" />
                             </RelativeLayout>
@@ -1570,7 +1613,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Estimate New License Fees"
+                                    android:text="@string/estimate_new_license_fees"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1609,7 +1652,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Estimate Renew License Fees"
+                                    android:text="@string/estimate_renew_license_fees"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1648,7 +1691,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="Estimate New Permit Fees"
+                                    android:text="@string/estimate_new_permit_fees"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>
@@ -1687,7 +1730,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
-                                    android:text="New Permit Conditions"
+                                    android:text="@string/new_permit_conditions"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="@dimen/icon_font" />
                             </RelativeLayout>

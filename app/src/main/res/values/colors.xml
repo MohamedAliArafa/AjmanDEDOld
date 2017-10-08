@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#c8b070</color>
-    <color name="colorPrimaryDark">#a48d4e</color>
+    <color name="colorPrimary">#c6af6c</color>
+    <color name="colorPrimaryDark">#a08d49</color>
     <color name="colorPrimaryDarker">#61573c</color>
     <color name="colorPrimaryDarkish">#b9a369</color>
     <color name="colorAccent">#ff4043</color>
@@ -12,8 +12,6 @@
 
     <color name="bg_tab_selected">#c8b070</color>
     <color name="bg_tab_unselected">#000000</color>
-
-    <color name="red">#ff0000</color>
 
     <color name="accent_orange">#e7953f</color>
     <color name="accent_blue">#81c8f6</color>
@@ -46,9 +44,17 @@
     <color name="bg_royal_light">#071689</color>
 
     <color name="gray">#aeaeae</color>
-    <color name="gray_dark">#717171</color>
-    <color name="gray_darker">#494949</color>
-    <color name="gray_light">#e6e6e6</color>
+    <color name="gray_dark">#b0b0b0</color>
+    <color name="gray_darker">#737373</color>
+    <color name="gray_darken">#4b4b4b</color>
+    <color name="gray_light">#d5d5d5</color>
+    <color name="gray_lighter">#ededed</color>
+
+    <color name="red">#d11248</color>
+    <color name="brown">#e5662f</color>
+    <color name="blue">#061588</color>
+    <color name="beige">#b28977</color>
+    <color name="cyan">#44bbc3</color>
 
 
     <color name="overlay_color">#AA000000</color>

@@ -2,16 +2,45 @@
 <resources>
     <string name="about_ded">عن الدائرة</string>
 
+    <string name="account_settings">إعدادات الحساب</string>
+
+    <string name="active_license">الرخص السارية</string>
+    <string name="active_permits">" التصاريح السارية"</string>
+
+    <string name="all_transaction">جميع المعاملات</string>
+
     <string name="app_name">دائرة عجمان القتصاديهإ</string>
 
     <string name="application_status">حالة الإستمارة</string>
 
+    <string name="arabic">العربية</string>
+
+    <string name="banned_licenses">الرخص المحظورة</string>
+
     <string name="btn_cancel">إلغاء</string>
     <string name="btn_continue">إستمرار</string>
 
-    <string name="business_name">الاسم\nالتجاري</string>
+    <string name="business_activity_external_approval">تصاريح العمل الخارجية</string>
+    <string name="business_activity_guide">دليل الأنشطة</string>
+    <string name="business_name">الاسم التجاري</string>
+    <string name="business_name_inquiry">إستعلام عن إسم النشاط</string>
 
+    <string name="cancel">إلغاء</string>
+
+    <string name="canceled_liceneses">الرخص الملغاة</string>
+    <string name="canceled_licenses">الرخص الملغاة</string>
+
+    <string name="change_language">تغيير اللغة</string>
+
+    <string name="check_inspection_status">التحقق من حالة التفتيش</string>
     <string name="check_status">التأكد من الحالة</string>
+
+    <string name="completed">" الطلبات المنتهية"</string>
+    <string name="completed_transactions">المعاملات المنتهية</string>
+
+    <string name="consumer_guide">دليل المستهلك</string>
+
+    <string name="contact_us">إتصل بنا</string>
 
     <string name="continue_guest">زائر</string>
     <string name="continue_login">دخول</string>
@@ -19,30 +48,59 @@
 
     <string name="create_new_account">تسجيل مستخدم جديد</string>
 
+    <string name="dashboard">اللوحة المرئية</string>
+
     <!--Online Services-->
     <string name="e_services">الخدمات الإلكترونية</string>
+
+    <string name="english">الإنجليزية</string>
 
     <string name="enquiries">الإستعلامات</string>
 
     <string name="enter_application_number">أدخل رقم الإستمارة</string>
 
     <string name="estimate_new_license_fees">تقدير رسوم الترخيص الجديدة</string>
+    <string name="estimate_new_permit_fees">تقدير تكلفة تصريح جديد</string>
+    <string name="estimate_renew_license_fees">تكلفة تجديد</string>
+
+    <string name="expired_license">الرخص المنتهية</string>
+    <string name="expired_permits">التصاريح المنتهية</string>
+    <string name="expired_permits_report">تقرير التصاريح المنتهية</string>
+
+    <string name="external_approval">تصريح خارجى</string>
 
     <string name="forget_password">نسيت كلمة المرور</string>
 
     <string name="guest">زائر</string>
 
     <string name="home">الرئيسية</string>
+    <string name="home_screen">الصفحة الرئيسية</string>
 
     <string name="how_would_you_like_to_continue">كيف تريد الإستمرار؟</string>
 
+    <string name="inquiries">إستعلامات</string>
+
     <string name="invest_in_ajman">استثمر في عجمان</string>
+
+    <string name="issue_new">إصدار رخصة</string>
 
     <string name="latest_news">أخر الأخبار</string>
 
-    <string name="licence_information">معلومات\nالترخيص</string>
+    <string name="licence_information">معلومات الترخيص</string>
 
-    <string name="login">دخول</string>
+    <string name="license">رخصة</string>
+    <string name="license_information_inquiry">إستعلام بيانات الرخصة</string>
+
+    <string name="link_external_license">ربط رخصة خارجية</string>
+    <string name="link_owner_account">ربط مالك خارجى</string>
+
+    <string name="list_of_licenses">فائمة الرخص</string>
+
+    <string name="login">تسجيل دخول</string>
+
+    <string name="logout">تسجيل خروج</string>
+
+    <string name="matched_isic_activites_by_old_activity">النشاطات المطابقة للنشاط القديم</string>
 
     <!--AboutDED Fragment-->
     <string name="message">الرسالة</string>
@@ -52,23 +110,43 @@
 
     <string name="most_used_services">الخدمات الأكثر إستخداما</string>
 
-    <string name="new_license">ترخيص\nجديد</string>
-    <string name="new_permit">تصريح جديد</string>
+    <string name="new_certificate">إصدار شهادة</string>
+    <string name="new_license">إصدار رخصة</string>
+    <string name="new_permit">" إصدار تصريح"</string>
+    <string name="new_permit_conditions">شروط إصدار تصريح</string>
 
     <string name="online_help">المساعدة الإلكترونية</string>
     <!--Main Activity Fragment-->
     <string name="online_services">الخدمات الإلكترونية</string>
 
+    <string name="others">أخري</string>
+
     <string name="password">كلمة المرور</string>
+
+    <string name="pending">قيد الإجراء</string>
 
     <string name="permissions_title">تصاريح</string>
 
+    <string name="permit">تصريح</string>
+    <string name="permit_terms_conditions">شروط و أحكام التصريح</string>
+
+    <string name="print_license">طباعة الرخصة</string>
+
     <string name="register">مستخدم جديد</string>
 
-    <string name="renew_license">تجديد\nالترخيص</string>
+    <string name="rejected">مرفوض</string>
+
+    <string name="renew">تجديد</string>
+    <string name="renew_license">تجديد رخصة</string>
+
+    <string name="reports">تقارير</string>
 
     <string name="service_centers_location">أمكان مراكز الخدمة</string>
     <string name="service_guide">دليل الخدمة</string>
+
+    <string name="suggestions_amp_complaints">المقتراحات والشكاوي</string>
+
+    <string name="tasks">الخدمات</string>
 
     <string name="the_emirate_of_ajman_is_characterized_by_a_strategic_location_a_well_developed_infrastructure_comprising_port_roads_transport_and_industrial">
 تتميز إمارة عجمان بموقع استراتيجي، و بنية تحتية متطورة تشمل الموانئ والطرق والنقل والصناعة
@@ -78,17 +156,46 @@
 
     <string name="toast_permissions_not_granted">لم يتم السماح بالتصريح</string>
 
+    <string name="total_napplications">جميع\nالمعاملات</string>
+    <string name="total_nlicense">جميع\nالرخص</string>
+    <string name="total_permits">جميع\nالتصاريح</string>
+
+    <string name="trade_license_inquiry">إستعلام رخصة تجارية</string>
+    <string name="trade_name_availability">التحقق من الإسم التجاري</string>
     <string name="trade_name_reservation">حجز الاسم التجاري</string>
 
-    <string name="transaction_status">حالة\nالمعاملة</string>
+    <string name="transaction_in_process">إستكمال المعاملات</string>
+    <string name="transaction_status">حالة المعاملة</string>
+    <string name="transaction_under_review">معاملات قيد التدقيق</string>
+
+    <string name="under_process">قيد التدقيق</string>
 
     <string name="user_guide">دليل المستخدم</string>
 
     <string name="username">إسم المستخدم</string>
 
+    <string name="valid_permits_report">تقرير التصاريح السارية</string>
+
     <string name="value">القيم</string>
     <string name="value_body">روح الفريق, الشفافية, إسعاد المتعاملين, الإبداء و الإبتكار</string>
 
+    <string name="view_my">عرض</string>
+
     <string name="vision">الرؤية</string>
     <string name="vision_body">إقتصاد تنافسي متنوع لإستدامة التنمية في إمارة عجمان</string>
+    <string name="cancel_license">إلغاء رخصة</string>
+    <string name="certificate_request">طلب شهادة</string>
+    <string name="issue_initial_approval">" إصدار موافقة مبدئية"</string>
+    <string name="issue_new_permit">إصدار تصريح</string>
+    <string name="issue_trade_license">إصدار رخصة</string>
+    <string name="renew_trade_license">تجديد رخصة</string>
+    <string name="canceled_permits">التصاريح الملغاة</string>
+    <string name="check_application_status">الاستعلام عن حالة معاملة</string>
+    <string name="ISIC_confirmation">الاستعلام عن موائمة انشطة الايزك</string>
+    <string name="initial_approval">إصدار موافقة مبدئية</string>
+    <string name="mock_license_no_34087">رخصة رقم 34087</string>
+    <string name="mock_limited_liability_company">شركه ذات مسئوليه محدوده</string>
+    <string name="mock_professional_license">الرخصة المهنية</string>
+    <string name="mock_issued_at_march_22_2016">صدر في 22 مارس 2016</string>
+    <string name="mock_expiry_at_march_21_2018">انتهاء في 21 مارس 2018</string>
 </resources>

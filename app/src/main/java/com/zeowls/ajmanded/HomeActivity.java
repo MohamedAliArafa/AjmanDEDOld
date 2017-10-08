@@ -1,23 +1,12 @@
 package com.zeowls.ajmanded;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -28,45 +17,41 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 
-import com.rd.PageIndicatorView;
+import com.yarolegovich.slidingrootnav.SlidingRootNav;
+import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
+import com.yarolegovich.slidingrootnav.callback.DragListener;
 import com.zeowls.ajmanded.adapters.CustomExpandableListAdapter;
 import com.zeowls.ajmanded.adapters.ExpandableListDataSource;
-import com.zeowls.ajmanded.libs.AnimatedFragment;
-import com.zeowls.ajmanded.libs.CircularAction.FloatingActionMenu;
-import com.zeowls.ajmanded.libs.CircularAction.SubActionButton;
+import com.zeowls.ajmanded.screens.Login.LoginFragment;
+import com.zeowls.ajmanded.screens.dashboard.DashBoardActivity;
+import com.zeowls.ajmanded.screens.dashboard.DashboardFragment;
+import com.zeowls.ajmanded.screens.home.HomeFragment;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements DragListener {
 
-    private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mDrawerToggle;
     private ExpandableListView mExpandableListView;
     private ExpandableListAdapter mExpandableListAdapter;
     private List<String> mExpandableListTitle;
     private Map<String, List<String>> mExpandableListData;
-    private ImageView mNotiImageView;
     private boolean isRTL;
 
     private Toolbar mToolbar;
     private ImageView mLogo;
     private AppBarLayout mAppBar;
-
-    FragmentPagerAdapter adapterViewPager;
-    List<Fragment> mFragments;
-    String[] fragmentsTitles;
-    private ViewPager vpPager;
-    PageIndicatorView mPageIndicatorView;
-
-//    private SpaceTabLayout vpPagerHeader;
-
-    private static final int CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE = 100;
     private boolean restartService = true;
+    private SlidingRootNav mSlidingRootNav;
+
+    private DashboardFragment dashboardFragment;
+    private HomeFragment homeFragment;
+    private LoginFragment loginFragment;
+    private String FRAGMENT_TAG_DASHBOARD = "dashboard_key_fragment";
+    private String FRAGMENT_TAG_HOME = "home_key_fragment";
+    private String FRAGMENT_TAG_LOGIN = "login_key_fragment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,92 +61,101 @@ public class HomeActivity extends AppCompatActivity {
         mToolbar = findViewById(R.id.toolbar);
         mLogo = findViewById(R.id.logo);
         mAppBar = findViewById(R.id.appbar);
-        vpPager = findViewById(R.id.pager);
-        mPageIndicatorView = findViewById(R.id.pageIndicatorView);
-
-        mFragments = new ArrayList<>();
-        mFragments.add(new HomeTabFragment());
-        mFragments.add(new AboutDEDFragment());
-//        mFragments.add(new AboutDEDFragment());
-        mFragments.add(new OnlineServicesFragment());
-
-        fragmentsTitles = new String[]{this.getString(R.string.online_services),
-                this.getString(R.string.about_ded),
-                this.getString(R.string.latest_news)};
-
-        //init and set the adapter
-        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
-        mPageIndicatorView.setViewPager(vpPager);
-        // make the pager RTL by calling the last fragment in list
-//        vpPager.setCurrentItem(mFragments.size() - 1);
-
-        // Attach the page change listener inside the activity
-        vpPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            // This method will be invoked when a new page becomes selected.
-            @Override
-            public void onPageSelected(int position) {
-                ((AnimatedFragment) mFragments.get(position)).startAnimation();
-            }
-
-            // This method will be invoked when the current page is scrolled
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                // Code goes here
-            }
-
-            // Called when the scroll state changes:
-            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                // Code goes here
-            }
-        });
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0);
 
-        ImageView fabIconNew = new ImageView(this);
-        fabIconNew.setImageDrawable(getResources().getDrawable(R.drawable.ic_socialmediaicon));
-        FloatingActionButton fab = findViewById(R.id.fab);
-        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
+        FragmentManager fragmentManager = getSupportFragmentManager();
 
-        ImageView item1 = new ImageView(this);
-        ImageView item2 = new ImageView(this);
-        ImageView item3 = new ImageView(this);
-        ImageView item4 = new ImageView(this);
-
-        SubActionButton button1 = itemBuilder.setContentView(item1).build();
-        button1.setBackgroundResource(R.drawable.ic_facebookicon);
-        SubActionButton button2 = itemBuilder.setContentView(item2).build();
-        button2.setBackgroundResource(R.drawable.ic_whatsappicon);
-        SubActionButton button3 = itemBuilder.setContentView(item3).build();
-        button3.setBackgroundResource(R.drawable.ic_twittericon);
-        SubActionButton button4 = itemBuilder.setContentView(item4).build();
-        button4.setBackgroundResource(R.drawable.ic_youtubeicon);
-
-        //attach the sub buttons
-        new FloatingActionMenu.Builder(this)
-                .addSubActionView(button4)
-                .addSubActionView(button3)
-                .addSubActionView(button2)
-                .addSubActionView(button1)
-                .attachTo(fab)
-                .build();
+//        ImageView fabIconNew = new ImageView(this);
+//        fabIconNew.setImageDrawable(getResources().getDrawable(R.drawable.ic_socialmediaicon));
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
+//
+//        ImageView item1 = new ImageView(this);
+//        ImageView item2 = new ImageView(this);
+//        ImageView item3 = new ImageView(this);
+//        ImageView item4 = new ImageView(this);
+//
+//        SubActionButton button1 = itemBuilder.setContentView(item1).build();
+//        button1.setBackgroundResource(R.drawable.ic_facebookicon);
+//        SubActionButton button2 = itemBuilder.setContentView(item2).build();
+//        button2.setBackgroundResource(R.drawable.ic_whatsappicon);
+//        SubActionButton button3 = itemBuilder.setContentView(item3).build();
+//        button3.setBackgroundResource(R.drawable.ic_twittericon);
+//        SubActionButton button4 = itemBuilder.setContentView(item4).build();
+//        button4.setBackgroundResource(R.drawable.ic_youtubeicon);
+//
+//        //attach the sub buttons
+//        new FloatingActionMenu.Builder(this)
+//                .addSubActionView(button4)
+//                .addSubActionView(button3)
+//                .addSubActionView(button2)
+//                .addSubActionView(button1)
+//                .attachTo(fab)
+//                .build();
 
         initItems();
 
-        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mSlidingRootNav = new SlidingRootNavBuilder(this)
+                .withToolbarMenuToggle(mToolbar)
+                .withMenuLayout(R.layout.sliding_root_layout)
+                .inject();
+
+//        mDrawerLayout = findViewById(R.id.drawer_layout);
         mExpandableListView = findViewById(R.id.left_drawer);
         View listHeaderView = getLayoutInflater().inflate(R.layout.list_item_drawer_header, null, false);
         View listFooterView = getLayoutInflater().inflate(R.layout.list_item_drawer_footer, null, false);
 
-        listFooterView.findViewById(R.id.home_text).setOnClickListener(view -> {
-            startActivity(new Intent(this, LoginActivity.class));
-            MyApplication.get(this).removeUser();
+        listHeaderView.findViewById(R.id.dash_btn).setOnClickListener(view -> {
+            startActivity(new Intent(HomeActivity.this, DashBoardActivity.class));
             finish();
+//            dashboardFragment = (DashboardFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG_DASHBOARD);
+//            if (dashboardFragment == null) {
+//                dashboardFragment = new DashboardFragment();
+//            }
+//            toggleFragment(dashboardFragment);
+            mSlidingRootNav.closeMenu(true);
+        });
+
+        listHeaderView.findViewById(R.id.home_btn).setOnClickListener(view -> {
+//            homeFragment = (HomeFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG_HOME);
+//            if (homeFragment == null) {
+//                homeFragment = new HomeFragment();
+//            }
+//            toggleFragment(homeFragment);
+            mSlidingRootNav.closeMenu(true);
+        });
+
+        listFooterView.findViewById(R.id.lang_text).setOnClickListener(view -> {
+            MyApplication.get(this).toggleLocale();
+            restartActivity();
+            mSlidingRootNav.closeMenu(true);
+        });
+
+        listFooterView.findViewById(R.id.logout_text).setOnClickListener(view -> {
+            startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+            finish();
+//            loginFragment = (LoginFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG_LOGIN);
+//            if (loginFragment == null) {
+//                loginFragment = new LoginFragment();
+//            }
+//            toggleFragment(loginFragment);
+            mSlidingRootNav.closeMenu(true);
+            MyApplication.get(this).removeUser();
+        });
+
+        listHeaderView.findViewById(R.id.help_btn).setOnClickListener(view -> {
+            startActivity(new Intent(HomeActivity.this, FaqActivity.class));
+            finish();
+//            loginFragment = (LoginFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG_LOGIN);
+//            if (loginFragment == null) {
+//                loginFragment = new LoginFragment();
+//            }
+//            toggleFragment(loginFragment);
+            mSlidingRootNav.closeMenu(true);
+            MyApplication.get(this).removeUser();
         });
 
         mExpandableListView.addHeaderView(listHeaderView);
@@ -169,22 +163,25 @@ public class HomeActivity extends AppCompatActivity {
         mExpandableListData = ExpandableListDataSource.getData(this);
         mExpandableListTitle = new ArrayList(mExpandableListData.keySet());
         addDrawerItems();
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                R.string.drawer_open, R.string.drawer_close) {
-
-            /** Called when a drawer has settled in a completely closed state. */
-            public void onDrawerClosed(View view) {
-                super.onDrawerClosed(view);
-                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
-            }
-
-            /** Called when a drawer has settled in a completely open state. */
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
-            }
-        };
-        showChatHead(this, true);
+//        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+//                R.string.drawer_open, R.string.drawer_close) {
+//
+//            /** Called when a drawer has settled in a completely closed state. */
+//            public void onDrawerClosed(View view) {
+//                super.onDrawerClosed(view);
+//                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+//            }
+//
+//            /** Called when a drawer has settled in a completely open state. */
+//            public void onDrawerOpened(View drawerView) {
+//                super.onDrawerOpened(drawerView);
+//                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+//            }
+//        };
+//        showChatHead(this, true);
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, new HomeFragment());
+        fragmentTransaction.commit();
     }
 
     private String[] items;
@@ -197,7 +194,8 @@ public class HomeActivity extends AppCompatActivity {
         mExpandableListAdapter = new CustomExpandableListAdapter(this, mExpandableListTitle, mExpandableListData);
         mExpandableListView.setAdapter(mExpandableListAdapter);
         mExpandableListView.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
-            mDrawerLayout.closeDrawer(GravityCompat.START);
+//            mDrawerLayout.closeDrawer(GravityCompat.START);
+            mSlidingRootNav.closeMenu();
             return false;
         });
     }
@@ -223,46 +221,17 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private class MyPagerAdapter extends FragmentPagerAdapter {
-        boolean isRTL;
-
-        MyPagerAdapter(FragmentManager fragmentManager) {
-            super(fragmentManager);
-            Collections.reverse(Arrays.asList(mFragments));
-            Collections.reverse(Arrays.asList(fragmentsTitles));
-            isRTL = Locale.getDefault().toString().contains("ar");
-        }
-
-        // Returns total number of pages
-        @Override
-        public int getCount() {
-            return mFragments.size();
-        }
-
-        // Returns the fragment to display for that page
-        @Override
-        public AnimatedFragment getItem(int position) {
-            return (AnimatedFragment) mFragments.get(position);
-        }
-
-        // Returns the page title for the top indicator
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return fragmentsTitles[position];
-        }
-    }
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
-        mDrawerToggle.syncState();
+//        mDrawerToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        mDrawerToggle.onConfigurationChanged(newConfig);
+//        mDrawerToggle.onConfigurationChanged(newConfig);
         restartActivity();
         restartService = false;
     }
@@ -297,9 +266,9 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, FaqActivity.class));
                 break;
         }
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
+//        if (mDrawerToggle.onOptionsItemSelected(item)) {
+//            return true;
+//        }
 
         //noinspection SimplifiableIfStatement
 //        switch (id) {
@@ -328,31 +297,31 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    @TargetApi(Build.VERSION_CODES.M)
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE) {
-            showChatHead(this, false);
-        }
-    }
+//    @Override
+//    @TargetApi(Build.VERSION_CODES.M)
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (requestCode == CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE) {
+//            showChatHead(this, false);
+//        }
+//    }
 
-    @SuppressLint("NewApi")
-    private void showChatHead(Context context, boolean isShowOverlayPermission) {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1) {
-            context.startService(new Intent(context, ChatHeadService.class));
-            return;
-        }
-
-        if (Settings.canDrawOverlays(context)) {
-            context.startService(new Intent(context, ChatHeadService.class));
-            return;
-        }
-
-        if (isShowOverlayPermission) {
-            final Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-            startActivityForResult(intent, CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE);
-        }
-    }
+//    @SuppressLint("NewApi")
+//    private void showChatHead(Context context, boolean isShowOverlayPermission) {
+//        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1) {
+//            context.startService(new Intent(context, ChatHeadService.class));
+//            return;
+//        }
+//
+//        if (Settings.canDrawOverlays(context)) {
+//            context.startService(new Intent(context, ChatHeadService.class));
+//            return;
+//        }
+//
+//        if (isShowOverlayPermission) {
+//            final Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+//            startActivityForResult(intent, CHATHEAD_OVERLAY_PERMISSION_REQUEST_CODE);
+//        }
+//    }
 
     @Override
     protected void onDestroy() {
@@ -365,6 +334,36 @@ public class HomeActivity extends AppCompatActivity {
 
         } catch (Exception e) {
 
+        }
+    }
+
+    private void toggleFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_in_left, R.anim.slide_in_right, R.anim.slide_in_left);
+        if (fragment instanceof LoginFragment) {
+            fragmentTransaction.replace(R.id.fragment_container, loginFragment, FRAGMENT_TAG_LOGIN);
+        } else if (fragment instanceof DashboardFragment){
+            fragmentTransaction.replace(R.id.fragment_container, dashboardFragment, FRAGMENT_TAG_DASHBOARD);
+        } else if (fragment instanceof HomeFragment) {
+            fragmentTransaction.replace(R.id.fragment_container, homeFragment, FRAGMENT_TAG_HOME);
+        }
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onDrag(float progress) {
+        if (progress == 0) {
+            if (loginFragment != null){
+                toggleFragment(loginFragment);
+                loginFragment = null;
+            }else if (dashboardFragment != null) {
+                toggleFragment(dashboardFragment);
+                dashboardFragment = null;
+            }else if (homeFragment != null) {
+                toggleFragment(homeFragment);
+                homeFragment = null;
+            }
         }
     }
 }

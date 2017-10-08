@@ -20,6 +20,13 @@ public class AnimatedFragment extends Fragment {
 
         View[] views;
 
+        int animResourse = -1;
+
+        public animate(View[] views, int animResourse) {
+            this.animResourse = animResourse;
+            this.views = views;
+        }
+
         public animate(View[] views) {
             this.views = views;
         }
@@ -47,7 +54,11 @@ public class AnimatedFragment extends Fragment {
                 int delay = (int) (i * delayBetweenAnimations);
                 try {
                     view.postDelayed(() -> {
-                        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_in_right);
+                        Animation animation;
+                        if (animResourse == -1)
+                            animation = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_in_left);
+                        else
+                            animation = AnimationUtils.loadAnimation(getActivity(), animResourse);
                         view.setVisibility(View.VISIBLE);
                         view.startAnimation(animation);
                     }, delay);

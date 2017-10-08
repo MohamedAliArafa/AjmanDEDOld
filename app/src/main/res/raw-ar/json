@@ -1,0 +1,34 @@
+[
+  {
+    "messages": [{"text": "السلام عليكم",
+      "image" : "http://site.com/image.jpg"},{"text": "كيف يمكنني أن أساعدك؟",
+      "image" : "http://site.com/image.jpg"}],
+    "options" : [{"message":"ارغب في تجديد رخصة إقتصادية", "code":1}]
+  },
+  {
+    "messages": [
+      {"text": "حسناً",
+        "image" : "http://site.com/image.jpg"},
+      {"text": "يرجى الضغط على الأيقونة الخاصة بتجديد الرخصة في قائمة الخدمات الالكترونية",
+        "image" : "http://site.com/image.jpg"},
+      {"text": "قم بإدخال رقم الرخصة المراد تجديدها  ومن ثم الضغط على مفتاح بحث وسوف يتم تحميل بيانات الرخصة",
+        "image" : "http://site.com/image.jpg"},
+      {"text": "قم تبعئة البيانات من خلال اتباع الرسائل الارشادية الموجودة بالنموذج",
+        "image" : "http://site.com/image.jpg"},
+      {"text": "ثم الضغط على إرسال الطلب",
+        "image" : "http://site.com/image.jpg"},
+      {"text": "سوف يقوم موظف خدمة المتعاملين بالتدقيق على الطلب وسوف تستقبل رسالة نصية قصيرة في أقرب وقت لتسديد الرسوم وطباعة الرخصة المجددة",
+        "image" : "http://site.com/image.jpg"},
+      {"text": "هل كانت هذه المحادثه مفيدة؟",
+        "image" : "http://site.com/image.jpg"}],
+    "options" : [{"message":"نعم، ولكم جزيل الشكر", "code":2}, {"message":"إعادة", "code":1}]
+  },
+  {
+    "messages": [
+      {"text": "نسعد دائما بخدمتكم",
+        "image" : "http://site.com/image.jpg"},
+      {"text": "مع تحيات فريق دعم دائرة التنمية الاقتصادية - عجمان",
+        "image" : "http://site.com/image.jpg"}],
+    "options" : [{"message":"إعادة", "code":0}, {"message":"شكرا", "code":-1}]
+  }
+]

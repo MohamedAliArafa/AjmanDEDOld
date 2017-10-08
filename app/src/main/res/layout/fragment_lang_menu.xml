@@ -6,7 +6,7 @@
     tools:context="com.zeowls.ajmanded.screens.Language.LangFragment">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/iv_logo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -19,7 +19,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/iv_logo_colored"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -31,7 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_arabic" />
+        app:layout_constraintTop_toBottomOf="@+id/lang_container_ll" />
 
     <TextView
         android:id="@+id/textView6"
@@ -42,33 +42,53 @@
         android:layout_marginTop="8dp"
         android:text="What's your favorite language? \n ماهى لغتك المفضله؟"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_logo"
+        app:layout_constraintStart_toStartOf="@+id/iv_logo"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
 
-    <Button
-        android:id="@+id/btn_arabic"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <LinearLayout
+        android:id="@+id/lang_container_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_rounded_language"
-        android:text="العربية"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <Button
-        android:id="@+id/btn_english"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/bg_rounded_language"
-        android:text="English"
-        app:layout_constraintEnd_toEndOf="@+id/btn_arabic"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <Button
+            android:id="@+id/btn_english"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_rounded_language"
+            android:elevation="2dp"
+            android:text="English"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <Button
+            android:id="@+id/btn_arabic"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_rounded_language"
+            android:elevation="2dp"
+            android:text="العربية"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>

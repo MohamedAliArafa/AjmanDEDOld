@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="action_call">80070</string>
+    <string name="ISIC_confirmation">ISIC 4 Activities Confirmation</string>
+
+    <string name="about_ded">About DED</string>
+
+    <string name="account_settings">Account Settings</string>
+
+    <string name="action_call" translatable="false">80070</string>
     <string name="action_lang" translatable="false">Language</string>
     <string name="action_noti" translatable="false">Notification</string>
     <string name="action_settings" translatable="false">Settings</string>
+
+    <string name="active_license">ACTIVE LICENSE</string>
+    <string name="active_permits">ACTIVE PERMITS</string>
+
+    <string name="all_transaction">All Transaction</string>
 
     <string name="app_name">AjmanDED</string>
 
@@ -11,17 +22,41 @@
 
     <string name="arabic">Arabic</string>
 
+    <string name="banned_licenses">BANNED LICENSES</string>
+
     <string name="btn_cancel">Cancel</string>
     <string name="btn_continue">Continue</string>
 
+    <string name="business_activity_external_approval">Business Activity External Approval</string>
+    <string name="business_activity_guide">Business Activity Guide</string>
     <string name="business_name">Business\nName</string>
+    <string name="business_name_inquiry">Business name Inquiry</string>
 
-    <string name="chathead_click_message">Click</string>
-    <string name="chathead_content_title">Demo Chat: Active</string>
+    <string name="cancel">CANCEL</string>
+    <string name="cancel_license">Cancel License</string>
 
+    <string name="canceled_liceneses">CANCELED LICENESES</string>
+    <string name="canceled_licenses">CANCELED LICENSES</string>
+
+    <string name="certificate_request">Certificate Request</string>
+
+    <string name="change_language">Change Language</string>
+
+    <string name="chathead_click_message" translatable="false">Click</string>
+    <string name="chathead_content_title" translatable="false">Demo Chat: Active</string>
+
+    <string name="check_application_status">Check Application Status</string>
+    <string name="check_inspection_status">Check Inspection Status</string>
     <string name="check_status">Check Status</string>
 
-    <string name="content_text">Demo running.</string>
+    <string name="completed">COMPLETED</string>
+    <string name="completed_transactions">Completed Transactions</string>
+
+    <string name="consumer_guide">Consumer Guide</string>
+
+    <string name="contact_us">Contact Us</string>
+
+    <string name="content_text" translatable="false">Demo running.</string>
 
     <string name="continue_guest">Guest</string>
     <string name="continue_login">Login</string>
@@ -29,9 +64,11 @@
 
     <string name="create_new_account">Create New Account</string>
 
-    <string name="deleted_soon">FloatingView will be deleted soon.</string>
+    <string name="dashboard">Dashboard</string>
 
-    <string name="draw_over_permissions_message">To display Audio Widget app needs the permission to draw over another apps.</string>
+    <string name="deleted_soon" translatable="false">FloatingView will be deleted soon.</string>
+
+    <string name="draw_over_permissions_message" translatable="false">To display Audio Widget app needs the permission to draw over another apps.</string>
 
     <string name="drawer_close" translatable="false">close drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -47,28 +84,56 @@
     <string name="enter_application_number">Enter Application Number</string>
 
     <string name="estimate_new_license_fees">Estimate New\nLicense Fees</string>
+    <string name="estimate_new_permit_fees">Estimate New Permit Fees</string>
+    <string name="estimate_renew_license_fees">Estimate Renew License Fees</string>
 
-    <string name="finish_deleted">FloatingView has been deleted.</string>
+    <string name="expired_license">EXPIRED LICENSE</string>
+    <string name="expired_permits">EXPIRED PERMITS</string>
+    <string name="expired_permits_report">Expired Permits Report</string>
+
+    <string name="external_approval">External Approval</string>
+
+    <string name="finish_deleted" translatable="false">FloatingView has been deleted.</string>
 
     <string name="forget_password">Forget Password</string>
 
     <string name="guest">Guest</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
     <!--Main Activity Fragment-->
     <string name="home">Home</string>
+    <string name="home_screen">Home Screen</string>
 
     <string name="how_would_you_like_to_continue">How would you like to continue?</string>
 
+    <string name="inquiries">Inquiries</string>
+
     <string name="invest_in_ajman">Invest In Ajman</string>
+
+    <string name="issue_initial_approval">Issue Initial Approval</string>
+    <string name="issue_new">ISSUE NEW</string>
+    <string name="issue_new_permit">Issue New Permit</string>
+    <string name="issue_trade_license">Issue Trade License</string>
 
     <string name="latest_news">Latest News</string>
 
     <string name="licence_information">Licence\nInformation</string>
 
+    <string name="license">LICENSE</string>
+    <string name="license_information_inquiry">License Information Inquiry</string>
+
+    <string name="link_external_license">Link External License</string>
+    <string name="link_owner_account">Link Owner Account</string>
+
+    <string name="list_of_licenses">List of Licenses</string>
+
     <string name="login">Login</string>
+
+    <string name="logout">Logout</string>
+
+    <string name="matched_isic_activites_by_old_activity">Matched ISIC Activites by Old Activity</string>
 
     <!--AboutDED Fragment-->
     <string name="message">Message</string>
@@ -76,21 +141,45 @@
 
     <string name="most_used_services">Most Used Services</string>
 
+    <string name="new_certificate">New Certificate</string>
     <string name="new_license">New\nLicense</string>
     <string name="new_permit">New\nPermit</string>
+    <string name="new_permit_conditions">New Permit Conditions</string>
 
+    <string name="online_help">Online Help</string>
     <string name="online_services">eServices</string>
+
+    <string name="others">Others</string>
+
+    <string name="password">Password</string>
+
+    <string name="pending">PENDING</string>
 
     <string name="permissions_title">Permissions</string>
 
-    <string name="read_ext_permissions_message">To load list of music app needs access to your media files.</string>
+    <string name="permit">PERMIT</string>
+    <string name="permit_terms_conditions">Permit Terms Conditions</string>
+
+    <string name="print_license">Print License</string>
+
+    <string name="read_ext_permissions_message" translatable="false">To load list of music app needs access to your media files.</string>
 
     <string name="register">Register</string>
 
+    <string name="rejected">REJECTED</string>
+
+    <string name="renew">RENEW</string>
     <string name="renew_license">Renew\nLicense</string>
+    <string name="renew_trade_license">Renew Trade License</string>
+
+    <string name="reports">Reports</string>
 
     <string name="service_centers_location">Service Centers Location</string>
     <string name="service_guide">Service Guide</string>
+
+    <string name="suggestions_amp_complaints"><![CDATA[Suggestions & Complaints]]></string>
+
+    <string name="tasks">TASKS</string>
 
     <string name="the_emirate_of_ajman_is_characterized_by_a_strategic_location_a_well_developed_infrastructure_comprising_port_roads_transport_and_industrial">The Emirate of Ajman is characterized by, a strategic location, a well-developed infrastructure comprising port, roads, transport and industrial</string>
 
@@ -98,22 +187,41 @@
 
     <string name="toast_permissions_not_granted">Permissions not granted.</string>
 
-    <string name="touch_finished_position" formatted="false">Current position (%d,%d)</string>
+    <string name="total_napplications">TOTAL\nAPP..</string>
+    <string name="total_nlicense">TOTAL\nLICENSE</string>
+    <string name="total_permits">TOTAL\nPERMITS</string>
 
+    <string name="touch_finished_position" formatted="false" translatable="false">Current position (%d,%d)</string>
+
+    <string name="trade_license_inquiry">Trade License Inquiry</string>
+    <string name="trade_name_availability">Trade Name Availability</string>
     <string name="trade_name_reservation">Trade Name\nReservation</string>
 
+    <string name="transaction_in_process">Transaction In Process</string>
     <string name="transaction_status">Transaction\nStatus</string>
+    <string name="transaction_under_review">Transaction Under Review</string>
+
+    <string name="under_process">UNDER PROCESS</string>
 
     <string name="user_guide">User Guide</string>
+
+    <string name="username">Username</string>
+
+    <string name="valid_permits_report">Valid Permits Report</string>
 
     <string name="value">Value</string>
     <string name="value_body">Team spirit, transparency, customer delight, innovation and innovation</string>
 
+    <string name="view_my">VIEW MY</string>
+
     <string name="vision">Vision</string>
     <string name="vision_body">A diversified competitive economy for sustainable development in the Emirate of Ajman</string>
-    <string name="online_help">Online Help</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="about_ded">About DED</string>
-    <string name="contact_us">Contact Us</string>
+    <string name="canceled_permits">CANCELED PERMITS</string>
+    <string name="initial_approval">Initial Approval</string>
+    <string name="mock_deep_blue_sea_for_overseas_l_l_c">DEEP BLUE SEA FOR OVERSEAS L.L.C</string>
+    <string name="mock_license_no_34087">License No. 34087</string>
+    <string name="mock_limited_liability_company">Limited Liability Company</string>
+    <string name="mock_professional_license">Professional License</string>
+    <string name="mock_issued_at_march_22_2016">Issued at March 22, 2016</string>
+    <string name="mock_expiry_at_march_21_2018">Expiry at March 21, 2018</string>
 </resources>

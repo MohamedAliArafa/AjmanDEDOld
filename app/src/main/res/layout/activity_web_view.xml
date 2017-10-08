@@ -33,7 +33,7 @@
                     android:id="@+id/logo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
+                    android:layout_margin="10dp"
                     android:src="@drawable/ic_dedlogo" />
 
             </android.support.v7.widget.Toolbar>
@@ -42,16 +42,16 @@
 
         <include layout="@layout/content_web" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="70dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_socialmediaicon"
-            app:backgroundTint="@color/red"
-            app:layout_anchorGravity="bottom|right|end" />
+        <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:id="@+id/fab"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="bottom|end"-->
+            <!--android:layout_marginBottom="70dp"-->
+            <!--android:layout_marginEnd="16dp"-->
+            <!--android:src="@drawable/ic_socialmediaicon"-->
+            <!--app:backgroundTint="@color/red"-->
+            <!--app:layout_anchorGravity="bottom|right|end" />-->
 
         <FrameLayout
             android:id="@+id/graphics_holder"

@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-import com.zeowls.ajmanded.HomeActivity;
+import com.zeowls.ajmanded.screens.dashboard.DashBoardActivity;
 import com.zeowls.ajmanded.R;
 import com.zeowls.ajmanded.screens.Language.LangFragment;
 import com.zeowls.ajmanded.screens.Login.LoginFragment;
@@ -23,18 +23,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.Mode
         setContentView(R.layout.activity_main);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        if (savedInstanceState == null) {
         fragmentTransaction.replace(R.id.fragment_container, SplashFragment.newInstance());
         fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left,
                 android.R.anim.slide_out_right, android.R.anim.slide_in_left,
                 android.R.anim.slide_out_right);
         fragmentTransaction.commit();
-//        }
     }
 
     @Override
     public void launchLanding() {
-        startActivity(new Intent(this, HomeActivity.class));
+        startActivity(new Intent(this, DashBoardActivity.class));
     }
 
     @Override
