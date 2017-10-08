@@ -28,7 +28,6 @@ public class BarcodeAdapter extends RecyclerView.Adapter<BarcodeAdapter.MyViewHo
 
         MyViewHolder(View view) {
             super(view);
-            ButterKnife.bind(this, view);
         }
     }
 
@@ -46,6 +45,7 @@ public class BarcodeAdapter extends RecyclerView.Adapter<BarcodeAdapter.MyViewHo
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(mLayout, parent, false);
+        ButterKnife.bind(this, itemView);
         return new MyViewHolder(itemView);
     }
 
