@@ -119,7 +119,7 @@
     <!--Main Activity Fragment-->
     <string name="online_services">الخدمات الإلكترونية</string>
 
-    <string name="others">أخري</string>
+    <string name="others">أخرى</string>
 
     <string name="password">كلمة المرور</string>
 
@@ -196,6 +196,6 @@
     <string name="mock_license_no_34087">رخصة رقم 34087</string>
     <string name="mock_limited_liability_company">شركه ذات مسئوليه محدوده</string>
     <string name="mock_professional_license">الرخصة المهنية</string>
-    <string name="mock_issued_at_march_22_2016">صدر في 22 مارس 2016</string>
-    <string name="mock_expiry_at_march_21_2018">انتهاء في 21 مارس 2018</string>
+    <string name="mock_issued_at_march_22_2016">تاريخ الإصدار 22 مارس 2016</string>
+    <string name="mock_expiry_at_march_21_2018">تاريخ الإنتهاء 21 مارس 2018</string>
 </resources>

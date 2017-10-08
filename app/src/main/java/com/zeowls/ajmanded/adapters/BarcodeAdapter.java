@@ -5,7 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.zeowls.ajmanded.R;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -16,6 +20,9 @@ public class BarcodeAdapter extends RecyclerView.Adapter<BarcodeAdapter.MyViewHo
 
     private int mLayout;
     private Context mContext;
+
+    @BindView(R.id.tv_name)
+    TextView mName;
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -44,11 +51,48 @@ public class BarcodeAdapter extends RecyclerView.Adapter<BarcodeAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
+        switch (position) {
+            case 0:
+                mName.setText("مشاريع عكاظ للتجارة ذ.م.م");
+                break;
+            case 1:
+                mName.setText("المكتب الوطني للخدمات المهنية");
+                break;
+            case 2:
+                mName.setText("الاصابع الذهبية للصيانة");
+                break;
+            case 3:
+                mName.setText("معرض وائل للخياطة");
+                break;
+            case 4:
+                mName.setText("مؤسسة الساعدي للصيانة");
+                break;
+            case 5:
+                mName.setText("ورشة الشرق الاوسط للكهرباء");
+                break;
+            case 6:
+                mName.setText("مكتب فراس للطباعة");
+                break;
+            case 7:
+                mName.setText("سوبرماركت الشحي");
+                break;
+            case 8:
+                mName.setText("مكتبة المعارف");
+                break;
+            case 9:
+                mName.setText("يافا للخياطة");
+                break;
+            case 10:
+                mName.setText("شركة جدة لمقاولات البناء ذ.م.م");
+                break;
+            default:
+                mName.setText("شركة جدة لمقاولات البناء ذ.م.م");
+                break;
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 25;
+        return 11;
     }
 }
