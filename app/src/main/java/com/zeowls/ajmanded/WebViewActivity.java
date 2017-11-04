@@ -28,6 +28,8 @@ import com.zeowls.ajmanded.adapters.CustomExpandableListAdapter;
 import com.zeowls.ajmanded.adapters.ExpandableListDataSource;
 import com.zeowls.ajmanded.models.UserModel;
 import com.zeowls.ajmanded.screens.dashboard.DashBoardActivity;
+import com.zeowls.ajmanded.screens.home.HomeActivity;
+import com.zeowls.ajmanded.utility.SharedTool.UserData;
 
 import java.io.File;
 import java.io.IOException;
@@ -125,7 +127,7 @@ public class WebViewActivity extends AppCompatActivity {
             startActivity(new Intent(WebViewActivity.this, LoginActivity.class));
             finish();
             mSlidingRootNav.closeMenu(true);
-            MyApplication.get(this).removeUser();
+            UserData.clearUser(this);
         });
 
         listFooterView.findViewById(R.id.lang_text).setOnClickListener(view -> {
@@ -137,7 +139,7 @@ public class WebViewActivity extends AppCompatActivity {
             startActivity(new Intent(WebViewActivity.this, FaqActivity.class));
             finish();
             mSlidingRootNav.closeMenu(true);
-            MyApplication.get(this).removeUser();
+            UserData.clearUser(this);
         });
 
         mExpandableListView.addHeaderView(listHeaderView);
@@ -166,7 +168,7 @@ public class WebViewActivity extends AppCompatActivity {
     private Map<String, String> getHeaders() {
         Map<String, String> headers = new HashMap<>();
         headers.put("ZASOUL_CLIENT", "MobileAPP");
-        UserModel userModel = MyApplication.get(this).getUser();
+        UserModel userModel = UserData.getUserObject(this);
         if (null != userModel) {
             headers.put("ZASOUL_Username", "M.ali@volcano-design.com");
             headers.put("ZASOUL_Password", "12345");
@@ -340,7 +342,7 @@ public class WebViewActivity extends AppCompatActivity {
         @Override
         public void onReceivedHttpAuthRequest(WebView view,
                                               HttpAuthHandler handler, String host, String realm) {
-            UserModel userModel = MyApplication.get(WebViewActivity.this).getUser();
+            UserModel userModel = UserData.getUserObject(WebViewActivity.this);
             handler.proceed(userModel.getUserName(), userModel.getPassword());
         }
 

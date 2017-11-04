@@ -13,9 +13,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.zeowls.ajmanded.MyApplication;
 import com.zeowls.ajmanded.R;
 import com.zeowls.ajmanded.screens.main.MainActivity;
+import com.zeowls.ajmanded.utility.Localization;
+import com.zeowls.ajmanded.utility.SharedTool.UserData;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -65,16 +66,16 @@ public class LangFragment extends Fragment {
         mLogoColoredImage.startAnimation(slideInUpAnimation);
         mLogoImage.startAnimation(slideInDownAnimation);
         mArabicButton.setOnClickListener(v -> {
-            mPresenter.chooseArabic();
-            if (((MyApplication) getContext().getApplicationContext()).getUser() != null)
+            Localization.setLanguage(getContext(), Localization.ARABIC_VALUE);
+            if (UserData.getUserObject(getContext()) != null)
                 ((MainActivity) getActivity()).launchLanding();
             else
                 ((MainActivity) getActivity()).launchLoginMenu();
         });
 
         mEnglishButton.setOnClickListener(v -> {
-            mPresenter.chooseEnglish();
-            if (((MyApplication) getContext().getApplicationContext()).getUser() != null)
+            Localization.setLanguage(getContext(), Localization.ENGLISH_VALUE);
+            if (UserData.getUserObject(getContext()) != null)
                 ((MainActivity) getActivity()).launchLanding();
             else
                 ((MainActivity) getActivity()).launchLoginMenu();

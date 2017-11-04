@@ -29,6 +29,8 @@ import com.zeowls.ajmanded.libs.ChatSplash.Option;
 import com.zeowls.ajmanded.libs.ChatSplash.ResultModel;
 import com.zeowls.ajmanded.libs.ChatSplash.SplashChatAdapter;
 import com.zeowls.ajmanded.screens.dashboard.DashBoardActivity;
+import com.zeowls.ajmanded.screens.home.HomeActivity;
+import com.zeowls.ajmanded.utility.SharedTool.UserData;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -76,7 +78,7 @@ public class FaqActivity extends AppCompatActivity {
         rv.setItemAnimator(new SlideInUpAnimator());
         rv.setAdapter(adapter);
 
-        InputStream raw = getResources().openRawResource(R.raw.json);
+        InputStream raw = getResources().openRawResource(R.raw.chat_json);
         Reader rd = new BufferedReader(new InputStreamReader(raw));
         Gson gson = new Gson();
         mModel = gson.fromJson(rd, ResultModel[].class);
@@ -117,7 +119,7 @@ public class FaqActivity extends AppCompatActivity {
             startActivity(new Intent(FaqActivity.this, LoginActivity.class));
             finish();
             mSlidingRootNav.closeMenu(true);
-            MyApplication.get(this).removeUser();
+            UserData.clearUser(this);
         });
 
         listFooterView.findViewById(R.id.lang_text).setOnClickListener(view -> {
@@ -130,7 +132,7 @@ public class FaqActivity extends AppCompatActivity {
             startActivity(new Intent(FaqActivity.this, FaqActivity.class));
             finish();
             mSlidingRootNav.closeMenu(true);
-            MyApplication.get(this).removeUser();
+            UserData.clearUser(this);
         });
 
         mExpandableListView.addHeaderView(listHeaderView);

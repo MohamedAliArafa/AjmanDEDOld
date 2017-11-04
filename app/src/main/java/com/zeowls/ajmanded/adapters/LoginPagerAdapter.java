@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zeowls.ajmanded.HomeActivity;
+import com.zeowls.ajmanded.screens.home.HomeActivity;
 import com.zeowls.ajmanded.LoginActivity;
 import com.zeowls.ajmanded.R;
 import com.zeowls.ajmanded.screens.LoginMenu.LoginMenuFragment;

@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 
 import com.zeowls.ajmanded.R;
 import com.zeowls.ajmanded.screens.main.MainActivity;
+import com.zeowls.ajmanded.utility.Localization;
+import com.zeowls.ajmanded.utility.SharedTool.UserData;
 
 
 /**
@@ -18,7 +20,7 @@ import com.zeowls.ajmanded.screens.main.MainActivity;
  */
 public class SplashFragment extends Fragment implements SplashContract.ModelView {
 
-    private static final long SPLASH_DISPLAY_LENGTH = 10000;
+    private static final long SPLASH_DISPLAY_LENGTH = 0;
     SplashPresenter splashPresenter;
 
     public SplashFragment() {
@@ -32,7 +34,7 @@ public class SplashFragment extends Fragment implements SplashContract.ModelView
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        splashPresenter = new SplashPresenter(this, getLifecycle());
+        splashPresenter = new SplashPresenter(this, getContext(), getLifecycle());
     }
 
     @Override
@@ -49,7 +51,12 @@ public class SplashFragment extends Fragment implements SplashContract.ModelView
     public void startTimer() {
         mRunnable = () -> {
             /* Create an Intent that will start the Menu-Activity. */
-            ((MainActivity) getActivity()).launchLanguage();
+            if (Localization.getCurrentLanguageID(getContext()) == -1)
+                ((MainActivity) getActivity()).launchLanguage();
+            else if (UserData.getUserObject(getContext()) == null)
+                ((MainActivity) getActivity()).launchLoginMenu();
+            else
+                ((MainActivity) getActivity()).launchLanding();
         };
         mHandler = new Handler();
         mHandler.postDelayed(mRunnable, SPLASH_DISPLAY_LENGTH);

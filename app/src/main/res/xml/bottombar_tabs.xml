@@ -4,15 +4,15 @@
         id="@+id/tab_rate"
         icon="@drawable/ic_face" />
     <tab
-        id="@+id/tab_search"
+        id="@+id/tab_share"
         icon="@drawable/ic_share" />
     <tab
-        id="@+id/tab_help"
+        id="@+id/tab_call"
         icon="@drawable/ic_call"
         />
 
     <tab
-        id="@+id/tab_share"
-        icon="@drawable/ic_login"
+        id="@+id/tab_search"
+        icon="@drawable/ic_inspection_services"
         />
 </tabs>

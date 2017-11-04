@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:context=".HomeActivity">
+            tools:context=".screens.home.HomeActivity">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -592,7 +592,7 @@
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon2" />
+                                    app:srcCompat="@drawable/ic_reservation_trade_name" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -670,7 +670,7 @@
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon1" />
+                                    app:srcCompat="@drawable/ic_issuing_license" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -709,7 +709,7 @@
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon4" />
+                                    app:srcCompat="@drawable/ic_renew_license" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -752,7 +752,7 @@
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon1" />
+                                    app:srcCompat="@drawable/ic_issuing_permit" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -791,7 +791,8 @@
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
-                                    android:src="@drawable/icon2" />
+                                    android:src="@drawable/icon2"
+                                    app:srcCompat="@drawable/ic_issuing_certificate" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -811,13 +812,13 @@
                                 android:layout_weight="1" />
 
                             <RelativeLayout
-                                android:id="@+id/print_license_btn"
+                                android:id="@+id/cancel_license_btn"
                                 android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="top">
 
                                 <ImageView
-                                    android:id="@+id/print_license_image"
+                                    android:id="@+id/cancel_license_image"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_centerHorizontal="true"
@@ -835,7 +836,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/print_license_image"
+                                    android:layout_below="@+id/cancel_license_image"
                                     android:layout_centerHorizontal="true"
                                     android:gravity="center"
                                     android:paddingTop="2dp"
@@ -925,6 +926,44 @@
                                     android:gravity="center"
                                     android:paddingTop="2dp"
                                     android:text="@string/ISIC_confirmation"
+                                    android:textColor="@color/bg_light_royal"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
+
+                            <Space
+                                android:layout_width="15dp"
+                                android:layout_height="1dp" />
+
+                            <RelativeLayout
+                                android:id="@+id/print_license_btn"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top">
+
+                                <ImageView
+                                    android:id="@+id/print_license_image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/bg_shape_light_blue" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/icon1"
+                                    app:srcCompat="@drawable/ic_printing_economic_licenses" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/print_license_image"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingTop="2dp"
+                                    android:text="@string/print_license"
                                     android:textColor="@color/bg_light_royal"
                                     android:textSize="12sp" />
                             </RelativeLayout>

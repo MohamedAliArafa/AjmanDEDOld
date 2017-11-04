@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:context=".HomeActivity">
+            tools:context=".screens.home.HomeActivity">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -201,7 +201,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_centerHorizontal="true"
-                                    android:background="@drawable/bg_shape_light_orange" />
+                                    android:background="@drawable/bg_shape_light_beige" />
 
                                 <ImageView
                                     android:layout_width="20dp"
@@ -240,7 +240,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_centerHorizontal="true"
-                                    android:background="@drawable/bg_shape_light_green" />
+                                    android:background="@drawable/bg_shape_dark_blue" />
 
                                 <ImageView
                                     android:layout_width="20dp"

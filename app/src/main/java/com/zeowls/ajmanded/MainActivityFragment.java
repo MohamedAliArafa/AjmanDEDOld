@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.booking.rtlviewpager.RtlViewPager;
 import com.zeowls.ajmanded.libs.AnimatedFragment;
+import com.zeowls.ajmanded.screens.home.AboutDEDFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,10 +54,10 @@ public class MainActivityFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mFragments = new ArrayList<>();
-        mFragments.add(new OnlineServicesFragment());
+        mFragments.add(new ServicesFragment());
         mFragments.add(new AboutDEDFragment());
         mFragments.add(new AboutDEDFragment());
-        mFragments.add(new OnlineServicesFragment());
+        mFragments.add(new ServicesFragment());
 
         fragmentsTitles = new String[]{
                 this.getString(R.string.online_services),

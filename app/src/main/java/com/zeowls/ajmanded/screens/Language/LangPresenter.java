@@ -3,6 +3,7 @@ package com.zeowls.ajmanded.screens.Language;
 import android.content.Context;
 
 import com.zeowls.ajmanded.MyApplication;
+import com.zeowls.ajmanded.utility.Localization;
 
 /**
  * Created by root on 10/2/17.
@@ -20,11 +21,11 @@ public class LangPresenter implements LangContract.UserActions {
 
     @Override
     public void chooseArabic() {
-        mApplication.setLocale(1);
+        mApplication.setLocale(Localization.ARABIC_VALUE);
     }
 
     @Override
     public void chooseEnglish() {
-        mApplication.setLocale(0);
+        mApplication.setLocale(Localization.ENGLISH_VALUE);
     }
 }

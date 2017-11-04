@@ -12,10 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.rd.PageIndicatorView;
-import com.zeowls.ajmanded.AboutDEDFragment;
 import com.zeowls.ajmanded.HomeTabFragment;
-import com.zeowls.ajmanded.OnlineServicesFragment;
 import com.zeowls.ajmanded.R;
+import com.zeowls.ajmanded.ServicesFragment;
 import com.zeowls.ajmanded.libs.AnimatedFragment;
 import com.zeowls.ajmanded.libs.MyPagerAdapter;
 
@@ -49,7 +48,7 @@ public class HomeFragment extends Fragment {
         mFragments = new ArrayList<>();
         mFragments.add(new HomeTabFragment());
         mFragments.add(new AboutDEDFragment());
-        mFragments.add(new OnlineServicesFragment());
+        mFragments.add(new ServicesFragment());
         fragmentsTitles = new String[]{context.getString(R.string.online_services),
                 context.getString(R.string.about_ded),
                 context.getString(R.string.latest_news)};

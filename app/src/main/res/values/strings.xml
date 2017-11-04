@@ -224,4 +224,5 @@
     <string name="mock_professional_license">Professional License</string>
     <string name="mock_issued_at_march_22_2016">Issued at March 22, 2016</string>
     <string name="mock_expiry_at_march_21_2018">Expiry at March 21, 2018</string>
+    <string name="search">Search</string>
 </resources>

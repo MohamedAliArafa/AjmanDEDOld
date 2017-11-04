@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.zeowls.ajmanded.HomeActivity;
+import com.zeowls.ajmanded.screens.home.HomeActivity;
 import com.zeowls.ajmanded.R;
 import com.zeowls.ajmanded.libs.AnimatedFragment;
 

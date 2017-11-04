@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.zeowls.ajmanded.HomeActivity;
+import com.zeowls.ajmanded.screens.home.HomeActivity;
 import com.zeowls.ajmanded.R;
 import com.zeowls.ajmanded.libs.AnimatedFragment;
 import com.zeowls.ajmanded.screens.barcode.BarcodeActivity;
@@ -64,9 +64,7 @@ public class LicensePagerFragment extends AnimatedFragment {
         View view = inflater.inflate(R.layout.fragment_license_pager, container, false);
         ButterKnife.bind(this, view);
         views = new View[]{counterFrame, dashPanel, menuPanel};
-        counterFrame.setOnClickListener(view1 -> {
-            getActivity().startActivity(new Intent(getActivity(), BarcodeActivity.class));
-        });
+        counterFrame.setOnClickListener(view1 -> getActivity().startActivity(new Intent(getActivity(), BarcodeActivity.class)));
         mHomeBtn.setOnClickListener(view1 -> {
             getActivity().startActivity(new Intent(getActivity(), HomeActivity.class));
             getActivity().finish();

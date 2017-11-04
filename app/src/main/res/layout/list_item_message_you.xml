@@ -48,6 +48,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/avatar" />
+        android:src="@drawable/ic_avatar" />
 
 </LinearLayout>

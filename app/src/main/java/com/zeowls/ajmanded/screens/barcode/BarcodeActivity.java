@@ -15,12 +15,13 @@ import android.widget.ExpandableListView;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import com.zeowls.ajmanded.FaqActivity;
-import com.zeowls.ajmanded.HomeActivity;
+import com.zeowls.ajmanded.screens.home.HomeActivity;
 import com.zeowls.ajmanded.LoginActivity;
 import com.zeowls.ajmanded.MyApplication;
 import com.zeowls.ajmanded.R;
 import com.zeowls.ajmanded.adapters.CustomExpandableListAdapter;
 import com.zeowls.ajmanded.adapters.ExpandableListDataSource;
+import com.zeowls.ajmanded.utility.SharedTool.UserData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +72,7 @@ public class BarcodeActivity extends AppCompatActivity {
 
         listFooterView.findViewById(R.id.logout_text).setOnClickListener(view -> {
             startActivity(new Intent(this, LoginActivity.class));
-//            MyApplication.get(this).removeUser();
+            UserData.clearUser(this);
             finish();
             mSlidingRootNav.closeMenu(true);
         });
@@ -84,7 +85,6 @@ public class BarcodeActivity extends AppCompatActivity {
 
         listHeaderView.findViewById(R.id.help_btn).setOnClickListener(view -> {
             startActivity(new Intent(this, FaqActivity.class));
-//            MyApplication.get(this).removeUser();
             finish();
             mSlidingRootNav.closeMenu(true);
         });

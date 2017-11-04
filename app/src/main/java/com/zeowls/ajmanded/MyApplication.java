@@ -4,25 +4,17 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.preference.PreferenceManager;
-import android.util.DisplayMetrics;
 
-import com.zeowls.ajmanded.models.UserModel;
+import com.zeowls.ajmanded.utility.Localization;
 
-import java.util.Locale;
+import io.realm.Realm;
 
 /**
  * Created by root on 7/24/17.
  */
 
 public class MyApplication extends Application {
-    Locale mEnLocale;
-    Locale mArLocale;
-    Configuration mConfiguration;
-    DisplayMetrics mDisplayMetrics;
-    Resources mResources;
-
     public static MyApplication get(Context context) {
         return (MyApplication) context.getApplicationContext();
     }
@@ -30,38 +22,13 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        mResources = getResources();
-        mConfiguration = mResources.getConfiguration();
-        mDisplayMetrics = mResources.getDisplayMetrics();
-        mEnLocale = new Locale("en");
-        mArLocale = new Locale("ar");
+        Realm.init(this);
     }
-
-//    @Override
-//    protected void attachBaseContext(Context base) {
-//        super.attachBaseContext(LocaleHelper.onAttach(base, "en"));
-//    }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         // refresh your views here
         super.onConfigurationChanged(newConfig);
-    }
-
-    public UserModel getUser() {
-        String username = PreferenceManager
-                .getDefaultSharedPreferences(getBaseContext())
-                .getString("UserName", "-1");
-        String password = PreferenceManager
-                .getDefaultSharedPreferences(getBaseContext())
-                .getString("Password", "-1");
-        UserModel user = null;
-        if (!username.equals("-1") || !password.equals("-1")) {
-            user = new UserModel();
-            user.setUserName(username);
-            user.setPassword(password);
-        }
-        return user;
     }
 
     public void removeUser() {
@@ -81,24 +48,14 @@ public class MyApplication extends Application {
     }
 
     public void toggleLocale() {
-        if (Locale.getDefault() == mArLocale){
-            setLocale(2);
+        if (Localization.getCurrentLanguageID(this) == Localization.ARABIC_VALUE){
+            setLocale(Localization.ENGLISH_VALUE);
         }else {
-            setLocale(1);
+            setLocale(Localization.ARABIC_VALUE);
         }
     }
 
     public void setLocale(int lang) {
-        if (lang == 1) {
-            Locale.setDefault(mArLocale);
-            mConfiguration.setLocale(mArLocale);
-            mResources.updateConfiguration(mConfiguration, mDisplayMetrics);
-        } else {
-            Locale.setDefault(mEnLocale);
-            mConfiguration.setLocale(mEnLocale);
-            mResources.updateConfiguration(mConfiguration, mDisplayMetrics);
-        }
-        onConfigurationChanged(mConfiguration);
-        getApplicationContext().createConfigurationContext(mConfiguration);
+        Localization.setLanguage(this, lang);
     }
 }

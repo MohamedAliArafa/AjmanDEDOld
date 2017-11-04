@@ -50,11 +50,11 @@
     <color name="gray_light">#d5d5d5</color>
     <color name="gray_lighter">#ededed</color>
 
-    <color name="red">#d11248</color>
-    <color name="brown">#e5662f</color>
-    <color name="blue">#061588</color>
-    <color name="beige">#b28977</color>
-    <color name="cyan">#44bbc3</color>
+    <color name="red">#d61366</color>
+    <color name="brown">#e16a2c</color>
+    <color name="blue">#071689</color>
+    <color name="beige">#b38877</color>
+    <color name="cyan">#13c0d7</color>
 
 
     <color name="overlay_color">#AA000000</color>

@@ -7,7 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.zeowls.ajmanded.models.UserModel;
 import com.zeowls.ajmanded.screens.dashboard.DashBoardActivity;
+import com.zeowls.ajmanded.utility.SharedTool.UserData;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -25,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please Enter your Password", Toast.LENGTH_SHORT).show();
             else {
                 MyApplication.get(LoginActivity.this).addUser(username.getText().toString(), password.getText().toString());
+                UserModel model = new UserModel(username.getText().toString(), password.getText().toString());
+                UserData.saveUserObject(LoginActivity.this, model, true);
                 startActivity(new Intent(LoginActivity.this, DashBoardActivity.class));
                 finish();
             }

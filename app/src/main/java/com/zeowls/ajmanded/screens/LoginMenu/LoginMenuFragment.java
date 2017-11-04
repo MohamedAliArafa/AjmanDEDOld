@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.zeowls.ajmanded.HomeActivity;
+import com.zeowls.ajmanded.screens.home.HomeActivity;
 import com.zeowls.ajmanded.LoginActivity;
 import com.zeowls.ajmanded.R;
 
